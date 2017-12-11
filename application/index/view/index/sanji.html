@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<title>Bootstrap 实例 - 折叠面板</title>
+	<link href="{$Think.HOSTPATH}/css/Admin/bootstrap.min.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+	 	<script src="{$Think.HOSTPATH}/js/jquery.js"></script>
+	<script src="{$Think.HOSTPATH}/js/bootstrap.min.js"></script>
+		<link href="{$Think.HOSTPATH}/css/Admin/index.css" rel="stylesheet"><!-- MORRIS CHART CSS -->
+</head>
+<body>
+
+<div class="panel-group" id="accordion">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapseOne">
+					1层分类
+				</a>
+			</h4>
+		</div>
+		<div id="collapseOne" class="panel-collapse collapse in">
+			<div class="panel-body">
+					<div class="panel-group" id="accordion1">
+						<div class="panel panel-default">
+							<div class="panel-heading2">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion1" 
+									   href="#collapseOne1">
+										2层分类
+									</a>
+								</h4>
+							</div>
+							<div id="collapseOne1" class="panel-collapse collapse in">
+								<div class="panel-heading3">
+									3层分类
+									</div>
+							</div>
+						</div>
+
+
+					</div>
+		</div>
+	</div>
+
+
+</div>
+</div>
+</body>
+</html>

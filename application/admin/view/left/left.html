@@ -1,0 +1,48 @@
+ 
+  <link rel="stylesheet" href="{$Think.HOSTPATH}/layui/css/layui.css">
+  <script src="{$Think.HOSTPATH}/layui/layui.js"></script>
+  <script src="{$Think.HOSTPATH}/js/jquery-1.8.3.min.js"></script> 
+  <script src="{$Think.HOSTPATH}/layui/adminleft.js"></script>
+	<link href="{$Think.HOSTPATH}/blue.css" rel="stylesheet" type="text/css" />
+
+ <!-- sidebar start -->
+  <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+    <div class="am-offcanvas-bar admin-offcanvas-bar">
+      <ul class="am-list admin-sidebar-list">
+        <li><a ><span class="am-icon-home"></span> <span>首页</span></a></li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}" onclick="foodtype.add();" ><span class="am-icon-file"></span> 菜单种类 </a>
+          <ul class=" am-collapse admin-sidebar-sub am-in" id="collapse-nav">
+		  {volist name="foodtype" id="ft"}
+				 <li style="list-style-type:none;"><span onclick="return foodtype.edit({$ft['ID']});">编辑</span><a href="/admin/admin/fooddetail/ut/1/ft/{$ft["ID"]}" target="main"> {$ft["FoodType"]}</a><span onclick="return foodtype.del({$ft['ID']});" class="fedit">删除<span></li>
+			{/volist}
+           
+  
+          </ul>
+        </li>
+        <li><a href="/admin/admin/foodtable" target="main"><span class="am-icon-table"></span> 订单清单</a></li>
+
+      </ul>
+
+      <div class="am-panel am-panel-default admin-sidebar-panel">
+        <div class="am-panel-bd">
+          <p><span class="am-icon-bookmark"></span> 公告</p>
+          <p>时光静好，与君语；细水流年，与君同。—— Amaze UI</p>
+        </div>
+      </div>
+
+      <div class="am-panel am-panel-default admin-sidebar-panel">
+        <div class="am-panel-bd">
+          <p><span class="am-icon-tag"></span> wiki</p>
+          <p>Welcome to the Amaze UI wiki!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- sidebar end -->

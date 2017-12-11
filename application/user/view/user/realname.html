@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>实名认证</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+ <link href="{$Think.HOSTPATH}/css/shop/shop.css" rel="stylesheet" type="text/css" />
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+	<link href="{$Think.HOSTPATH}/css/shop/iconfont.css" rel="stylesheet">
+		<link href="{$Think.HOSTPATH}/css/Admin/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+	<script src="{$Think.HOSTPATH}/js/fileinput.js" type="text/javascript"></script>
+    <!--简体中文-->
+    <script src="{$Think.HOSTPATH}/js/shop/realname.js" type="text/javascript"></script>
+    </head>
+<body>
+<p style="text-align:right; display:none;"></p>
+<div id="loading"><img src="{$Think.HOSTPATH}/img/loading.gif" /></div>
+
+<div class="con b-color-f" >
+    <form  method="post" class="form-horizontal" role="form" onSubmit="return false;">
+        <section class="j-f-tel margin-lr">
+
+            <div class="text-all dis-box j-text-all bank_user_name">
+                <label>学号</label>
+                <div class="box-flex input-text">
+                    <input class="j-input-text inputcard" type="text" name="idcard" placeholder="学号" value="" />
+                    <i class="iconfont icon-guanbi1 close-common j-is-null"></i>
+                </div>
+            </div>
+
+
+            <div class="text-all dis-box j-text-all bank_name">
+                <label>上传图片</label>
+                <div class="box-flex input-text">
+                     <input id="file-zh" name="file-zh" type="file">
+                    <i class="iconfont icon-guanbi1 close-common j-is-null"></i>
+                </div>
+            </div>
+			请上传您的学生证或校园卡的图片
+			<div>
+			
+			<img style=" width:15rem; padding:1rem 1rem 1rem 1rem" class="realnameimg" />
+			</div>
+			
+			
+<!-- 上传提示模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+               
+               图片正在上传,请稍等
+            </div>
+
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+         
+            <input type="hidden" name="iImg" value="" />
+			<input type="hidden" name="iSImg" value="" />
+            <input type="submit" value="同意实名认证" class="btn-submit br-5" />
+			
+        </section>
+    </form>
+</div>
+    <!--快捷导航-->
+	{include file="../application/index/view/index/nav.html" /}
+
+{include file="../application/index/view/index/nav.html" /}
+    <div class="common-show"></div>
+<script type="text/javascript">
+
+			function initFileInput(ctrlName, uploadUrl) {    
+				var control = $('#' + ctrlName); 
+
+				control.fileinput({
+					language: 'zh', //设置语言
+					maxFileCount: 1,
+					uploadUrl: uploadUrl, //上传的地址
+					allowedFileExtensions : ['jpg', 'png','gif'],//接收的文件后缀
+					showUpload: true, //是否显示上传按钮
+					showCaption: false,//是否显示标题
+				initialPreviewShowDelete:false,  
+				
+					showRemove:false,
+					browseClass: "btn btn-primary", //按钮样式             
+					previewFileIcon: "<i class='glyphicon glyphicon-king'></i>", 
+				});
+			$("#file-zh").on('fileuploaded', function(event, data) {
+        
+			$("input[name='iImg']").val(data.response.imgpath);
+			$("input[name='iSImg']").val(data.response.simgpath);
+        });
+			}
+			//initFileInput("file-zh","/bookshop/public/index.php/user/user/UpLoadImg");
+
+
+		/* 上传照片*/
+
+		$('#file-zh').change(function(e){
+			var file = e.target.files[0];
+			var form = new FormData();
+			var max_size = 1024000 * 2;
+			if(file.size > max_size) {
+			layer.open({
+			  content: "上传的图片不能超过2MB!",
+			  time: 2,
+			  end: function (){
+				window.location.reload();
+				return false;
+			  }
+			});
+		  }
+
+			form.append('img', file);
+			form.append('userid',{$userid});
+			var xhr;
+			if(window.ActiveXObject)
+			{
+				xhr = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			else if(window.XMLHttpRequest)
+			{
+				xhr = new XMLHttpRequest();
+			}
+			xhr.onreadystatechange = function(){
+			$('#myModal').modal({backdrop: 'static', keyboard: false});
+		$('#myModal').modal('show');
+				if(xhr.readyState == 4){
+					if(xhr.status == 200 || xhr.status == 0){
+						var res = xhr.responseText;
+						res = JSON.parse(res);
+				
+						
+						if(res.error > 0){
+							
+							$('.realnameimg').attr('src', '{$Think.HOSTPATH}/uploads/' + res.path);
+								$("input[name='iImg']").val(res.path);
+								$("input[name='iSImg']").val(res.path);
+							$('#myModal').modal('hide');
+						}
+					}
+				}
+			};
+			xhr.open("post", "/bookshop/public/index.php/user/user/realnameupload", true);
+			xhr.send(form);
+		});
+			
+		$(".btn-submit").click(function(){
+		var img = $("input[name='iImg']").val();
+		
+		var idcard = $("input[name='idcard']").val();
+	
+		if(idcard.length <1 )
+		{
+			d_messages('请输入学号');
+			return false;
+		}		
+		if(img.length < 1)
+		{
+			d_messages('请上传图片');
+			return false;
+		}
+
+			$.post('{$Think.HOSTPATH}/index.php/user/user/getrealname',{img:img,idcard:idcard,schoolid:1},function(data){
+				if(data == 3)
+				{
+					d_messages('你已提交审核，请耐心等候');
+				}
+				else if(data > 0)
+				{
+					d_messages('提交成功');
+					   setTimeout(function () { 
+					   var kk = '{$url1}';
+					   if(kk.length < 1)
+					   {
+						window.location.href='{$Think.HOSTPATH}/index.php/index/index/userinfo';
+					   }
+					   else
+					   {
+							window.location.href='{$url1}';
+					   }
+						
+					}, 1500);
+					
+				}
+				else if(data == 0)
+				{
+					d_messages('提交失败');
+				}
+				else if(data == -3)
+				{
+					d_messages('学号已存在');
+				}
+			})
+		})
+</script>
+</body>
+</html>

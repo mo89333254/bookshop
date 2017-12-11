@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>个人资料</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+  	    <link href="{$Think.HOSTPATH}/css/shop/shop.css" rel="stylesheet" type="text/css" />
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+	<link href="{$Think.HOSTPATH}/css/shop/iconfont.css" rel="stylesheet">
+    </head>
+<body>
+<p style="text-align:right; display:none;"></p>
+<div id="loading"><img src="{$Think.HOSTPATH}/img/loading.gif" /></div>
+					<section class=" goods-shop b-color-f no-shopping-title">
+                                                <a href="{$Think.HOSTPATH}/index.php/index/index/userinfo" ><div class="goods-shop-pic of-hidden" > 
+                    <h4  class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					<i  class="fanhuii fa fa-angle-left"></i>
+						<span class="fanhuispan" style="">个人资料</span>
+					</label></h4>
+
+                </div></a>
+              
+            </section>
+<section class="b-color-f  my-nav-box">
+	<a href="javascript:;">
+		<div class="s-user-top">
+			<div class="user-bg-box-1">
+				<img src="http://demo.dscmall.cn/mobile/public/img/user-1.png">
+			</div>
+			<div class="user-bg2-box-1"><img src="http://demo.dscmall.cn/mobile/public/img/user-2.png"></div>
+			<div class="dis-box s-xian-box s-user-top-1 p-r">
+				<img src="" alt="" id="userimg" />
+				<h3 class="box-flex text-all-span my-u-title-size s-user-img">头像</h3>
+				<div class="box-flex t-goods1 text-right onelist-hidden jian-top" for="logo">
+					<input id="headimg" type="file"  class="user-profile-img" style="opacity: 0" />
+					<div class="user-img fr">
+										<div class="user-head-img-box-1"><img src="{:getimg($userinfo['UserImg'])}"></div>
+                                        </div>
+				</div>
+			</div>
+
+		</div>
+	</a>
+	
+	<a href="{$Think.HOSTPATH}/index.php/user/user/editschooladd/type/NickName/val/{$userinfo['NickName']}">
+	<div class="s-user-top">
+		<div class="dis-box s-xian-box s-user-top-1">
+			<h3 class="box-flex text-all-span my-u-title-size">用户名</h3>
+			<div class="box-flex t-goods1 text-right onelist-hidden jian-top">{$userinfo['NickName']}</div>
+				<span class="t-jiantou"><i class="iconfont icon-jiantou tf-180 jian-top"></i></span>
+		</div>
+	</div>
+	</a>
+	<div class="s-user-top onclik-sex">
+		<div class="dis-box s-xian-box s-user-top-1">
+			<h3 class="box-flex text-all-span my-u-title-size">性别</h3>
+
+			<div id="sex" class="box-flex t-goods1 text-right onelist-hidden jian-top">{eq name="$userinfo['Sex']" value="1"}男{else/}女{/eq}</div>
+
+			<span class="t-jiantou"><i class="iconfont icon-jiantou tf-180 jian-top"></i></span>
+		</div>
+	</div>
+	<a href="{$Think.HOSTPATH}/index.php/user/user/editmobile">
+		<div class="s-user-top onclik-admin">
+			<div class="dis-box s-user-top-1">
+				<h3 class="box-flex text-all-span my-u-title-size">手机</h3>
+                                        				<div class="box-flex t-goods1 text-right onelist-hidden jian-top">{eq name="userinfo['PhoneType']" value="1"}未绑定{/eq}
+														{eq name="userinfo['PhoneType']" value="2"}{$userinfo['Phone']}{/eq}</div>
+                                        				<span class="t-jiantou"><i class="iconfont icon-jiantou tf-180 jian-top"></i></span>
+			</div>
+		</div>
+	</a>
+
+		<div class="s-user-top">
+			<div class="checksc dis-box s-user-top-1">
+				<h3 class="box-flex text-all-span my-u-title-size">校区</h3>
+                                                                                 <div class="dschool box-flex t-goods1 text-right onelist-hidden jian-top">{$userinfo['SchoolName']}</div>
+                                        				<span class="t-jiantou"><i class="iconfont icon-jiantou tf-180 jian-top"></i></span>
+			</div>
+		</div>
+		<a class="checkdp" href="javascript:0;">
+				<div class="s-user-top">
+			<div class="checksc111 dis-box s-user-top-1">
+				<h3 class="box-flex text-all-span my-u-title-size">学院</h3>
+                                                                                 <div class="sdp box-flex t-goods1 text-right onelist-hidden jian-top">{eq name="$userinfo['Department']" value=""}
+																				 请选择学院{else/}{$userinfo['Department']}{/eq}</div>
+                                        				<span class="t-jiantou"><i class="iconfont icon-jiantou tf-180 jian-top"></i></span>
+			</div>
+		</div></a>		
+				<a class="checkmj" href="javascript:0;">
+				<div class="s-user-top">
+			<div class="checksc111 dis-box s-user-top-1">
+				<h3 class="box-flex text-all-span my-u-title-size">专业</h3>
+                                                                                 <div class="smj box-flex t-goods1 text-right onelist-hidden jian-top">{eq name="$userinfo['Major']" value=""}
+																				 请选择学院{else/}{$userinfo['Major']}{/eq}</div>
+                                        				<span class="t-jiantou"><i class="iconfont icon-jiantou tf-180 jian-top"></i></span>
+			</div>
+		</div></a>
+				<a class="checkclass" href="javascript:0;">
+				<div class="s-user-top">
+			<div class="checksc111 dis-box s-user-top-1">
+				<h3 class="box-flex text-all-span my-u-title-size">年级</h3>
+                                                                                 <div class="sclass box-flex t-goods1 text-right onelist-hidden jian-top">{eq name="$userinfo['Class']" value=""}
+																				 请选择学院{else/}{$userinfo['Class']}{/eq}</div>
+                                        				<span class="t-jiantou"><i class="iconfont icon-jiantou tf-180 jian-top"></i></span>
+			</div>
+		</div></a>
+		
+		<a href="{$Think.HOSTPATH}/index.php/user/user/editschooladd/type/SchoolAdd/val/{$userinfo['SchoolAdd']}">
+				<div class="s-user-top">
+			<div class="checksc111 dis-box s-user-top-1">
+				<h3 class="box-flex text-all-span my-u-title-size">收货地址</h3>
+                                                                                 <div class="box-flex t-goods1 text-right onelist-hidden jian-top">{$userinfo['SchoolAdd']}</div>
+                                        				<span class="t-jiantou"><i class="iconfont icon-jiantou tf-180 jian-top"></i></span>
+			</div>
+		</div></a>
+	
+</section>
+<section class="b-color-f my-nav-box m-top10">
+{eq name="userinfo['UserType']" value="1"}
+	<a href="{$Think.HOSTPATH}/index.php/user/user/realname">
+		<div class="s-user-top">
+			<div class="dis-box s-user-top-1">
+				<h3 class="box-flex text-all-span my-u-title-size">实名认证</h3>
+				<span class="t-jiantou">未认证<i class="iconfont icon-jiantou tf-180 jian-top"></i></span>
+			</div>
+		</div>
+	</a>
+	{/eq}
+	{eq name="userinfo['UserType']" value="5"}
+	<a href="{$Think.HOSTPATH}/index.php/user/user/realname">
+		<div class="s-user-top">
+			<div class="dis-box s-user-top-1">
+				<h3 class="box-flex text-all-span my-u-title-size">实名认证</h3>
+				<span class="t-jiantou">未认证<i class="iconfont icon-jiantou tf-180 jian-top"></i></span>
+			</div>
+		</div>
+	</a>
+	{/eq}
+	{eq name="userinfo['UserType']" value="2"}
+	
+		<div class="s-user-top">
+			<div class="dis-box s-user-top-1">
+				<h3 class="box-flex text-all-span my-u-title-size">实名认证</h3>
+				<span class="t-jiantou">已认证<i class="iconfont icon-jiantou tf-180 jian-top"></i></span>
+			</div>
+		</div>
+	
+	{/eq}
+		{eq name="userinfo['UserType']" value="4"}
+	
+		<div class="s-user-top">
+			<div class="dis-box s-user-top-1">
+				<h3 class="box-flex text-all-span my-u-title-size">实名认证</h3>
+				<span class="t-jiantou">审核中<i class="iconfont icon-jiantou tf-180 jian-top"></i></span>
+			</div>
+		</div>
+	
+	{/eq}
+			{eq name="userinfo['UserType']" value="6"}
+	
+		<div class="s-user-top">
+			<div class="dis-box s-user-top-1">
+				<h3 class="box-flex text-all-span my-u-title-size">实名认证</h3>
+				<span class="t-jiantou">审核中<i class="iconfont icon-jiantou tf-180 jian-top"></i></span>
+			</div>
+		</div>
+	
+	{/eq}
+</section>
+<div class="ect-button-more padding-all">
+    <a class="btn-submit box-flex br-5 min-two-btn" type="button" href="{$Think.HOSTPATH}/index.php/index/index/userinfo">保存</a>
+</div>
+<!--updata-admin-->
+<div class=" my-sex-box">
+	<div class="flow-consignee margin-lr">
+			<ul class="g-s-i-title-3 dis-box text-center user-sex">
+				<li class="box-flex  sex-default-color">
+					<a href="javascript:;" class="{eq name="userinfo['Sex']" value="1"}active{/eq}">
+						<i class="iconfont icon-nan my-sex-size" ></i>
+                    	<input type="radio" name="sex" value="1"/><h4 class="ellipsis-one f-03">男</h4>
+					</a>
+				</li>
+				<li class="box-flex sex-default-color" >
+					<a href="javascript:;" class="sex-nv {eq name="userinfo['Sex']" value="2"}active{/eq}">
+						<i class="iconfont icon-nv my-sex-size" ></i>
+                      	<input type="radio" name="sex" value="2"/><h4 class="ellipsis-one f-03">女</h4>
+					</a>
+				<li>
+			</ul>
+			<div class="ect-button-more dis-box m-top12 updata-top my-sex-close">
+              <button  class="btn-submit box-flex br-5 min-two-btn" type="submit" value="submit">确定</button>
+			</div>
+	</div>
+</div>
+					<!--选择学校弹出层-->
+					<div class="sdiv show-time-con ts-3 b-color-1 j-filter-show-div">
+									<section class="goods-show-title of-hidden padding-all b-color-f">
+										<h3 class="fl g-c-title-h3">选择学校</h3>
+										<i class="iconfont icon-guanbi2 show-div-guanbi fr"></i>
+									</section>
+									<section class="s-g-list-con swiper-scroll">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide select-two">
+												<ul class="j-get-one padding-all">
+												{volist name="schoollist" id="sl"}
+                                                    													<li name="{$sl['SchoolName']}" schoolid="{$sl['SchoolID']}" class="sc-select ect-select">
+														<label class="ts-1" ><dd><span>{$sl['SchoolName']}</span></dd><i class="fr iconfont icon-gou ts-1"></i></label>
+													</li> 
+													{/volist}													
+																									</ul>
+											</div>
+											<div class="swiper-scrollbar"></div>
+										</div>
+									</section>
+								</div>
+								
+													<!--选择学院弹出层-->
+					<div class="dpdiv show-time-con ts-3 b-color-1 j-filter-show-div">
+									<section class="goods-show-title of-hidden padding-all b-color-f">
+										<h3 class="fl g-c-title-h3">选择学院</h3>
+										<i class="iconfont icon-guanbi2 show-div-guanbi fr"></i>
+									</section>
+									<section class="s-g-list-con swiper-scroll">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide select-two">
+												<ul class="j-get-one padding-all dpul">
+												{volist name="departmentlist" id="dl"}
+                                                    													<li dpid="{$dl['ID']}" name="{$dl['Name']}" class="sdp-select ect-select">
+														<label class="ts-1" ><dd><span>{$dl['Name']}</span></dd><i class="fr iconfont icon-gou ts-1"></i></label>
+													</li> 
+													{/volist}													
+																									</ul>
+											</div>
+											<div class="swiper-scrollbar"></div>
+										</div>
+									</section>
+								</div>
+					<!--选择专业弹出层-->
+					<div class="mjdiv show-time-con ts-3 b-color-1 j-filter-show-div">
+									<section class="goods-show-title of-hidden padding-all b-color-f">
+										<h3 class="fl g-c-title-h3">选择专业</h3>
+										<i class="iconfont icon-guanbi2 show-div-guanbi fr"></i>
+									</section>
+									<section class="s-g-list-con swiper-scroll">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide select-two">
+												<ul class="j-get-one padding-all mjul">
+													{volist name="majorlist" id="ml"}
+<li onclick='return smjselect(this);'  name='{$ml['Name']}' class='smj-select ect-select'>
+	<label class='ts-1' ><dd><span>{$ml['Name']}</span></dd><i class='fr iconfont icon-gou ts-1'></i></label></li>
+																	{/volist}							
+																									</ul>
+											</div>
+											<div class="swiper-scrollbar"></div>
+										</div>
+									</section>
+								</div>		
+
+					<!--选择班级弹出层-->
+					<div class="classdiv show-time-con ts-3 b-color-1 j-filter-show-div">
+									<section class="goods-show-title of-hidden padding-all b-color-f">
+										<h3 class="fl g-c-title-h3">选择班级</h3>
+										<i class="iconfont icon-guanbi2 show-div-guanbi fr"></i>
+									</section>
+									<section style="max-height:30rem;" class="s-g-list-con swiper-scroll">
+										<div class="swiper-wrapper">
+											<div  class="swiper-slide select-two">
+												<ul class="j-get-one padding-all mjul">
+												                     <li  name="2011届" class="sclass-select ect-select">
+														<label class="ts-1" ><dd><span>2011届</span></dd><i class="fr iconfont icon-gou ts-1"></i></label>
+													</li> 
+																									                     <li  name="2012届" class="sclass-select ect-select">
+														<label class="ts-1" ><dd><span>2012届</span></dd><i class="fr iconfont icon-gou ts-1"></i></label>
+													</li> 
+																									                     <li  name="2013届" class="sclass-select ect-select">
+														<label class="ts-1" ><dd><span>2013届</span></dd><i class="fr iconfont icon-gou ts-1"></i></label>
+													</li> 
+																									                     <li  name="2014届" class="sclass-select ect-select">
+														<label class="ts-1" ><dd><span>2014届</span></dd><i class="fr iconfont icon-gou ts-1"></i></label>
+													</li> 
+																									                     <li  name="2015届" class="sclass-select ect-select">
+														<label class="ts-1" ><dd><span>2015届</span></dd><i class="fr iconfont icon-gou ts-1"></i></label>
+													</li> 
+																									                     <li  name="2016届" class="sclass-select ect-select">
+														<label class="ts-1" ><dd><span>2016届</span></dd><i class="fr iconfont icon-gou ts-1"></i></label>
+													</li> 
+																									                     <li  name="2017届" class="sclass-select ect-select">
+														<label class="ts-1" ><dd><span>2017届</span></dd><i class="fr iconfont icon-gou ts-1"></i></label>
+													</li> 
+
+																								
+																									</ul>
+											</div>
+											<div class="swiper-scrollbar"></div>
+										</div>
+									</section>
+								</div>	
+
+<!-- 上传提示模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+               
+               图片正在上传,请稍等
+            </div>
+
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+								
+								
+								
+<div class="msdiv mask-filter-div"></div>
+{include file="../application/index/view/index/nav.html" /}
+<script>
+
+
+	$(function($) {
+		$(".onclik-sex").click(function() {
+			$(".my-sex-box").addClass("current");
+		});
+		$(".my-sex-close").click(function() {
+			$(".my-sex-box").removeClass("current");
+		});
+	});
+	$(function() {
+		$('.sex-default-color').click(function() {
+			for (var i = 0; i < $('.sex-default-color').size(); i++) {
+				if (this == $('.sex-default-color').get(i)) {
+					$('.sex-default-color').eq(i).children('a').addClass('active');
+				} else {
+					$('.sex-default-color').eq(i).children('a').removeClass('active');
+				}
+			}
+		})
+	})
+
+$(".user-sex").click(function(){
+	var sex = $(".active input[name='sex']").val();
+
+	$.post("{$Think.HOSTPATH}/index.php/user/user/editinfomode",{obj:'Sex',val:sex,ret:1},function(data){
+		$("#sex").text(data.sex);
+	},"json");
+	if(sex == 1)
+	{
+		$("#sex").text("男");
+	}
+	else
+	{
+		$("#sex").text("女");
+	}
+
+})
+/* 修改头像*/
+$('.user-head-img-box-1 img').click(function(){
+	$('#headimg').click();
+});
+$('#headimg').change(function(e){
+	var file = e.target.files[0];
+	var form = new FormData();
+	var max_size = 1024000 * 2;
+	if(file.size > max_size) {
+    layer.open({
+      content: "上传的图片不能超过2MB!",
+      time: 2,
+      end: function (){
+        window.location.reload();
+        return false;
+      }
+    });
+  }
+
+	form.append('img', file);
+	form.append('userid',{$userinfo.ID});
+	var xhr;
+	if(window.ActiveXObject)
+	{
+		xhr = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	else if(window.XMLHttpRequest)
+	{
+		xhr = new XMLHttpRequest();
+	}
+	xhr.onreadystatechange = function(){
+	$('#myModal').modal({backdrop: 'static', keyboard: false});
+$('#myModal').modal('show');
+		if(xhr.readyState == 4){
+			if(xhr.status == 200 || xhr.status == 0){
+				var res = xhr.responseText;
+				res = JSON.parse(res);
+		
+				
+				if(res.error > 0){
+					
+					$('.user-head-img-box-1 img').attr('src', '{$Think.HOSTPATH}/uploads/' + res.path);
+					$('#myModal').modal('hide');
+				}
+			}
+		}
+	};
+	xhr.open("post", "/bookshop/public/index.php/user/user/test111", true);
+	xhr.send(form);
+});
+
+
+//校园信息
+$(".checksc").click(function(){
+	$(".sdiv").addClass('show');
+	$(".msdiv").addClass('show');
+})
+$(".sc-select").click(function(){
+	var schoolid = $(this).attr('schoolid');
+	var schoolname = $(this).attr('name');
+$(".dschool").text(schoolname);
+	$.post("{$Think.HOSTPATH}/index.php/user/user/editinfomode",{obj:'SchoolID',val:schoolid,ret:1},function(data){
+		
+	},"json");
+	
+	$(".sdp-select").remove();
+	$(".smj-select").remove();
+	$(".sdp").text('请选择学院');
+	$(".smj").text('请选择专业');
+	$("input[name='major']").val('');
+	$("input[name='department']").val('');
+$.post('{$Think.HOSTPATH}/index.php/index/index/getxueyuan',{schoolid:schoolid},function(data){
+	var jsondata = eval("("+data+")");
+	for(var i = 0;i< jsondata.length;i++)
+	{
+		$(".dpul").append(" <li onclick='return sdpselect(this);' dpid='"+jsondata[i]['ID']+"' name='"+jsondata[i]['Name']+"' class='sdp-select ect-select'>	<label class='ts-1' ><dd><span>"+jsondata[i]['Name']+"</span></dd><i class='fr iconfont icon-gou ts-1'></i></label></li>");
+	}
+})
+	
+		$(".sdiv").removeClass('show');
+	$(".msdiv").removeClass('show');
+})
+
+
+$(".checkdp").click(function(){
+
+	$(".dpdiv").addClass('show');
+	$(".msdiv").addClass('show');
+})
+$(".checkmj").click(function(){
+
+	$(".mjdiv").addClass('show');
+	$(".msdiv").addClass('show');
+})
+$(".checkclass").click(function(){
+	$(".classdiv").addClass('show');
+	$(".msdiv").addClass('show');
+})
+
+
+
+///学院点击
+$(".sdp-select").click(function(){
+	
+	var dpname = $(this).attr('name');
+	var dpid = $(this).attr('dpid');
+$(".sdp").text(dpname);
+//$("input[name='department']").val(dpname);
+	$.post("{$Think.HOSTPATH}/index.php/user/user/editinfomode",{obj:'Department',val:dpname,ret:1},function(data){
+		
+	},"json");
+		$.post("{$Think.HOSTPATH}/index.php/user/user/editinfomode",{obj:'Major',val:"",ret:1},function(data){
+		
+	},"json");
+
+$(".smj-select").remove();
+	$(".smj").text('请选择专业');
+	$("input[name='major']").val('');
+$.post('{$Think.HOSTPATH}/index.php/index/index/getmajor',{dpid:dpid},function(data){
+	var jsondata = eval("("+data+")");
+	for(var i = 0;i< jsondata.length;i++)
+	{
+		$(".mjul").append(" <li onclick='return smjselect(this);'  name='"+jsondata[i]['Name']+"' class='smj-select ect-select'>	<label class='ts-1' ><dd><span>"+jsondata[i]['Name']+"</span></dd><i class='fr iconfont icon-gou ts-1'></i></label></li>");
+	}
+})
+	$(".dpdiv").removeClass('show');
+	$(".msdiv").removeClass('show');
+})
+
+
+///班级点击
+$(".sclass-select").click(function(){
+	
+	var classname = $(this).attr('name');
+$(".sclass").text(classname);
+
+$.post("{$Think.HOSTPATH}/index.php/user/user/editinfomode",{obj:'Class',val:classname,ret:1},function(data){
+		
+	},"json");
+	$(".classdiv").removeClass('show');
+	$(".msdiv").removeClass('show');
+})
+
+///专业点击
+
+function smjselect(obj)
+{
+		var mjname = $(obj).attr('name');
+	$(".smj").text(mjname);
+
+$.post("{$Think.HOSTPATH}/index.php/user/user/editinfomode",{obj:'Major',val:mjname,ret:1},function(data){
+		
+	},"json");
+	$(".mjdiv").removeClass('show');
+	$(".msdiv").removeClass('show');
+}
+
+//学院点击(动态生成)
+function sdpselect(obj)
+{
+	var dpname = $(obj).attr('name');
+	var dpid = $(obj).attr('dpid');
+$(".sdp").text(dpname);
+//$("input[name='department']").val(dpname);
+	$.post("{$Think.HOSTPATH}/index.php/user/user/editinfomode",{obj:'Department',val:dpname,ret:1},function(data){
+		
+	},"json");
+		$.post("{$Think.HOSTPATH}/index.php/user/user/editinfomode",{obj:'Major',val:"",ret:1},function(data){
+		
+	},"json");
+
+$(".smj-select").remove();
+	$(".smj").text('请选择专业');
+	$("input[name='major']").val('');
+$.post('{$Think.HOSTPATH}/index.php/index/index/getmajor',{dpid:dpid},function(data){
+	var jsondata = eval("("+data+")");
+	for(var i = 0;i< jsondata.length;i++)
+	{
+		$(".mjul").append(" <li onclick='return smjselect(this);'  name='"+jsondata[i]['Name']+"' class='smj-select ect-select'>	<label class='ts-1' ><dd><span>"+jsondata[i]['Name']+"</span></dd><i class='fr iconfont icon-gou ts-1'></i></label></li>");
+	}
+})
+	$(".dpdiv").removeClass('show');
+	$(".msdiv").removeClass('show');
+}
+
+</script>
+</body>
+</html>

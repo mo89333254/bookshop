@@ -1,0 +1,563 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>我要卖书</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+	    <link href="{$Think.HOSTPATH}/css/shop/shop.css?20170517" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">var ROOT_URL = '/';</script>
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+		<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+    </head>
+<body>
+<style>
+.ribtn{
+margin-top:0.3rem;
+
+margin-right:0.8rem;
+padding:0.2rem 0.5rem 0.2rem 0.5rem;
+border-radius: 5px;
+border:0;
+background:#DDDDDD;
+
+text-align: left;
+float:left;
+}
+.flbtn{
+margin-top:0.3rem;
+
+margin-right:0.8rem;
+padding:0.2rem 1rem 0.2rem 1rem;
+border-radius: 5px;
+border:0;
+background:#DDDDDD;
+
+text-align: left;
+
+
+}
+.woca {
+	background: #ec5151;
+	    color: #fff;
+		border:0;
+		border-radius: 5px;
+
+}
+.tuijian{
+	color:#777;
+}
+.fared{
+	color:#ec5151;
+}
+</style>
+<p style="text-align:right; display:none;"></p>
+<div id="loading"><img src="{$Think.HOSTPATH}/img/loading.gif" /></div>
+
+<div class="con b-color-f" >
+			<section class=" goods-shop b-color-f no-shopping-title">
+                                                <a href="javascript:0;" onclick="history.back(-1);"><div class="goods-shop-pic of-hidden" > 
+                    <h4  class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					<i  class="fanhuii fa fa-angle-left"></i>
+						<span class="fanhuispan" style="">我要卖书</span>
+					</label></h4>
+
+                </div></a>
+              
+            </section>
+    <form action="/mobile/index.php?m=user&c=profile&a=realname" method="post" class="form-horizontal" role="form" onSubmit="return false;">
+        <section class="j-f-tel margin-lr">
+		
+            <div class="text-all dis-box j-text-all bank_user_name">
+                <label>价格</label>
+                <div class="box-flex input-text">
+                    <input readonly="value" style=" width:5rem;" readonly class="j-input-text inputcard" type="text" name="amount" value="{$price}" />
+					<span style="color:#777; font-size:1rem;">（其中10%作为手续费）</span>
+                 <input readonly="value"class="j-input-text inputcard" type="hidden" name="reamount" value="{$price}" />
+                </div>
+            </div>
+
+
+					
+
+
+			<div class="text-all dis-box j-text-all bank_name">
+                <label>数量</label>
+<div class="div-num dis-box">
+                                                    <a class="num-up" data-min-num="1"></a>
+                                                    <input style=" color:#FF9626;" class="box-flex cart-number active" type="number" name="count" readonly="" value="1">
+                                                    <a class="num-next" xiangounum="" data-max-num="999"></a>
+                                                </div>
+            </div>
+
+
+<div class="d-discount dis-box text-all j-text-all bank_name">
+				<label>折扣</label>
+                                        				<!--<div class="box-flex b-discount t-goods1 text-right onelist-hidden jian-top"> 请选择折扣</div>
+														
+                                        				<span class="t-jiantou"><i class="iconfont icon-jiantou tf-180 jian-top"></i></span>-->
+
+
+													
+			</div>
+														<div>
+														<div ><button  dc="1" class="ribtn">一折</button></div>
+														<div ><button dc="2" class="ribtn">二折</button></div>
+														<div><button dc="3" class="ribtn">三折</button></div>
+														<div ><button dc="4" class="ribtn">四折</button></div>
+														<div ><button dc="5" class="ribtn">五折</button></div>
+														
+														
+														</div>
+  <div style=" font-size:1.2rem;" class="tuijian dis-box text-all j-text-all bank_name">为保障书本尽快卖出，建议教材类图书售价折扣最高选为4折，课外书最高选为5折</div>
+
+														
+			<div class="d-discount dis-box text-all j-text-all bank_name">
+				<label>分类</label>
+                                        				<!--<div class="box-flex b-discount t-goods1 text-right onelist-hidden jian-top"> 请选择折扣</div>
+														
+                                        				<span class="t-jiantou"><i class="iconfont icon-jiantou tf-180 jian-top"></i></span>-->
+					
+			</div>		
+			
+			<div>
+			<!-- 选择推荐分类 -->
+			<!--<ul class="tuijian">
+				<li>请选择推荐分类</li>
+			{volist name="salelist" id="sl"}
+				<li tuijianid="{$sl['sflid']}" jiaofu="{$sl['KeCheng']}" class="tuijianli"><label class="changerdio1 rec-active">
+                                <i class="fa fa-circle-o"></i>
+                                </label>{switch name="sl['BookType']"}
+										{case value="1"}教材{/case}
+										{case value="2"}其他{/case}
+											{case value="3"}教辅{/case}
+									{/switch}-{$sl['fname']}-{$sl['sname']}
+									{eq name="sl['BookType']" value="1"}
+									-{$sl['KeCheng']}
+									{/eq}
+									</li>
+
+								{/volist}
+							<li class="tuijianli zdyfl"><label class="changerdio1 rec-active">
+                                <i class="fa fa-circle-o"></i>
+                                </label>自行重新分类
+									</li>
+			</ul>-->
+			</div>
+			
+			<div class="fldiv" style=" ">
+			<div>
+			<button fl="1" class="flbtn">教材</button>
+			<button fl="2" class="flbtn">其他</button>
+			<button fl="3" class="flbtn">教辅</button>
+			<input name="flv" type="hidden" value="0">
+			</div>
+			
+			<div class="1fenleidiv dis-box s-user-top-1">
+				
+                                                                                 <div class="1fenleitext box-flex t-goods1 text-left onelist-hidden jian-top">请选择第一层分类</div>
+                                        				<span class="t-jiantou"><i class="iconfont icon-jiantou tf-180 jian-top"></i></span>
+			</div>
+	
+			<div class="2fenleidiv dis-box s-user-top-1">
+				
+                                                                                 <div class="2fenleitext box-flex t-goods1 text-left onelist-hidden jian-top">请选择第二层分类</div>
+                                        				<span class="t-jiantou"><i class="iconfont icon-jiantou tf-180 jian-top"></i></span>
+			</div>
+		<div style="font-size:1.4rem; color:#777;" class=" dis-box s-user-top-1">
+																				
+                                                                                 <div style=" display:none;" class="kechengdiv">课程：</div>
+                                        				<input style=" display:none; width:500px;" class="kechengdiv" type="text" name="kecheng" placeholder="请输入课程" value="" />
+			</div>
+			</div>
+
+				
+			<div class="loadbook1 dis-box s-xian-box s-user-top-1 p-r">
+			
+
+
+			</div>
+			
+			
+			
+            <input type="hidden" name="step" value="first" />
+            <input type="hidden" name="real_id" value="" />
+			<input class="hd" type="hidden" name="bookid" value="{$bookid}" />
+			<input class="hd" type="hidden" name="userid" value="{$userid}" />
+			<input class="hd" type="hidden" name="schoolid" value="{$schoolid}" />
+			<input class="hd" type="hidden" name="discount" value="" />
+			<input class="hd" type="hidden" name="content" value="" />
+			<input name="flv" type="hidden" value="0">
+			<input class="" type="hidden" name="ffl" value="0" />
+			<input class="" type="hidden" name="sfl" value="0" />
+			<!--<input class="hd" type="hidden" name="count" value="" />-->
+            <input type="button" value="提交保存" class="getup btn-submit br-5" />
+        </section>
+    </form>
+						<!--选择折扣弹出层-->
+					<div class="ddiv show-time-con ts-3 b-color-1 j-filter-show-div">
+									<section class="goods-show-title of-hidden padding-all b-color-f">
+										<h3 class="fl g-c-title-h3">选择折扣</h3>
+										<i class="iconfont icon-guanbi2 show-div-guanbi fr"></i>
+									</section>
+									<section class="s-g-list-con swiper-scroll">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide select-two">
+												<ul class="j-get-one padding-all">
+											
+                                                    <li val="1"  class="discount-select ect-select">
+														<label class="ts-1" ><dd><span>1折</span></dd><i class="fr iconfont icon-gou ts-1"></i></label>
+													</li> 
+													                                                    <li val="2"  class="discount-select ect-select">
+														<label class="ts-1" ><dd><span>2折</span></dd><i class="fr iconfont icon-gou ts-1"></i></label>
+													</li> 
+													                                                    <li val="3"  class="discount-select ect-select">
+														<label class="ts-1" ><dd><span>3折</span></dd><i class="fr iconfont icon-gou ts-1"></i></label>
+													</li> 
+													                                                    <li val="4"  class="discount-select ect-select">
+														<label class="ts-1" ><dd><span>4折</span></dd><i class="fr iconfont icon-gou ts-1"></i></label>
+													</li> 
+																								
+																									</ul>
+											</div>
+											<div class="swiper-scrollbar"></div>
+										</div>
+									</section>
+								</div>
+								
+								
+						<!--选择第一大类弹出层-->
+					<div class="1fenlei show-time-con ts-3 b-color-1 j-filter-show-div">
+									<section class="goods-show-title of-hidden padding-all b-color-f">
+										<h3 class="fl g-c-title-h3">选择第一层分类</h3>
+										<i class="iconfont icon-guanbi2 show-div-guanbi fr"></i>
+									</section>
+									<section class="s-g-list-con " style="overflow:scroll;">
+										<div class="">
+											<div class=" select-two">
+												<ul class="1fenleiul j-get-one padding-all">
+											
+                                                    <li val="1"  class="1fenlei-select ect-select">
+														<label class="ts-1" ><dd><span>1折</span></dd><i class="fr iconfont icon-gou ts-1"></i></label>
+													</li> 
+			
+																								
+																									</ul>
+											</div>
+											<div class="swiper-scrollbar"></div>
+										</div>
+									</section>
+								</div>
+				
+						<!--选择第二大类弹出层-->
+					<div class="2fenlei show-time-con ts-3 b-color-1 j-filter-show-div">
+									<section class="goods-show-title of-hidden padding-all b-color-f">
+										<h3 class="fl g-c-title-h3">选择第二层分类</h3>
+										<i class="iconfont icon-guanbi2 show-div-guanbi fr"></i>
+									</section>
+									<section class="s-g-list-con" style="overflow:scroll;">
+										<div class="">
+											<div class=" select-two">
+												<ul class="2fenleiul j-get-one padding-all">
+											
+                           
+			
+																								
+																									</ul>
+											</div>
+											<div class="swiper-scrollbar"></div>
+										</div>
+									</section>
+								</div>				
+
+<div class="mddiv mask-filter-div"></div>
+	
+</div>
+{include file="../application/index/view/index/nav.html" /}
+    <!--快捷导航-->
+
+        <!--快捷导航-->
+	
+    <div class="common-show"></div>
+<script type="text/javascript">
+
+
+
+$(function(){
+    // 提交表单
+	var form = new FormData();
+	form.append('filecount',0);
+
+
+
+	
+
+	
+	///ajax提交上传文件 和表单内容
+	$('#niubi').change(function(e){
+	//alert(e.target.files.length);
+	var fliecount = e.target.files.length;
+
+	form.append('filecount',fliecount);
+	for(var i = 0;i < e.target.files.length;i++)
+
+	{
+		var file = e.target.files[i];
+		
+		var max_size = 1024000 * 2;
+		if(file.size > max_size) {
+		layer.open({
+		  content: "上传的图片不能超过2MB!",
+		  time: 2,
+		  end: function (){
+			window.location.reload();
+			return false;
+		  }
+		});
+	  }
+	  	form.append('img'+i, file);
+	}
+
+
+});
+
+	$(".getup").click(function(){
+		var bookid = $("input[name='bookid']").val();
+		var userid = $("input[name='userid']").val();
+		
+		var discount = $("input[name='discount']").val();
+		var count = $("input[name='count']").val();
+		var booktype = $("input[name='flv']").val();
+		var fenleiid = $("input[name='sfl']").val();
+		var kecheng = $("input[name='kecheng']").val();
+		// 验证数据
+		
+
+		if(bookid.length < 1)
+		{
+			d_messages('请获取书本信息');
+			return false;
+		}
+
+		if(discount.length < 1)
+		{
+			d_messages('请选择折扣');
+			return false;
+		}
+		if(count.length < 1)
+		{
+			d_messages('请输入数量');
+			return false;
+		}
+		if(fenleiid == 0)
+		{
+			d_messages('请选择分类');
+			return false;
+		}
+		
+		form.append('userid',userid);
+		form.append('bookid',bookid);
+	
+		form.append('discount',discount);
+		form.append('count',count);
+		form.append('booktype',booktype);
+		form.append('kecheng',kecheng);
+		form.append('fenleiid',fenleiid);
+	var xhr;
+	if(window.ActiveXObject)
+	{
+		xhr = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	else if(window.XMLHttpRequest)
+	{
+		xhr = new XMLHttpRequest();
+	}
+	xhr.onreadystatechange = function(){
+
+		if(xhr.readyState == 4){
+			if(xhr.status == 200 || xhr.status == 0){
+				var res = xhr.responseText;
+				
+				res = JSON.parse(res);
+				
+				
+				if(res.code > 0)
+				{
+					d_messages("发布成功");
+					setTimeout(function () {
+							
+							window.location.href = "{$Think.HOSTPATH}/index.php/user/user/editbook";
+						}, 600);
+				}
+				else if(res.code == 'no')
+				{
+					d_messages("已经发布过此书")
+				}
+				else 
+				{
+					d_messages("发布失败");
+				}
+				
+
+			}
+		}
+	};
+	xhr.open("post", "/bookshop/public/index.php/user/user/test333", true);
+	xhr.send(form);
+	
+	});
+
+	
+	$(".discount-select").click(function(){
+	var discount = $(this).attr('val');
+	var price = $("input[name='reamount']").val();
+	$("input[name='discount']").val(discount);
+	$(".b-discount").text(discount+"折");
+		var resultprice = (parseFloat(discount * 0.1)*parseFloat(price)).toFixed(2); 
+		$("input[name='amount']").val(resultprice);
+				$(".ddiv").removeClass('show');
+		$(".mddiv").removeClass('show');
+	});
+
+	$(".num-up").click(function(){
+		var count = parseInt($("input[name='count']").val());
+		if(count == 1)
+		{
+			d_messages('不能少于1');
+			return false;
+		}
+		count = count - 1;
+		$("input[name='count']").val(count);
+	})
+		$(".num-next").click(function(){
+		var count = parseInt($("input[name='count']").val());
+
+		count = count + 1;
+		$("input[name='count']").val(count);
+	})
+	$(".ribtn").click(function(){
+		$(".ribtn").removeClass('woca');
+		var kk = $(this).attr('dc');
+		$(this).addClass('woca');
+		var price = $("input[name='reamount']").val();
+		var resultprice = (parseFloat(kk * 0.1)*parseFloat(price)).toFixed(2); 
+		$("input[name='amount']").val(resultprice);
+		$("input[name='discount']").val(kk);
+	})
+	$(".flbtn").click(function(){
+		$(".flbtn").removeClass('woca');
+		var kk = $(this).attr('fl');
+		var schoolid = $("input[name='schoolid']").val();
+		if(kk == 1)
+		{
+			$(".kechengdiv").show();
+		}
+		else
+		{
+			$(".kechengdiv").hide();
+		}
+		
+		$("input[name='flv']").val(kk);
+		$("input[name='ffl']").val(0);
+		$("input[name='sfl']").val(0);
+		
+		$(this).addClass('woca');
+		$.get("{$Think.HOSTPATH}/index.php/user/user/getfenlei",{type:kk,schoolid:schoolid},function(data){
+			var json = eval("("+data+")");			
+		
+			$(".1fenlei-select").remove();
+			for(var i = 0; i< json.length;i++)
+			{
+				var addli = "<li val='"+json[i]["ID"]+"' onclick='return ffenlei(this);'  class='1fenlei-select ect-select'><label class='ts-1' ><dd><span>"+json[i]['Name']+"</span></dd><i class='fr iconfont icon-gou ts-1'></i></label></li> ";
+				$(".1fenleiul").append(addli);
+			}
+		})
+		$(".1fenleitext").text('请选择第一层分类');
+		$(".2fenleitext").text('请选择第二层分类');
+	})	
+	
+	$(".1fenleidiv").click(function(){
+	
+		var flv = $("input[name='flv']").val();
+		if(flv == 0)
+		{
+			d_messages("请选择教材,其他或教辅");
+			return false;
+		}
+		$('.1fenlei').addClass('show');
+		$('.mddiv').addClass('show');
+		
+
+	})
+	$(".2fenleidiv").click(function(){
+	
+		var ffl = $("input[name='ffl']").val();
+		if(ffl == 0)
+		{
+			d_messages("请选择第一层分类");
+			return false;
+		}
+		$('.2fenlei').addClass('show');
+		$('.mddiv').addClass('show');
+		
+
+	})	
+	
+	$(".tuijianli").click(function(){
+		$(".tuijianli").children().children().attr('class','fa fa-circle-o');
+		$(this).children().children('i').attr('class','fa fa-check fared');
+		var fenleiid = $(this).attr('tuijianid');
+		var kecheng = $(this).attr('kecheng');
+		$("input[name='sfl']").val(fenleiid);
+		$("input[name='kecheng']").val(kecheng);
+		$(".fldiv").hide();
+	})
+	$(".zdyfl").click(function(){
+		$(".fldiv").show();
+		$("input[name='sfl']").val(0);
+		$("input[name='kecheng']").val('');
+			$(".tuijianli").children().children().attr('class','fa fa-circle-o')
+		$(this).children().children('i').attr('class','fa fa-check fared');
+	})
+});
+
+	function ffenlei(obj){
+		$('.1fenlei').removeClass('show');
+		$('.mddiv').removeClass('show');
+	$(".1fenleitext").text($(obj).text());
+	var parentid = $(obj).attr('val');
+	$("input[name='ffl']").val(parentid);
+
+			$.get("{$Think.HOSTPATH}/index.php/user/user/geterjifenlei",{parentid:parentid},function(data){
+			var json = eval("("+data+")");	
+			$(".2fenlei-select").remove();
+			for(var i = 0; i< json.length;i++)
+			{
+				var addli = "<li val='"+json[i]["ID"]+"' onclick='return sfenlei(this);'  class='2fenlei-select ect-select'><label class='ts-1' ><dd><span>"+json[i]['Name']+"</span></dd><i class='fr iconfont icon-gou ts-1'></i></label></li> ";
+				$(".2fenleiul").append(addli);
+			}			
+		})
+		$(".2fenleitext").text('请选择第二层分类');
+	}
+	
+	function sfenlei(obj)
+	{
+		$('.2fenlei').removeClass('show');
+		$('.mddiv').removeClass('show');
+			$(".2fenleitext").text($(obj).text());
+			var id = $(obj).attr('val');
+			
+			$("input[name='sfl']").val(id);
+	}
+  
+
+</script>
+</body>
+</html>

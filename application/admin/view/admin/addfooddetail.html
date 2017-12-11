@@ -1,0 +1,77 @@
+<link rel="icon" type="image/png" href="{$Think.HOSTPATH}/assets/i/favicon.png">
+<link rel="apple-touch-icon-precomposed" href="{$Think.HOSTPATH}/assets/i/app-icon72x72@2x.png">
+<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+<link rel="stylesheet" href="{$Think.HOSTPATH}/css/amazeui.min.css"/>
+<link rel="stylesheet" href="{$Think.HOSTPATH}/css/admin.css">
+ 
+ <!-- content start -->
+  <div class="admin-content">
+    <div class="admin-content-body">
+      <div class="am-cf am-padding am-padding-bottom-0">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">食物资料</strong> / <small>Personal information</small></div>
+      </div>
+
+      <hr/>
+
+      <div class="am-g">
+        <div class="am-u-sm-12 am-u-md-4 am-u-md-push-8">
+                <div class="am-u-md-4">
+                  <img class="am-img-circle am-img-thumbnail" src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/200/h/200/q/80" alt=""/>
+                </div>
+
+
+        </div>
+
+        <div class="am-u-sm-12 am-u-md-8 am-u-md-pull-4">
+          <form class="am-form am-form-horizontal" action="/admin/admin/upload" enctype="multipart/form-data" method="post">
+            <div class="am-form-group">
+              <label for="user-name" class="am-u-sm-3 am-form-label">名称 / Name</label>
+              <div class="am-u-sm-9">
+                <input type="text" name="food-name" placeholder="名称 / Name">
+                <input type="hidden" name="food-type" value="{$ftype}">
+              </div>
+            </div>
+
+
+            <div class="am-form-group">
+              <label for="user-QQ" class="am-u-sm-3 am-form-label">价钱 / Price</label>
+              <div class="am-u-sm-9">
+                <input type="number" pattern="[0-9]*" name="food-price" placeholder="输入价钱">
+              </div>
+            </div>
+
+
+
+            <div class="am-form-group">
+              <label for="user-intro" class="am-u-sm-3 am-form-label">备注 / Intro</label>
+              <div class="am-u-sm-9">
+                <textarea class="" rows="5" name="food-remark" placeholder="输入备注"></textarea>                
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label  class="am-u-sm-3 am-form-label">上传图片 / Image</label>
+              <div class="am-u-sm-9">
+                <input type="file" name="image" id="user-pic">               
+              </div>
+            </div>			
+			
+            <div class="am-form-group">
+              <div class="am-u-sm-9 am-u-sm-push-3">
+                <input class="am-btn am-btn-primary am-btn-xs" type="submit" value="保存">
+				
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <footer class="admin-content-footer">
+      <hr>
+      <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+    </footer>
+
+  </div>
+  <!-- content end -->

@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta charset="utf-8">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>商品信息</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+ 	    <link href="{$Think.HOSTPATH}/css/shop/shop.css" rel="stylesheet" type="text/css" />
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	 <script src="{$Think.HOSTPATH}/js/shop/fsrPMD.js?v=20170418"></script>
+	<script type="text/javascript">var ROOT_URL = '/'; </script>
+	<script src="{$Think.HOSTPATH}/js/shop/fastclick.js"></script>
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+	 <link href="{$Think.HOSTPATH}/css/shop/student.css" rel="stylesheet" type="text/css" />
+
+
+    </head>
+
+<body>
+<p style="text-align:right; display:none;"></p>
+<div style=" display:none;" id="loading"><img src="{$Think.HOSTPATH}/img/loading.gif" /></div>
+<body>
+
+			<div class="category">
+
+
+			<section class=" goods-shop b-color-f no-shopping-title">
+                                                <a href="{$Think.HOSTPATH}/index.php/index/index/student" ><div class="goods-shop-pic of-hidden" > 
+                    <h4  class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					<i  class="fanhuii fa fa-angle-left"></i>
+						<span class="fanhuispan" style="">商品信息</span>
+					</label></h4>
+
+                </div></a>
+              
+            </section>
+
+
+
+
+<section class=" goods-shop b-color-f no-shopping-title">
+                                                <div class="goods-shop-pic of-hidden">
+                
+                    <div class="g-s-p-con product-one-list of-hidden scrollbar-none j-g-s-p-con padding-all swiper-container-horizontal" style="cursor: -webkit-grab;">
+					{$shopinfo['Content']}
+                    </div>
+                </div>
+              
+            </section>
+
+									<div style=" height:5rem;"></div>
+					
+			</div>
+            </div>
+
+			</div>
+            </div>
+
+
+        <!--地区选择 e-->
+        <!--快捷导航-->
+{include file="../application/index/view/index/nav.html" /}
+	        <!--快捷导航-->
+<div id="main_demo">
+    
+
+
+
+</div>  
+<footer class="flow-cart-btn">
+    <section class="filter-btn f-cart-filter-btn dis-box n-flow-btn">
+        <div class="box-flex select-three j-cart-get-more j-get-more-all pl">
+
+            <div style=" 
+    margin-top: 1.5rem;
+" class="">
+                <p class="dis-box">
+                    <span class="t-first box-flex onelist-hidden cart-price-show">¥{$shopinfo['Price']}</span>
+                    
+                </p>
+            
+            </div>
+        </div>
+        <div class="g-cart-filter-sb">
+        
+            <form id="formid" class="fl" method="post">
+                <input type="hidden" name="cart_value" value="">
+                <input type="hidden" name="store_id">
+                <a href="{$Think.HOSTPATH}/index.php/wpay/wpay/merpay?info={$shopinfo['ID']},{$userid},{$shopinfo['MerID']}" class="btn-submit fl stbtn" onclick="c_value()">购买</a>
+            </form>
+        </div>
+        <div class="g-cart-filter-bj">
+            <span class="heart j-heart fl"><i class="ts-2 shoucang"></i><em class="ts-2">收藏</em></span>
+            <a type="button" class="btn-default j-btn-default fl">返回</a>
+            <a type="button" class="btn-submit fl delete">删除</a>
+        </div>
+    </section>
+
+
+</footer>
+
+			
+			
+<script>
+$(".tiyan").click(function(){
+	  $.get("{$Think.HOSTPATH}/index.php/index/caozuo/getexp", function(result){
+    if(result > 1)
+	{
+		d_message('体验劵每人只能购买一次');
+	}
+  });
+})
+function checkstudent($shopid)
+{
+	$.get('{$Think.HOSTPATH}/index.php/index/caozuo/checkshiming',{},function(data){
+		if(data == 1)
+		{
+		d_messages("请先去实名认证才能进行学生折消费")
+		}
+		else if(data == 2)
+		{
+		}
+	})
+}
+</script>
+	</body>
+
+</html>

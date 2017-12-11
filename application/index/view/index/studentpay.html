@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>订单确认</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+ 	    <link href="{$Think.HOSTPATH}/css/shop/shop.css?2017051701" rel="stylesheet" type="text/css" />
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	 <script src="{$Think.HOSTPATH}/js/shop/fsrPMD.js?v=20170418"></script>
+	<script type="text/javascript">var ROOT_URL = '/'; </script>
+	<script src="{$Think.HOSTPATH}/js/shop/fastclick.js"></script>
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    </head>
+<body>
+<p style="text-align:right; display:none;"></p>
+<div id="loading"><img src="{$Think.HOSTPATH}/img/loading.gif" /></div>
+<form action="" name="theForm" id="theForm" onSubmit="return checkpay();" >
+    <div class="con">
+								<section class=" goods-shop b-color-f no-shopping-title">
+                                                <a href="{$Think.HOSTPATH}/index.php/index/index/student" ><div class="goods-shop-pic of-hidden" > 
+                    <h4  class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					<i  class="fanhuii fa fa-angle-left"></i>
+						<span class="fanhuispan" style="">订单确认</span>
+					</label></h4>
+
+                </div></a>
+              
+            </section>
+        <div class="flow-checkout">
+
+            <div id="flow-cont-height">
+                <!-- 门店信息-->
+
+                <section class="flow-checkout-select b-color-f ">
+                    <ul>
+                                                                        <li>
+
+                        </li>
+                                                                        <!-- 自营商家 -->
+
+                                                <li class="j-goods-site-li j-goods-site-li-time0 show-temark-div">
+                            <section class="distribution-time j-distribution-time0 j-distribution-time b-color-f">
+                                <div class="text-right dis-box">
+                                    <label class="t-remark g-t-temark">时间</label>
+                                    <span class="t-goods1 box-flex distribution-time-con">
+                                        <input type="text" name="shipping_dateStr[0]" value="" id="txt_area0"/>
+                                        <input type="hidden" id="hd_area"/>
+                                    </span>
+                                    <i class="iconfont icon-rili t-first"></i>
+                                </div>
+                            </section>
+
+                        </li>
+                                                <input type="hidden" name="shipping_type[0]" id="shipping_type0" value="0">
+                                                                        <li class="dis-box padding-all">
+                            <label class="t-remark g-t-temark">商品名称</label>
+                            <div class="box-flex t-goods1 flow-check-input">
+                                <input name="content" class="f-04" style="line-height: normal;" maxlength="50" value="学生折买单"/>
+                            </div>
+                        </li>
+                    </ul>
+      
+                    <input type="hidden" id="paytype" name="paytype" value="2">
+                   
+                </section>
+                </section>
+                
+                <section class="m-top10">
+                    <ul>
+                                                <li class="dis-box padding-all-n m-top1px b-color-f j-show-div" id="payment">
+                            <label class="t-remark g-t-temark">支付方式</label>
+                            <div class="div-pay box-flex t-goods1 text-right onelist-hidden" id="payment_info">
+                                                                <span>请选择</span>
+                                                            </div>
+                            <div class="t-goods1"><span class="t-jiantou"><i class="iconfont icon-jiantou tf-180"></i></span></div>
+                            <!--支付方式star-->
+                            <div class="show-goods-dist ts-3 b-color-1 j-show-goods-text j-filter-show-div">
+                                <section class="goods-show-title of-hidden padding-all-n b-color-f">
+                                    <h3 class="fl g-c-title-h3">支付方式</h3>
+                                    <i class="iconfont icon-guanbi2 show-div-guanbi fr"></i>
+                                </section>
+                                <section class="s-g-list-con swiper-scroll">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide select-two">
+                                            <ul class="j-get-one padding-all-n">
+                                                                                                <li class="pay-select ect-select goods-site"  data-code="0">
+                                                    <label class="ts-1 ">
+                                                        <dd>
+                                                            <span>微信支付</span>
+                                                                                                                    </dd>
+                                                        <i class="fr iconfont icon-gou ts-1"></i>
+                                                    </label>
+                                                </li>
+                                                                                                <li class="pay-select ect-select goods-site"  data-code="1">
+                                                    <label class="ts-1 ">
+                                                        <dd>
+                                                            <span>余额支付</span>
+                                                                                                                    </dd>
+                                                        <i class="fr iconfont icon-gou ts-1"></i>
+                                                    </label>
+                                                </li>
+
+                                                                                            </ul>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <!--支付方式end-->
+                            <input name="paytype" type="hidden" value="2"/>
+                        </li>
+
+
+                                            </ul>
+                </section>
+
+                
+				<section class="m-top10" id="ECS_ORDERTOTAL"><section class="flow-checkout-tprice">
+					<header class="b-color-f padding-all">
+						商品总价<span class="t-first fr">¥{$price}</span>
+					</header>
+
+				</section></section>
+            </div>
+        </div>
+    </div>
+
+    <div class="mask-filter-div"></div>
+    <!--悬浮btn star-->
+    <section class="filter-btn f-checkout-filter-btn dis-box pl">
+
+
+		<input type="hidden" name="paytype" value="0" />
+
+        <span class="box-flex t-remark">实付款 <em class="t-first" id="amount">¥{$price}</em></span>
+                <div><a href="javascript:;" type="button" class="btn-submit pay" >支付</a>
+				</div>
+    </section>
+</form>
+<!--悬浮btn end-->
+{include file="../application/index/view/index/nav.html" /}
+<!--快捷导航-->
+
+{include file="../application/index/view/index/nav.html" /}
+    <div class="common-show"></div>
+<script type="text/javascript">
+    $(function ($) {
+       
+		
+				$(".pay-select").click(function(){
+			var payname = $(this).find('span').text();
+			var paytype = $(this).attr('data-code');
+	
+			$('.div-pay span').text(payname);
+			$('input[name="paytype"]').val(paytype);
+		});
+    });
+    var flow_no_payment = "";
+    var flow_no_shipping = "";
+
+
+
+    
+
+		
+	function checkpay(){
+
+
+	}
+				wx.config({
+			debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+			appId: '{$appid}', // 必填，公众号的唯一标识
+			timestamp: {$time}, // 必填，生成签名的时间戳
+			nonceStr: '{$noncestr}', // 必填，生成签名的随机串
+			signature: '{$sign}',// 必填，签名，见附录1
+			jsApiList: ['getLocation','showAllNonBaseMenuItem','chooseImage','startRecord','stopRecord','playVoice','getLocation','openLocation','scanQRCode','chooseWXPay'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+		});
+		
+  $(".pay").click(function(){
+  
+  		if($('input[name="paytype"]').val() > 1)
+		{
+			d_messages('请选择支付方式');
+			return false;
+		}
+    	wx.chooseWXPay({
+		timestamp: {$time}, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+		nonceStr: '{$noncestr}', // 支付签名随机串，不长于 32 位
+		package: 'prepay_id={$prepayid}', // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
+		signType: '{$signtype}', // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+		paySign: '{$paysign}', // 支付签名
+		success: function (res) {
+			 //支付成功后的回调函数
+	
+		
+			$.each(res, function(key, val) { 
+				if(val == 'chooseWXPay:ok')
+				{
+
+				}
+			}); 
+
+			
+		}
+		});
+  });
+  
+    $(".test1").click(function(){
+  
+
+		wx.scanQRCode({
+			needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+			scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+			success: function (res) {
+			var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+			alert(result);
+		}
+		});
+  });
+    </script>
+</body>
+</html>

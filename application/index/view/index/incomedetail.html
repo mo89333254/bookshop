@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>交易详情</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+ 	    <link href="{$Think.HOSTPATH}/css/shop/shop.css" rel="stylesheet" type="text/css" />
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	 <script src="{$Think.HOSTPATH}/js/shop/fsrPMD.js?v=20170418"></script>
+	
+	<script src="{$Think.HOSTPATH}/js/shop/fastclick.js"></script>
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+    </head>
+<body>
+<p style="text-align:right; display:none;"></p>
+<div id="loading"><img src="{$Think.HOSTPATH}/img/loading.gif" /></div>
+				<section class=" goods-shop b-color-f no-shopping-title">
+                                                <a href="{$Think.HOSTPATH}/index.php/index/index/incomeinfo" ><div class="goods-shop-pic of-hidden" > 
+                    <h4  class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					<i  class="fanhuii fa fa-angle-left"></i>
+						<span class="fanhuispan" style="">交易详情</span>
+					</label></h4>
+
+                </div></a>
+              
+            </section>
+
+    <div class="con">
+        <div class="flow-checkout">
+
+
+            <div >
+
+			 
+			
+
+	
+
+                
+
+
+                
+				<section class="m-top10" id="ECS_ORDERTOTAL"><section class="flow-checkout-tprice">
+					<header class="b-color-f padding-all">
+						交易金额<span class="t-first fr">¥{$result['Price']}</span>
+					</header>
+					<ul class="m-top1px b-color-f">
+
+						{eq name="ptype" value="3"}
+						<li class="padding-all of-hidden">
+							<label class="t-remark g-t-temark fl">商家名称</label>
+							<span class="t-remark fr">{:defaultjson($result['Content'],'Merchant')}</span>
+						</li>
+						<li class="padding-all of-hidden">
+							<label class="t-remark g-t-temark fl">商品名称</label>
+							<span class="t-remark fr">{:defaultjson($result['Content'],'ShopName')}</span>
+						</li>
+
+						{/eq}
+						{eq name="ptype" value="2"}
+						{volist name="result['SaleID']" id="rs"}
+						<li class="padding-all of-hidden">
+							<label class="t-remark g-t-temark fl">书本名称</label>
+							<span class="t-remark fr">
+						{:defaultjson($rs,'bookname')} x {:defaultjson($rs,'count')}</span>
+						</li>
+						{/volist}
+						<li class="padding-all of-hidden">
+							<label class="t-remark g-t-temark fl">类型</label>
+							<span class="t-remark fr">购买</span>
+						</li>
+						{/eq}
+
+						{eq name="ptype" value="1"}
+						{volist name="result['SaleID']" id="rs"}
+						<li class="padding-all of-hidden">
+							<label class="t-remark g-t-temark fl">书本名称</label>
+							<span class="t-remark fr">
+						{:defaultjson($rs,'bookname')} x {:defaultjson($rs,'count')}</span>
+						</li>
+						{/volist}
+						<li class="padding-all of-hidden">
+							<label class="t-remark g-t-temark fl">类型</label>
+							<span class="t-remark fr">{eq name="result['Type']" value="1"}出售{else/}取消订单{/eq}</span>
+						</li>
+						{/eq}
+
+						<li class="padding-all of-hidden">
+							<label class="t-remark g-t-temark fl">当前状态</label>
+							<span class="t-remark fr">交易成功</span>
+						</li>
+						<li class="padding-all of-hidden">
+							<label class="t-remark g-t-temark fl">支付时间</label>
+							<span class="t-remark fr">{$result['CreateTime']}</span>
+						</li>
+						<li class="padding-all of-hidden">
+							<label class="t-remark g-t-temark fl">支付方式</label>
+							<span class="t-remark fr">{eq name="result['PayType']" value="0"}微信支付
+						{else/}零钱支付{/eq}</span>
+						</li>	
+						<li class="padding-all of-hidden">
+							<label class="t-remark g-t-temark fl">订单号</label>
+							<span class="t-remark fr">{$result['OrderID']}</span>
+						</li>							
+
+							</ul>
+				</section></section>
+            </div>
+        </div>
+    </div>
+
+    <div class="mask-filter-div"></div>
+    <!--悬浮btn star-->
+
+
+
+<!--悬浮btn end-->
+<!--快捷导航-->
+
+{include file="../application/index/view/index/nav.html" /}
+    <div class="common-show"></div>
+
+</body>
+</html>

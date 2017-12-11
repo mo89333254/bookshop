@@ -1,0 +1,177 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<title>用户信息</title>
+
+
+	 	<script src="{$Think.HOSTPATH}/js/jquery.js"></script>
+	<script src="{$Think.HOSTPATH}/js/bootstrap.min.js"></script>
+	<link href="{$Think.HOSTPATH}/css/Admin/bootstrap.min.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+	<script src="{$Think.HOSTPATH}/js/book.js?2017051302"></script>
+			<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+			 <link href="{$Think.HOSTPATH}/css/Admin/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+			<script src="{$Think.HOSTPATH}/js/fileinput.js" type="text/javascript"></script>
+        <!--简体中文-->
+        <script src="{$Think.HOSTPATH}/js/zh.js" type="text/javascript"></script>
+   	<style type="text/css">
+		#fm{
+			margin:0;
+			padding:10px 30px;
+		}
+		.ftitle{
+			font-size:14px;
+			font-weight:bold;
+			color:#666;
+			padding:5px 0;
+			margin-bottom:10px;
+			border-bottom:1px solid #ccc;
+			width:650px;
+			margin:0 auto;
+		}
+		.fitem{
+			margin:0 auto 5px;
+			width:650px;
+		
+		}
+		.fitem label{
+			display:inline-block;
+			width:80px;
+			text-align:right;
+			
+		}
+	</style>
+	
+</head>
+<body>
+<div class="col-lg-6">
+            <div>
+              <form class="bs-example form-horizontal">
+                <fieldset>
+                  <legend>用户信息</legend>
+				                    <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">用户名</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="iISBN" placeholder="" value="{$userinfo.NickName}">
+                    </div>
+                  </div>
+				  
+				                    <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">用户照片</label>
+                    <div class="col-lg-10">
+                    <img src="{:getimg2($userinfo.UserImg)}" style=" width:10rem;" />
+                    </div>
+                  </div>				  
+                  <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">资产</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="iTitle" placeholder="" value='{$userinfo.Property}'>
+                    </div>
+                  </div>				  
+                  <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">用户状态</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="iTitle" placeholder="" value='{eq name="userinfo.Status" value="1"}正常{else/}拉黑{/eq}'>
+                    </div>
+                  </div>
+				                    <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">性别</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="iAuthor" placeholder="" value='{eq name="userinfo.Sex" value="1"}男{else/}女{/eq}'>
+                    </div>
+                  </div>
+				                    <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">年级</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="iPublish" placeholder="" value="{$userinfo.Class}">
+                    </div>
+                  </div>
+				                    <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">学院</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="iPublishTime" placeholder="" value="{$userinfo.Department}">
+                    </div>
+                  </div>
+				                    <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">专业</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="iPublishTime" placeholder="" value="{$userinfo.Major}">
+                    </div>
+                  </div>				  
+				                    <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">学号</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="iPrice" placeholder="" value="{$userinfo.SchoolID}">
+                    </div>
+                  </div>
+				                    <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">身份证</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="iPrice" placeholder="" value="{$userinfo.IDCard}">
+                    </div>
+                  </div>
+				                    <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">手机</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="iPrice" placeholder="" value="{$userinfo.Phone}">
+                    </div>
+                  </div>
+				                    <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">收货地址</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="iPrice" placeholder="" value="{$userinfo.SchoolAdd}">
+                    </div>
+                  </div>				  
+
+			  
+
+
+ 
+				
+           
+
+
+                </fieldset>
+              </form>
+            </div>
+          </div>
+		<div class="col-lg-4">
+            <div style="margin-top:30px;" >
+             <img src="" id="bookimg" class="img-rounded">
+			 					                         
+                
+            </div>
+          </div>
+		  
+		  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">状态</h4>
+            </div>
+            <div class="modal-body"><i class="fa fa-spinner fa-pulse"></i>加载中</div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+</body>
+  	<script>
+function initFileInput(ctrlName, uploadUrl) {    
+    var control = $('#' + ctrlName); 
+
+    control.fileinput({
+        language: 'zh', //设置语言
+        uploadUrl: uploadUrl, //上传的地址
+        allowedFileExtensions : ['jpg', 'png','gif'],//接收的文件后缀
+        showUpload: true, //是否显示上传按钮
+        showCaption: false,//是否显示标题
+        browseClass: "btn btn-primary", //按钮样式             
+        previewFileIcon: "<i class='glyphicon glyphicon-king'></i>", 
+    });
+}
+initFileInput("file-zh","http://bababook.com/bookshop/public/index.php/admin/admin/UpLoadImg");
+	</script>
+</html>

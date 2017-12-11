@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>修改信息</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+ 
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+			    <link href="{$Think.HOSTPATH}/css/shop/shop.css?v=20170418" rel="stylesheet" type="text/css" />
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+	<link href="{$Think.HOSTPATH}/css/shop/iconfont.css" rel="stylesheet">
+    </head>
+<body>
+<p style="text-align:right; display:none;"></p>
+<div id="loading"><img src="{$Think.HOSTPATH}/img/loading.gif" /></div>
+<body>
+		<!--  -->
+		<!--  -->
+							<section class=" goods-shop b-color-f no-shopping-title">
+                                                <a href="{$Think.HOSTPATH}/index.php/user/user/edituser" ><div class="goods-shop-pic of-hidden" > 
+                    <h4  class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					<i  class="fanhuii fa fa-angle-left"></i>
+						<span class="fanhuispan" style="">修改信息</span>
+					</label></h4>
+
+                </div></a>
+              
+            </section>
+			<section class="user-center margin-lr">
+				<form action="{$Think.HOSTPATH}/index.php/user/user/editinfomode" method="post">
+				<div class="b-color-f  user-login-ul">
+					<div class="text-all dis-box j-text-all login-li">
+						<div class="input-text box-flex">
+							<input class="j-input-text schooladd" id="focus" value="{$val}"   name="val" placeholder="" />
+							<input type="hidden"  name="obj" value="{$type}" />
+							<i class="iconfont icon-guanbi1 close-common j-is-null"></i>
+						</div>
+					</div>
+					</div>
+					<button type="submit" class="btn-submit br-5 min-two-btn">确定修改</button>
+				</form>
+			</section>
+		<!--  -->
+    <!--快捷导航-->
+	{include file="../application/index/view/index/nav.html" /}
+    <script>
+    $(function(){
+       // 获取节点
+          var block = document.getElementById("ectouch-top");
+          var oW,oH;
+          // 绑定touchstart事件
+          block.addEventListener("touchstart", function(e) {
+           var touches = e.touches[0];
+           //oW = touches.clientX - block.offsetLeft;
+           oH = touches.clientY - block.offsetTop;
+           //阻止页面的滑动默认事件
+           document.addEventListener("touchmove",defaultEvent,false);
+          },false)
+         
+          block.addEventListener("touchmove", function(e) {
+           var touches = e.touches[0];
+           //var oLeft = touches.clientX - oW;
+           var oTop = touches.clientY - oH;
+          //  if(oLeft < 0) {
+          //   oLeft = 0;
+          //  }else if(oLeft > document.documentElement.clientWidth - block.offsetWidth) {
+          //   oLeft = (document.documentElement.clientWidth - block.offsetWidth);
+          //  }
+          // block.style.left = oLeft + "px";
+           block.style.top = oTop + "px";
+          var max_top = block.style.top =oTop;
+          if(max_top < 30){
+             block.style.top = 30 + "px";
+          }
+          if(max_top > 440){
+            block.style.top = 440 + "px";
+          }
+          },false);
+           
+          block.addEventListener("touchend",function() {
+           document.removeEventListener("touchmove",defaultEvent,false);
+          },false);
+          function defaultEvent(e) {
+           e.preventDefault();
+          }
+    })
+</script>
+
+    <div class="common-show"></div>
+
+
+		
+
+
+
+
+        
+        
+	</body>
+
+</html>

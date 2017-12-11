@@ -1,0 +1,161 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>我的银行卡</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+ 
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	 	    <link href="{$Think.HOSTPATH}/css/shop/shop.css?2017051701" rel="stylesheet" type="text/css" />
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+	<link href="{$Think.HOSTPATH}/css/shop/iconfont.css" rel="stylesheet">
+    </head>
+<body>
+<p style="text-align:right; display:none;"></p>
+<div id="loading"><img src="/mobile/public/img/loading.gif" /></div>
+		<div class="con">
+							<section class=" goods-shop b-color-f no-shopping-title">
+                                                <a href="{$Think.HOSTPATH}/index.php/index/index/userinfo" ><div class="goods-shop-pic of-hidden" > 
+                    <h4  class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					<i  class="fanhuii fa fa-angle-left"></i>
+						<span class="fanhuispan" style="">我的银行卡</span>
+					</label></h4>
+
+                </div></a>
+              
+            </section>
+			<form>
+				<section class=" j-f-tel">
+				{volist name="cardlist" id="cl"}
+					<div class="b-color-f padding-lr">
+                         							<div id="list{$cl['ID']}" class="text-all dis-box j-text-all b-color-f card-div position-rel">
+
+								<div class="card-list">
+                                    <i onclick="card({$cl['ID']})" class="iconfont icon-xiao10"></i>
+									<p>{$cl['BankName']}</p>
+									<span>尾号{:substr($cl['CardID'],-4)}</span>
+								</div>
+								<span class="t-jiantou"></span>
+							</div>
+							
+					</div>
+					{/volist}
+					<div class="dis-box padding-all">
+						<input type="hidden" name="u-h-forget" value="u-f-tel" />
+                        <a href="addbank" class="btn-submit box-flex br-5 min-btn">+添加银行卡</a>
+					</div>
+				</section>
+			</form>
+
+		</div>
+	</body>
+<!--快捷导航-->
+{include file="../application/index/view/index/nav.html" /}
+    <script>
+    $(function(){
+       // 获取节点
+          var block = document.getElementById("ectouch-top");
+          var oW,oH;
+          // 绑定touchstart事件
+          block.addEventListener("touchstart", function(e) {
+           var touches = e.touches[0];
+           //oW = touches.clientX - block.offsetLeft;
+           oH = touches.clientY - block.offsetTop;
+           //阻止页面的滑动默认事件
+           document.addEventListener("touchmove",defaultEvent,false);
+          },false)
+         
+          block.addEventListener("touchmove", function(e) {
+           var touches = e.touches[0];
+           //var oLeft = touches.clientX - oW;
+           var oTop = touches.clientY - oH;
+          //  if(oLeft < 0) {
+          //   oLeft = 0;
+          //  }else if(oLeft > document.documentElement.clientWidth - block.offsetWidth) {
+          //   oLeft = (document.documentElement.clientWidth - block.offsetWidth);
+          //  }
+          // block.style.left = oLeft + "px";
+           block.style.top = oTop + "px";
+          var max_top = block.style.top =oTop;
+          if(max_top < 30){
+             block.style.top = 30 + "px";
+          }
+          if(max_top > 440){
+            block.style.top = 440 + "px";
+          }
+          },false);
+           
+          block.addEventListener("touchend",function() {
+           document.removeEventListener("touchmove",defaultEvent,false);
+          },false);
+          function defaultEvent(e) {
+           e.preventDefault();
+          }
+    })
+</script>
+<nav class="commom-nav dis-box ts-5" id="ectouch-top">
+        <div class="left-icon">
+            <div class="nav-icon"><i class="iconfont icon-jiantou1"></i>快速导航</div>
+            <div class="filter-top filter-top-index" id="scrollUp">
+                <i class="iconfont icon-jiantou"></i>
+                <span>顶部</span>
+            </div>
+        </div>
+        <div class="right-cont box-flex">
+            <ul class="nav-cont">
+                <li>
+                      <a href="/mobile/index.php">
+                        <i class="iconfont icon-home"></i>
+                        <p>首页</p>
+                      </a>  
+                </li>
+                <li>
+                    <a href="/mobile/index.php?m=search">
+                         <i class="iconfont icon-sousuo"></i>
+                         <p>搜索</p>
+                    </a>  
+                </li>
+                <li>
+                     <a href="/mobile/index.php?m=category">
+                         <i class="iconfont icon-caidan"></i>
+                         <p>分类</p>
+                     </a> 
+                </li>
+                <li>
+                     <a href="/mobile/index.php?m=cart">
+                         <i class="iconfont icon-gouwuche"></i>
+                         <p>购物车</p>
+                      </a> 
+                </li>
+                <li>
+                    <a href="/mobile/index.php?m=user">
+                         <i class="iconfont icon-geren"></i>
+                         <p>个人中心</p>
+                    </a> 
+                </li>
+ 
+                <li>
+                    <a href="/mobile/index.php?m=user&c=account">
+                         <i class="iconfont icon-money"></i>
+                         <p>资金管理</p>
+                    </a> 
+                </li>                
+                </ul>
+        </div>
+    </nav>
+    <div class="common-show"></div> 
+    <script>
+        function card(id){
+            $("#list"+id).hide();
+            $.get("DelBankMode",{id:id},function(){});
+        }
+    </script>
+</html>

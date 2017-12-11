@@ -1,0 +1,386 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<title>商家信息</title>
+
+
+	 	<script src="{$Think.HOSTPATH}/js/jquery.js"></script>
+	<script src="{$Think.HOSTPATH}/js/bootstrap.min.js"></script>
+	<link href="{$Think.HOSTPATH}/css/Admin/bootstrap.min.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+	<script src="{$Think.HOSTPATH}/js/book.js?2017042501"></script>
+			<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+			 	<link href="{$Think.HOSTPATH}/css/shop/shop.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+	<!-- 上传插件JS CSS -->
+	<link href="{$Think.HOSTPATH}/css/Admin/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+	<script src="{$Think.HOSTPATH}/js/fileinput.js" type="text/javascript"></script>
+	<!--简体中文-->
+    <script src="{$Think.HOSTPATH}/js/zh.js" type="text/javascript"></script>
+	
+	<script src="{$Think.HOSTPATH}/js/merchant.js?2017051004"></script>
+	 
+	<script type="text/javascript" charset="utf-8" src="{$Think.HOSTPATH}/js/shop/ueditor.config.js?2017051104"></script>
+    <script type="text/javascript" charset="utf-8" src="{$Think.HOSTPATH}/js/shop/ueditor.all.min.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="{$Think.HOSTPATH}/js/shop/zh-cn.js"></script>
+
+
+   	<style type="text/css">
+		#fm{
+			margin:0;
+			padding:10px 30px;
+		}
+		.ftitle{
+			font-size:14px;
+			font-weight:bold;
+			color:#666;
+			padding:5px 0;
+			margin-bottom:10px;
+			border-bottom:1px solid #ccc;
+			width:650px;
+			margin:0 auto;
+		}
+		.fitem{
+			margin:0 auto 5px;
+			width:650px;
+		
+		}
+		.fitem label{
+			display:inline-block;
+			width:80px;
+			text-align:right;
+			
+		}
+	</style>
+	
+</head>
+<body>
+<div class="col-lg-6">
+            <div>
+              <form id="merform" action="{$Think.HOSTPATH}/index.php/admin/admin/AddMerMode" onclick="return woca();" class="bs-example form-horizontal">
+                <fieldset>
+                  <legend>资料</legend>
+				                    <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">商家名称</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="iName" name="mname" placeholder="">
+                    </div>
+                  </div>
+				                    <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">商家账号</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="iAdmin" name="admin" placeholder="">
+                    </div>
+                  </div>
+				                    <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">商家密码</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="iPass" name="pass" placeholder="">
+                    </div>
+                  </div>				  
+                  <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">地址</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="iLocation" name='location' placeholder="">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">标题</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control"  id="iTitle" name="title" placeholder="">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">副标题</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control"  id="iSubTitle" name="subtitle" placeholder="">
+                    </div>
+                  </div>					          
+						  <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">坐标</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="iPoint" name="point" placeholder="">
+                    </div>
+                  </div>
+				                    <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">电话</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="iTel" name="tel" placeholder="">
+                    </div>
+                  </div>
+				                    <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">学校</label>
+                    <div class="col-lg-10">
+                      <select class="form-control" id="iSchool" name="school">
+					  {volist name="schoollist" id="sl"}
+                        <option value="{$sl['SchoolID']}">{$sl['SchoolName']}</option>
+						{/volist}
+                
+            
+                    
+                      </select>
+                    </div>
+                  </div>
+				                    <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">介绍</label>
+                    <div class="col-lg-10">
+						<script id="editor" name="content" type="text/plain" ></script>
+                    </div>
+                  </div>
+
+				                    <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">价格</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="iPrice" name="price" placeholder="">
+                    </div>
+                  </div>
+				                    <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">人均价格</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" name="average" id="iAverage" placeholder="">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="select" class="col-lg-2 control-label">类别</label>
+                    <div class="col-lg-4">
+                      <select class="form-control" id="iType" name="type">
+                        <option value="1">美食</option>
+                        <option value="2">外卖</option>
+                        <option value="3"> 娱乐</option>
+             <option value="4"> 住房</option>
+			  <option value="5"> 生活</option>
+			   <option value="6"> 教育培训</option>
+                    
+                      </select>
+
+                    </div>
+
+				
+                  </div>
+                  <div class="form-group">
+                    <label for="select" class="col-lg-2 control-label">折扣</label>
+                    <div class="col-lg-10">
+                      <input type="num" class="form-control" id="iDiscount" name="discount" value="" placeholder="">
+                    </div>
+                  </div>
+                  <div class="form-group">
+				  <label for="select" class="col-lg-2 control-label">商户图片</label>
+                    <div class="col-lg-10 col-lg-offset-2">
+
+             
+			         <input id="file-zh" name="file-zh" type="file" multiple>
+					 <input id = "iImg" name="img" type="hidden" >
+         <input id = "iSImg" name="simg" type="hidden" >
+
+
+                    </div>
+                  </div>
+				  			<div class="form-group">
+				  <label for="select" class="col-lg-2 control-label">商户相册</label>
+                    <div class="col-lg-10 col-lg-offset-2">
+				  <div id="kk1">
+				  </div>
+             					 <input  id="niubi" type="file" name="file[]" multiple/>
+				<button style=" margin-top:1rem;" type="button" class="ceshi btn btn-primary" >上传</button> 
+			<input id = "imglist" name="imglist" type="text" >
+                    </div>
+                  </div>
+				      <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+
+                      <button type="button" class="btn btn-primary" onclick="return isexit();" >保存</button> 
+	
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+
+		  
+		  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">状态</h4>
+            </div>
+            <div class="modal-body"><i class="fa fa-spinner fa-pulse"></i>加载中</div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+
+
+
+<script type="text/javascript">
+
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    var ue = UE.getEditor('editor');
+	
+
+
+
+   
+</script>
+</body>
+	  	<script>
+			function initFileInput(ctrlName, uploadUrl) {    
+				var control = $('#' + ctrlName); 
+
+				control.fileinput({
+					language: 'zh', //设置语言
+					maxFileCount: 1,
+					uploadUrl: uploadUrl, //上传的地址
+					allowedFileExtensions : ['jpg', 'png','gif'],//接收的文件后缀
+					showUpload: true, //是否显示上传按钮
+					showCaption: false,//是否显示标题
+					browseClass: "btn btn-primary", //按钮样式             
+					previewFileIcon: "<i class='glyphicon glyphicon-king'></i>", 
+				});
+			$("#file-zh").on('fileuploaded', function(event, data) {
+            
+			$("input[name='img']").val(data.response.imgpath);
+			$("input[name='simg']").val(data.response.simgpath);
+        });
+			}
+			initFileInput("file-zh","{$Think.HOSTPATH}/index.php/admin/admin/uploadimg");
+	
+	
+		$(function(){
+    // 提交表单
+	var form = new FormData();
+	form.append('filecount',0);
+
+
+
+	
+
+	
+	///ajax提交上传文件 和表单内容
+	$('#niubi').change(function(e){
+	//alert(e.target.files.length);
+	var fliecount = e.target.files.length;
+
+	form.append('filecount',fliecount);
+	for(var i = 0;i < e.target.files.length;i++)
+
+	{
+		var file = e.target.files[i];
+		
+		var max_size = 1024000 * 2;
+		if(file.size > max_size) {
+		layer.open({
+		  content: "上传的图片不能超过2MB!",
+		  time: 2,
+		  end: function (){
+			window.location.reload();
+			return false;
+		  }
+		});
+	  }
+	  	form.append('img'+i, file);
+	}
+
+
+});
+
+	$(".ceshi").click(function(){
+		// 验证数据
+	
+	var xhr;
+	if(window.ActiveXObject)
+	{
+		xhr = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	else if(window.XMLHttpRequest)
+	{
+		xhr = new XMLHttpRequest();
+	}
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState == 4){
+			if(xhr.status == 200 || xhr.status == 0){
+				var res = xhr.responseText;
+				
+				res = JSON.parse(res);
+				for(var i=0;i< res.imglist.length;i++)
+				{
+					$("#kk1").append("<img onclick='return wori(this);'  class='addimg' src='"+res['imglist'][i]+"' />");
+
+
+					
+				}
+
+			}
+		}
+	};
+	xhr.open("post", "/bookshop/public/index.php/user/user/uploadmubimg", true);
+	xhr.send(form);
+	
+	});
+
+
+	
+
+
+		
+
+	
+});
+function wori(obj)
+{
+	$(obj).remove();
+
+}
+
+function woca(){
+
+	var imglist = '';
+	$('.addimg').each(function(){
+	
+		imglist = $(this).attr('src').replace('{$Think.HOSTPATH}/uploads/','') + ',' + imglist;
+	})
+	var result = '';
+		result=imglist.substr(0,imglist.length-1)
+		$("#imglist").val(result);
+		
+
+}
+function isexit()
+{
+	var admin = $("input[name='admin']").val();
+	var pass = $("input[name='pass']").val();
+	if(admin.length < 1)
+	{
+		alert('请输入账号名');
+		return false;
+	}
+	if(pass.length < 1)
+	{
+		alert('请输入密码');
+		return false;	
+	}
+	$.post('isexitadmin',{admin:admin},function(data){
+		if(data < 1)
+		{
+			alert('账号名已存在,请重新输入');
+			return false;
+		}
+		else
+		{
+			$("#merform").submit();
+		}
+	})
+	
+}
+	</script>
+	
+
+</html>

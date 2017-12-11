@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>优惠券</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+ <link href="{$Think.HOSTPATH}/css/shop/shop.css?20170517" rel="stylesheet" type="text/css" />
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+	<link href="{$Think.HOSTPATH}/css/shop/iconfont.css" rel="stylesheet">
+    </head>
+<body>
+<p style="text-align:right; display:none;"></p>
+<div id="loading"><img src="{$Think.HOSTPATH}/img/loading.gif" /></div>
+<div class="con">
+    <div class="flow-coupon ">
+					<section class=" goods-shop b-color-f no-shopping-title">
+                                                <a href="{$Think.HOSTPATH}/index.php/index/index/userinfo" ><div class="goods-shop-pic of-hidden" > 
+                    <h4  class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					<i  class="fanhuii fa fa-angle-left"></i>
+						<span class="fanhuispan" style="">优惠券</span>
+					</label></h4>
+
+                </div></a>
+              
+            </section>
+        <nav style=" position:inherit;" class="tab-title b-color-f of-hidden">
+            <ul class="dis-box">
+                <li class="box-flex {:getchoose($type,2,'active','')}"><a href="{$Think.HOSTPATH}/index.php/user/user/coupon?type=2">全部</a></li>
+                <li class="box-flex {:getchoose($type,1,'active','')}"><a href="{$Think.HOSTPATH}/index.php/user/user/coupon?type=1">已使用</a></li>
+                <li class="box-flex {:getchoose($type,0,'active','')}"><a href="{$Think.HOSTPATH}/index.php/user/user/coupon?type=0">未使用</a></li>
+            </ul>
+        </nav>
+        <div id="j-tab-con" class="tab-con">
+            <div class="swiper-wrapper">
+
+				
+								<section class="swiper-slide store_info">
+                            <ul style="    padding: 1.1rem 0 1.1rem 0;">
+                                {volist name="couponlist" id="cl"}
+                                    <li class="big-remark-all">
+                                        <div class="dis-box position-rel">
+                                       
+                                            <div style="    padding-top: 0.7rem;
+    background: white;
+    padding-left: 0.7rem;">
+                                               <img style=" width:7rem; height:5rem;" src="{:getimg2($cl['Content'] -> SImg)}""/>
+                                            </div>
+											
+                                            <div  class="box-flex b-color-f padding-all position-rel">
+											<a href="{$Think.HOSTPATH}/index.php/user/user/coupondetail?id={$cl['ID']}">
+											<h4>{:defaultjson($cl['Content'],'Merchant')}</h4>
+                                                <h4>{:defaultjson($cl['Content'],'ShopName')}</h4>
+                                                <p style="color:#999;">{$cl['CreateTime']} 至 {$cl['EndTime']}
+												<span style=" float:right; margin-right:5rem">{eq name="cl['Type']" value="0"}未使用{/eq}{eq name="cl['Type']" value="1"}已使用{/eq}</span>
+												</p>
+                                               <i style="    float: right;
+    position: absolute;
+    right: 1rem;
+    top: 2rem;" class="iconfont icon-more f-08 col-7"></i><p class="t-first">{eq name="cl['Content'] -> Type" value="0"}学生折{/eq}
+	{eq name="cl['Content'] -> Type" value="1"}体验劵{/eq}</p></a>
+                                            </div>
+										
+                                        </div>
+                                    </li>
+                                    	{/volist}
+                            </ul>
+													  {empty name="couponlist"}                                <div class="no-div-message">
+                                    <i class="iconfont icon-biaoqingleiben"></i>
+                                    <p>亲，还没有优惠券哦～！</p>
+                                </div>{/empty}
+                            </section>
+				
+				
+            </div>
+        </div>
+    </div>
+        <!--快捷导航-->
+    <script>
+    $(function(){
+       // 获取节点
+          var block = document.getElementById("ectouch-top");
+          var oW,oH;
+          // 绑定touchstart事件
+          block.addEventListener("touchstart", function(e) {
+           var touches = e.touches[0];
+           //oW = touches.clientX - block.offsetLeft;
+           oH = touches.clientY - block.offsetTop;
+           //阻止页面的滑动默认事件
+           document.addEventListener("touchmove",defaultEvent,false);
+          },false)
+         
+          block.addEventListener("touchmove", function(e) {
+           var touches = e.touches[0];
+           //var oLeft = touches.clientX - oW;
+           var oTop = touches.clientY - oH;
+          //  if(oLeft < 0) {
+          //   oLeft = 0;
+          //  }else if(oLeft > document.documentElement.clientWidth - block.offsetWidth) {
+          //   oLeft = (document.documentElement.clientWidth - block.offsetWidth);
+          //  }
+          // block.style.left = oLeft + "px";
+           block.style.top = oTop + "px";
+          var max_top = block.style.top =oTop;
+          if(max_top < 30){
+             block.style.top = 30 + "px";
+          }
+          if(max_top > 440){
+            block.style.top = 440 + "px";
+          }
+          },false);
+           
+          block.addEventListener("touchend",function() {
+           document.removeEventListener("touchmove",defaultEvent,false);
+          },false);
+          function defaultEvent(e) {
+           e.preventDefault();
+          }
+    })
+</script>
+{include file="../application/index/view/index/nav.html" /}
+    <div class="common-show"></div>
+    </body>
+
+
+    </html>

@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>资金管理</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+ 
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+		 	    <link href="{$Think.HOSTPATH}/css/shop/shop.css?2017051701" rel="stylesheet" type="text/css" />
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+	<link href="{$Think.HOSTPATH}/css/shop/iconfont.css" rel="stylesheet">
+    </head>
+<body>
+<p style="text-align:right; display:none;"></p>
+<div id="loading"><img src="{$Think.HOSTPATH}/img/loading.gif" /></div>
+     <div class="con">
+	 							<section class=" goods-shop b-color-f no-shopping-title">
+                                                <a href="{$Think.HOSTPATH}/index.php/index/index/userinfo"><div class="goods-shop-pic of-hidden" > 
+                    <h4  class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					<i  class="fanhuii fa fa-angle-left"></i>
+						<span class="fanhuispan" style="">资金管理</span>
+					</label></h4>
+
+                </div></a>
+              
+            </section>
+                    <form action="{$Think.HOSTPATH}/index.php/wallet/wallet/getmoney" method="post" onsubmit="return check()">
+			<div class="user-recharge b-color-f">
+                           
+				<section class="margin-lr">
+				<div class="text-all dis-box j-text-all">
+					<label class="t-remark">提现金额</label>
+					<div class="box-flex input-text">
+						<input class="j-input-text" type="number"  placeholder="本次最大提现额度 ¥{$userinfo['Property']}" name="money">
+						<input class="j-input-text" type="hidden"  name="count" value="{$cardcount}">
+					<input class="j-input-text" type="hidden"  name="maxmoney" value="{$userinfo['Property']}">
+					<input class="j-input-text" type="hidden"  name="cardid" value="{empty name="cardlist"}{else /} {$cardlist[0]['ID']}{/empty}">
+				<input type="hidden" name="bankname" value="{empty name="cardlist"}{else /} {$cardlist[0]['BankName']}{/empty}">
+			   <input type="hidden" name="bankadd" value="{empty name="cardlist"}{else /} {$cardlist[0]['BankArea']}{/empty}">
+			   <input type="hidden" name="bankcard" value="{empty name="cardlist"}{else /}{$cardlist[0]['CardID']}{/empty}">
+			   <input type="hidden" name="username" value="{empty name="cardlist"}{else /}{$cardlist[0]['UserName']}{/empty}">
+					</div>
+				</div>
+				</section>
+				<section class="margin-lr">
+					<div class="dis-box text-all">
+						<label class="t-remark">提现方式</label>
+                                                                        <input type="hidden" name="bank_number" value="6215836551144114">
+                        <input type="hidden" name="real_name" value="莫治雄">
+                         <input type="hidden" name="user_note" value="横岗支行">
+						<div class="selectcard box-flex t-goods1 text-right onelist-hidden"><span class="cardspan">{empty name="cardlist"}没有绑定银行卡{else /} ({$cardlist[0]['BankName']}){$cardlist[0]['CardID']}{/empty}</span></div>
+                                                						<span class="t-jiantou"><i class="iconfont icon-jiantou tf-180"></i></span>
+					</div>
+					<!--充值方式弹出层-->
+					<div id="worini" class="carddiv show-time-con ts-3 b-color-1 j-filter-show-div">
+									<section class="goods-show-title of-hidden padding-all b-color-f">
+										<h3 class="fl g-c-title-h3">选择银行卡</h3>
+										<i class="iconfont icon-guanbi2 show-div-guanbi fr"></i>
+									</section>
+									<section class="s-g-list-con swiper-scroll">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide select-two">
+												<ul class="j-get-one padding-all">
+												{volist name="cardlist" id="cl"}
+                                                    													<li class="ect-select">
+														<label class="ts-1" name="{$cl['BankName']}" card="{$cl['ID']}" 
+													username="{$cl['UserName']}"	bankname="{$cl['BankName']}" bankadd="{$cl['BankArea']}" bankcard="{$cl['CardID']}"><dd><span>({$cl['BankName']}){$cl['CardID']}</span></dd><i class="fr iconfont icon-gou ts-1"></i></label>
+													</li>{/volist}
+																									</ul>
+											</div>
+											<div class="swiper-scrollbar"></div>
+										</div>
+									</section>
+								</div>
+				</section>
+			</div>
+
+			<div class="padding-all">
+				<button style=" width:48%" type="submit" class="btn-submit">提交申请</button>
+					<a href="{$Think.HOSTPATH}/index.php/wallet/wallet/bankcardlist"><button style=" width:48%" type="button" class="btn-submit">绑定银行卡</button></a>
+			</div>
+
+
+               
+			   
+			   
+			   
+                     </form>
+			<!--提现layer-->
+			<div class="kk1 mask-filter-div"></div>
+		</div>
+		<script type="text/javascript">
+		$(".selectcard").click(function(){
+		$("#worini").addClass('show');
+		$(".kk1").addClass('show');
+		})
+            function check(){
+				var maxmoney = parseFloat($("input[name='maxmoney']").val());
+				var money = parseFloat($("input[name='money']").val());
+
+
+					if(money == 0 || isNaN(money) == true )
+					{
+						alert('请输入金额');
+						return false;
+					}
+					else if(money > maxmoney)
+					{
+						alert('超过最大金额');
+						return false;
+					}
+		
+
+            }
+			$('.selectcard').click(function(){
+			var count = $("input[name='count']").val();
+			if(count == 0)
+			{
+				window.location.href='{$Think.HOSTPATH}/index.php/wallet/wallet/bankcardlist';
+			}
+			});
+			$('.ect-select').click(function(){
+				var card = $(this).find('label').attr('card');
+				var bankname = $(this).find('label').attr('bankname');
+				var bankadd = $(this).find('label').attr('bankadd');
+				var bankcard = $(this).find('label').attr('bankcard');
+				var username = $(this).find('label').attr('username');
+				$("input[name='cardid']").val(card);
+				$("input[name='bankname']").val(bankname);
+				$("input[name='bankcard']").val(bankcard);
+				$("input[name='bankadd']").val(bankadd);
+				$("input[name='username']").val(username);
+						$("#worini").addClass('show');
+				$(".kk1").addClass('show');
+				$(".cardspan").text("("+bankname+")"+bankcard+"")
+
+			})
+		</script>
+		
+		{include file="../application/index/view/index/nav.html" /}
+	</body>
+
+</html>

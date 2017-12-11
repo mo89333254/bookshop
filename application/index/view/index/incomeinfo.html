@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta charset="utf-8">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>交易记录</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+ 	    <link href="{$Think.HOSTPATH}/css/shop/shop.css" rel="stylesheet" type="text/css" />
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	 <script src="{$Think.HOSTPATH}/js/shop/fsrPMD.js?v=20170418"></script>
+	<script type="text/javascript">var ROOT_URL = '/'; </script>
+	<script src="{$Think.HOSTPATH}/js/shop/fastclick.js"></script>
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+    </head>
+
+<body>
+<p style="text-align:right; display:none;"></p>
+<div style=" display:none;" id="loading"><img src="{$Think.HOSTPATH}/img/loading.gif" /></div>
+<body>
+		<div class="con" id="checkPage">
+			<div class="category">
+
+			<section class=" goods-shop b-color-f no-shopping-title">
+                                                <a href="{$Think.HOSTPATH}/index.php/index/index/userinfo" ><div class="goods-shop-pic of-hidden" > 
+                    <h4  class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					<i  class="fanhuii fa fa-angle-left"></i>
+						<span class="fanhuispan" style="">交易记录</span>
+					</label></h4>
+
+                </div></a>
+              
+            </section>
+
+			
+                <!-- 内容 -->
+
+
+
+
+
+				<section class=" j-product-list  product-list-small" data="2">
+
+					<ul>		
+					{volist name="incomelist" id="sl"}					
+						<a href="{$Think.HOSTPATH}/index.php/index/index/incomedetail?orderid={$sl['OrderID']}&ptype={$sl['PType']}"><li>
+							<div style="height:5.5rem;" class="product-div">
+						
+								<div style="margin-left: 0;" class="product-text index-product-text">
+								<h4 style=" height:1.8rem;">{eq name="sl['OrderType']" value="1"}书本交易{/eq}{eq name="sl['OrderType']" value="2"}学生折交易{/eq}</h4>
+								
+								<p class="dis-box p-t-remark"><span class="box-flex">
+							{$sl['CreateTime']}
+						</span>{eq name="sl['PType']" value="1"}<span style="margin-right: 2rem; text-align: right; color:green;margin-top: -1rem; " class="box-flex">+{$sl['Price1']}</span>
+						{else/}<span style="margin-right: 2rem; text-align: right; color:red;margin-top: -1rem; " class="box-flex">-{$sl['Price1']}</span>{/eq}
+
+								</p>
+
+
+																										<p>
+			
+									</p>
+							
+								</div>
+									</div>
+			</li></a>
+										{/volist}	
+
+										
+									</ul>
+									</section>
+									<div style=" height:5rem;"></div>
+					
+			</div>
+            </div>
+
+			</div>
+            </div>
+
+
+        <!--地区选择 e-->
+	        <!--快捷导航-->
+{include file="../application/index/view/index/nav.html" /}
+
+    <div class="common-show"></div>
+            <div style=" display:none;" class="footer-cont"><span><img src='{$Think.HOSTPATH}/img/loading1.gif'>正在加载……</span></div>
+		<script type="text/javascript">    
+            			var Sliders = function() {
+				// 筛选价格区间 js
+				$("#slider-range").slider({
+					range: true,
+					min: 190,
+					max: 540,
+					step: 100,
+					values: [0, 540],
+					slide: function(event, ui) {
+						$("#slider-range-amount").text(ui.values[0] + " ~ " + ui.values[1]);
+                        $("input[name=price_min]").val(ui.values[0]);
+                        $("input[name=price_max]").val(ui.values[1]);
+					}
+				});
+				$("#slider-range-amount").text($("#slider-range").slider("values", 0) + " ~ " + $("#slider-range").slider("values", 1));
+			}();
+                        //异步数据
+            /*$(function(){
+                // 通过埋点判断是否使用缓存
+                var categoryPageFlag = window.BuryingPoint.search(/category/);
+                if(categoryPageFlag >= 0){
+                    var is_cache = false;
+                }else{
+                    var is_cache = true;
+                }
+                // 缓存ID
+                var cache_prefix = "3d71da856aa677127fcf654d7638c778";
+                // 请求URL
+                var url = "http://demo.dscmall.cn/mobile/index.php?m=category&a=products&id=380&brand=0&intro=&price_min=0&price_max=0&filter_attr=0&sort=goods_id&order=desc&keyword=&isself=0&hasgoods=0&promotion=0&region_id=2&area_id=19";
+                //$('#J_list').more({'address': url, 'trigger':'.get_more', 'amount':'10'});
+                //订单列表
+                $('.product-list').infinite({url: url, template:'j-product', cache: is_cache, cache_prefix: cache_prefix});
+                //加载更多
+                var loadingHeight = $(".product-list").outerHeight(true);  
+                function loadimgCont(){
+                    if ($(document).scrollTop() >= $(window).height() <$(document).height() - $(window).height()) {
+                            $(".footer-cont").html("<span><img src='{$Think.HOSTPATH}/img/loading1.gif'>正在加载……</span>")
+                    }
+                    if ($(document).scrollTop() >= $(document).height() - $(window).height()) {
+                             $(".footer-cont").html("<span>没有更多了</span>")
+                    }
+                    if(loadingHeight< $(window).height()){
+                         $(".footer-cont").css("display","none");
+                    }else{
+                         $(".footer-cont").css("display","block");
+                    }
+                }
+                loadimgCont();
+                $(window).scroll(function() {     
+                loadimgCont()
+                });
+                })*/
+		</script>
+
+	</body>
+
+</html>

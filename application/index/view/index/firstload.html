@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>填写资料</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+ 	<link href="{$Think.HOSTPATH}/css/shop/shop.css?2017052401" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+	<link href="{$Think.HOSTPATH}/css/shop/iconfont.css" rel="stylesheet">
+    </head>
+<body>
+<p style="text-align:right; display:none;"></p>
+<div id="loading"><img src="{$Think.HOSTPATH}/img/loading.gif" /></div>
+<section class="b-color-f  my-nav-box">
+
+	
+
+
+
+
+		<div class="s-user-top">
+			<div class="checksc dis-box s-user-top-1">
+				<span class="firstspan">校区</span>
+                  <span class="sch sspan">请选择校区</span>  <div class="dschool box-flex t-goods1 text-right onelist-hidden jian-top"></div>
+                                        				<span class="t-jiantou"><i class="iconfont icon-jiantou tf-180 jian-top"></i></span>
+														<input class="sch" type="hidden" name="school"  value="0"/>
+			</div>
+		</div>
+		
+				<div class="s-user-top">
+			<div class="checkdp dis-box s-user-top-1">
+			
+			<span class="firstspan">学院</span>
+			 <span class="sdp sspan">请选择学院</span> 
+			<div class="dschool box-flex t-goods1 text-right onelist-hidden jian-top"></div>
+                                        				<span class="t-jiantou"><i class="iconfont icon-jiantou tf-180 jian-top"></i></span>
+              
+				 <input class="sch" type="hidden" name="department" placeholder="请输入学院" value=""/>
+                                        			
+			</div>
+		</div>	
+				
+				<div class="s-user-top">
+			<div class="checkmj dis-box s-user-top-1">
+				<span class="firstspan">专业</span>
+			 <span class="smj sspan">请选择专业</span> 
+              <div class="dschool box-flex t-goods1 text-right onelist-hidden jian-top"></div>
+                                        				<span class="t-jiantou"><i class="iconfont icon-jiantou tf-180 jian-top"></i></span>
+				 <input class="sch" type="hidden" name="major" placeholder="请输入专业" value=""/>
+                                        				
+			</div>
+		</div>
+				
+				<div class="s-user-top">
+			<div class="checkclass dis-box s-user-top-1">
+				<span class="firstspan">年级</span>
+			 <span class="sclass sspan">请选择年级</span> 
+              <div class="dschool box-flex t-goods1 text-right onelist-hidden jian-top"></div>
+                                        				<span class="t-jiantou"><i class="iconfont icon-jiantou tf-180 jian-top"></i></span>
+				 <input class="sch" type="hidden" name="class" placeholder="请输入年级" value=""/>
+                                        				
+			</div>
+		</div>
+		
+
+	
+</section>
+
+<div class="ect-button-more padding-all">
+    <a class="btn-submit box-flex br-5 min-two-btn" type="button" href="javascript:0;">保存且浏览网站</a>
+</div>
+<!--updata-admin-->
+
+					<!--选择学校弹出层-->
+					<div class="sdiv show-time-con ts-3 b-color-1 j-filter-show-div">
+									<section class="goods-show-title of-hidden padding-all b-color-f">
+										<h3 class="fl g-c-title-h3">选择学校</h3>
+										<i class="iconfont icon-guanbi2 show-div-guanbi fr"></i>
+									</section>
+									<section class="s-g-list-con" style="overflow:scroll;">
+										<div class="">
+											<div class=" select-two">
+												<ul class="j-get-one padding-all">
+												{volist name="schoollist" id="sl"}
+                                                    													<li name="{$sl['SchoolName']}" schoolid="{$sl['SchoolID']}" class="sc-select ect-select">
+														<label class="ts-1" ><dd><span>{$sl['SchoolName']}</span></dd><i class="fr iconfont icon-gou ts-1"></i></label>
+													</li> 
+													{/volist}													
+																									</ul>
+											</div>
+											<div class="swiper-scrollbar"></div>
+										</div>
+									</section>
+								</div>
+								
+					<!--选择学院弹出层-->
+					<div class="dpdiv show-time-con ts-3 b-color-1 j-filter-show-div">
+									<section class="goods-show-title of-hidden padding-all b-color-f">
+										<h3 class="fl g-c-title-h3">选择学院</h3>
+										<i class="iconfont icon-guanbi2 show-div-guanbi fr"></i>
+									</section>
+									<section class="s-g-list-con" style="overflow:scroll;">
+										<div class="">
+											<div class=" select-two">
+												<ul class="j-get-one padding-all dpul">
+											
+																									</ul>
+											</div>
+											<div class="swiper-scrollbar"></div>
+										</div>
+									</section>
+								</div>
+					<!--选择专业弹出层-->
+					<div class="mjdiv show-time-con ts-3 b-color-1 j-filter-show-div">
+									<section class="goods-show-title of-hidden padding-all b-color-f">
+										<h3 class="fl g-c-title-h3">选择专业</h3>
+										<i class="iconfont icon-guanbi2 show-div-guanbi fr"></i>
+									</section>
+									<section class="s-g-list-con" style="overflow:scroll;">
+										<div class="">
+											<div class=" select-two">
+												<ul class="j-get-one padding-all mjul">
+												
+
+																								
+																									</ul>
+											</div>
+											<div class="swiper-scrollbar"></div>
+										</div>
+									</section>
+								</div>		
+
+					<!--选择班级弹出层-->
+					<div class="classdiv show-time-con ts-3 b-color-1 j-filter-show-div">
+									<section class="goods-show-title of-hidden padding-all b-color-f">
+										<h3 class="fl g-c-title-h3">选择班级</h3>
+										<i class="iconfont icon-guanbi2 show-div-guanbi fr"></i>
+									</section>
+									<section style="max-height:30rem;" class="s-g-list-con" style="overflow:scroll;">
+										<div class="">
+											<div  class=" select-two">
+												<ul class="j-get-one padding-all ">
+												                     <li  name="2011届" class="sclass-select ect-select">
+														<label class="ts-1" ><dd><span>2011届</span></dd><i class="fr iconfont icon-gou ts-1"></i></label>
+													</li> 
+																									                     <li  name="2012届" class="sclass-select ect-select">
+														<label class="ts-1" ><dd><span>2012届</span></dd><i class="fr iconfont icon-gou ts-1"></i></label>
+													</li> 
+																									                     <li  name="2013届" class="sclass-select ect-select">
+														<label class="ts-1" ><dd><span>2013届</span></dd><i class="fr iconfont icon-gou ts-1"></i></label>
+													</li> 
+																									                     <li  name="2014届" class="sclass-select ect-select">
+														<label class="ts-1" ><dd><span>2014届</span></dd><i class="fr iconfont icon-gou ts-1"></i></label>
+													</li> 
+																									                     <li  name="2015届" class="sclass-select ect-select">
+														<label class="ts-1" ><dd><span>2015届</span></dd><i class="fr iconfont icon-gou ts-1"></i></label>
+													</li> 
+																									                     <li  name="2016届" class="sclass-select ect-select">
+														<label class="ts-1" ><dd><span>2016届</span></dd><i class="fr iconfont icon-gou ts-1"></i></label>
+													</li> 
+																									                     <li  name="2017届" class="sclass-select ect-select">
+														<label class="ts-1" ><dd><span>2017届</span></dd><i class="fr iconfont icon-gou ts-1"></i></label>
+													</li> 
+
+																								
+																									</ul>
+											</div>
+											<div class="swiper-scrollbar"></div>
+										</div>
+									</section>
+								</div>									
+								
+								
+								
+<div class="msdiv mask-filter-div"></div>
+
+<script>
+	$(function($) {
+		$(".onclik-sex").click(function() {
+			$(".my-sex-box").addClass("current");
+		});
+		$(".my-sex-close").click(function() {
+			$(".my-sex-box").removeClass("current");
+		});
+	});
+	$(function() {
+		$('.sex-default-color').click(function() {
+			for (var i = 0; i < $('.sex-default-color').size(); i++) {
+				if (this == $('.sex-default-color').get(i)) {
+					$('.sex-default-color').eq(i).children('a').addClass('active');
+				} else {
+					$('.sex-default-color').eq(i).children('a').removeClass('active');
+				}
+			}
+		})
+	})
+
+$(".user-sex").click(function(){
+	var sex = $(".active input[name='sex']").val();
+
+	$.post("{$Think.HOSTPATH}/index.php/user/user/editinfomode",{obj:'Sex',val:sex,ret:1},function(data){
+		$("#sex").text(data.sex);
+	},"json");
+
+})
+
+
+
+$(".checksc").click(function(){
+	$(".sdiv").addClass('show');
+	$(".msdiv").addClass('show');
+})
+$(".checkdp").click(function(){
+
+	$(".dpdiv").addClass('show');
+	$(".msdiv").addClass('show');
+})
+$(".checkmj").click(function(){
+
+	$(".mjdiv").addClass('show');
+	$(".msdiv").addClass('show');
+})
+$(".checkclass").click(function(){
+	$(".classdiv").addClass('show');
+	$(".msdiv").addClass('show');
+})
+
+///学校点击
+$(".sc-select").click(function(){
+	var schoolid = $(this).attr('schoolid');
+	var schoolname = $(this).attr('name');
+$(".sch").text(schoolname);
+$("input[name='school']").val(schoolid);
+
+$(".sdp-select").remove();
+	$(".sdp").text('请选择学院');
+	$(".smj").text('请选择专业');
+	$("input[name='department']").val('');
+	$("input[name='major']").val('');
+$.post('{$Think.HOSTPATH}/index.php/index/index/getxueyuan',{schoolid:schoolid},function(data){
+	var jsondata = eval("("+data+")");
+	for(var i = 0;i< jsondata.length;i++)
+	{
+		$(".dpul").append(" <li onclick='return sdpselect(this);' dpid='"+jsondata[i]['ID']+"' name='"+jsondata[i]['Name']+"' class='sdp-select ect-select'>	<label class='ts-1' ><dd><span>"+jsondata[i]['Name']+"</span></dd><i class='fr iconfont icon-gou ts-1'></i></label></li>");
+	}
+})
+	$(".sdiv").removeClass('show');
+	$(".msdiv").removeClass('show');
+})
+
+///学院点击
+$(".sdp-select").click(function(){
+	
+	var dpname = $(this).attr('name');
+	var dpid = $(this).attr('dpid');
+$(".sdp").text(dpname);
+$("input[name='department']").val(dpname);
+
+$(".smj-select").remove();
+	$(".smj").text('请选择专业');
+	$("input[name='major']").val('');
+$.post('{$Think.HOSTPATH}/index.php/index/index/getmajor',{dpid:dpid},function(data){
+	var jsondata = eval("("+data+")");
+	for(var i = 0;i< jsondata.length;i++)
+	{
+		$(".mjul").append(" <li onclick='return smjselect(this);'  name='"+jsondata[i]['Name']+"' class='smj-select ect-select'>	<label class='ts-1' ><dd><span>"+jsondata[i]['Name']+"</span></dd><i class='fr iconfont icon-gou ts-1'></i></label></li>");
+	}
+})
+	$(".dpdiv").removeClass('show');
+	$(".msdiv").removeClass('show');
+})
+
+///专业点击
+
+
+function smjselect(obj)
+{
+		var mjname = $(obj).attr('name');
+	$(".smj").text(mjname);
+	$("input[name='major']").val(mjname);
+
+	$(".mjdiv").removeClass('show');
+	$(".msdiv").removeClass('show');
+}
+
+//学院点击(动态生成)
+function sdpselect(obj)
+{
+	var dpname = $(obj).attr('name');
+	var dpid = $(obj).attr('dpid');
+	$(".sdp").text(dpname);
+	$("input[name='department']").val(dpname);
+	
+$(".smj-select").remove();
+	$(".smj").text('请选择专业');
+	$("input[name='major']").val('');
+$.post('{$Think.HOSTPATH}/index.php/index/index/getmajor',{dpid:dpid},function(data){
+	var jsondata = eval("("+data+")");
+	for(var i = 0;i< jsondata.length;i++)
+	{
+		$(".mjul").append(" <li onclick='return smjselect(this);'  name='"+jsondata[i]['Name']+"' class='smj-select ect-select'>	<label class='ts-1' ><dd><span>"+jsondata[i]['Name']+"</span></dd><i class='fr iconfont icon-gou ts-1'></i></label></li>");
+	}
+})	
+	
+	$(".dpdiv").removeClass('show');
+	$(".msdiv").removeClass('show');
+
+}
+
+///班级点击
+$(".sclass-select").click(function(){
+	
+	var classname = $(this).attr('name');
+$(".sclass").text(classname);
+$("input[name='class']").val(classname);
+
+	$(".classdiv").removeClass('show');
+	$(".msdiv").removeClass('show');
+})
+
+$(".btn-submit").click(function(){
+	var schoolid = $("input[name='school']").val();
+	var major = $("input[name='major']").val();
+	var department = $("input[name='department']").val();
+	var sclass = $("input[name='class']").val();
+	if(schoolid == 0)
+	{
+		d_messages('请选择学校');
+		return false;
+	}
+	if(department.length < 1)
+	{
+		d_messages('请输入学院');
+		return false;	
+	}	
+	if(major.length < 1)
+	{
+		d_messages('请输入专业');
+		return false;	
+	}
+
+	if(sclass.length < 1)
+	{
+		d_messages('请输入班级');
+		return false;	
+	}	
+	$.post('{$Think.HOSTPATH}/index.php/index/index/getfirst',{schoolid:schoolid,major:major,department:department,sclass:sclass},function(data){
+		if(data > 0)
+		{
+			d_messages('保存成功,正在跳转页面');
+			   setTimeout(function () { 
+			window.location.href="{$Think.HOSTPATH}/index.php/index/index/index1";
+			}, 1000);
+			
+		}
+		else if(data == 0)
+		{
+			d_messages('保存错误,请重新填写');
+		}
+	})
+})
+</script>
+</body>
+</html>

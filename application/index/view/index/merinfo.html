@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta charset="utf-8">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>商家信息</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+ 	    <link href="{$Think.HOSTPATH}/css/shop/shop.css" rel="stylesheet" type="text/css" />
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	 <script src="{$Think.HOSTPATH}/js/shop/fsrPMD.js?v=20170418"></script>
+	<script type="text/javascript">var ROOT_URL = '/'; </script>
+	<script src="{$Think.HOSTPATH}/js/shop/fastclick.js"></script>
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+	 <link href="{$Think.HOSTPATH}/css/shop/student.css" rel="stylesheet" type="text/css" />
+
+<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&libraries=convertor"></script>
+    </head>
+
+<body>
+<p style="text-align:right; display:none;"></p>
+<div style=" display:none;" id="loading"><img src="{$Think.HOSTPATH}/img/loading.gif" /></div>
+<body>
+		<div class="con" id="checkPage">
+			<div class="category">
+						<section class=" goods-shop b-color-f no-shopping-title">
+                                                <a href="{$Think.HOSTPATH}/index.php/index/index/student"><div class="goods-shop-pic of-hidden" > 
+                    <h4  class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					<i  class="fanhuii fa fa-angle-left"></i>
+						<span mer-id="{$merinfo['ID']}" user-id="{$userid}" class="fanhuispan" style="">商家信息</span>
+					</label></h4>
+
+                </div></a>
+              
+            </section>
+
+			<input type="hidden" value="{$merinfo['ID']}" id="merid" name="merid">
+				<section class="product-list j-product-list  product-list-small" data="2">
+
+					<ul>		
+							
+						<li>
+							<div class="product-div">
+								<a href="{$Think.HOSTPATH}/index.php/user/user/merimglist/merid/{$merinfo['ID']}"><img class="product-list-img" style="    margin-right: 2rem; width: 14rem; height:10rem;"  src="{:getimg2($merinfo['Img'])}"></a>
+								<div class="product-text index-product-text">
+								<a href="{$Think.HOSTPATH}/index.php/user/user/merimglist/merid/{$merinfo['ID']}"><h4>{$merinfo['Merchant']}</h4></a>
+								
+								<p class="dis-box p-t-remark"><span class="box-flex">
+										<i class="fa fa-star staract">
+                </i><i class="fa fa-star staract">
+                </i><i class="fa fa-star staract">
+                </i><i class="fa fa-star staract">
+                </i><i class="fa fa-star staract">
+                </i>
+						</span>
+
+								</p>
+						<p class="dis-box p-t-remark"><span class="box-flex">
+						{$merinfo['Title']}
+						</span></p>
+						<p class="dis-box p-t-remark"><span class="box-flex">
+						{$merinfo['SubTitle']}
+						</span>
+					
+						</p>						
+
+ 
+
+								
+								</div>
+									</div>
+			</li>
+										
+
+										
+									</ul>
+									</section>
+
+				<section class="goods-shop b-color-f no-shopping-title">
+                                                <div class="goods-shop-pic of-hidden">
+                   <!-- <a href="http://api.map.baidu.com/marker?location={:changepoint($merinfo['Point'])}&title={$merinfo['Merchant']}&content={$merinfo['Merchant']}&output=html&src=bababook"><h4 class="title-hrbg m-top06"><label class="t-remark g-t-temark">-->
+				   <a class="getpoint" name="{$merinfo['Merchant']}" point="{$merinfo['Point']}" href=""><h4 class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					
+					<i style="font-size:1.5rem; margin-right: 1rem;" class="iconfont icon-dingwei"></i>{$merinfo['Location']}</a>
+					<a href="tel:+86 {$merinfo['Tel']}"><i style="float:right; color: #ec5151; position: absolute; right: 1rem; top: 1.5rem;" class="fa fa-phone"></i></a>
+                </label><hr> </h4>
+
+                </div>
+              
+            </section>
+
+<section style=" margin-top:2rem;" class="swiper-slide store_info">
+                            <ul class="">
+                                
+                                    <li class=" big-remark-all">
+                                        <div class="dis-box position-rel">
+                                            <a href="javascript:0;"  class="product-div-link tiyanlink"></a>
+                                            <div style=" background:#ec5151;   border: 0.7rem solid; color:white; width:8.5rem;" class="  tb-lr-center">
+                                                <span class="b-r-a-price"><sup>¥</sup>买单</span>
+                                            </div>
+                                            <div class="box-flex b-color-f padding-all position-rel">
+                                                <h4 dc="{:floor($merinfo['Discount'])}" class="mdc" style=" margin-top:1rem; font-size:1.5rem;">学生折:{:floor($merinfo['Discount'])}折    <i style="    float: right;
+    position: absolute;
+    right: 1rem;
+    top: 2rem;" class="iconfont icon-more f-08 col-7"></i></h4>
+                                              
+                                            </div>
+                                        </div>
+                                    </li>
+                                    
+                            </ul>
+                            </section>
+			
+
+				<section class="swiper-slide store_info">
+                            <ul style="    padding: 1.1rem 0 1.1rem 0;">
+                                {volist name="shoplist" id="sl"}
+                                    <li data-shopid="{$sl['ID']}" class="smclick big-remark-all">
+                                        <div class="dis-box position-rel">
+                                       
+                                            <div style="    padding-top: 0.7rem;
+    background: white;
+    padding-left: 0.7rem;">
+                                               <img style=" width:7rem; height:5rem;" src="{:getimg2($sl['SImg'])}"/>
+                                            </div>
+											
+                                            <div  class="box-flex b-color-f padding-all position-rel">
+											
+											<a href="javascript:0;">
+                                                <h4>{$sl['ShopName']}</h4>
+                                                <p class="t-first">￥{$sl['Price']}</p>
+                                               <i style="    float: right;
+    position: absolute;
+    right: 1rem;
+    top: 2rem;" class="iconfont icon-more f-08 col-7"></i><p>{eq name="sl['Type']" value="0"}学生折{/eq}{eq name="sl['Type']" value="1"}体验劵{/eq}</p></a>
+                                            </div>
+										
+                                        </div>
+                                    </li>
+                                    	{/volist}
+                            </ul>
+                            </section>
+<section class="m-top08  goods-shop b-color-f no-shopping-title">
+                                                <div class="goods-shop-pic of-hidden">
+                    <h4 class="title-hrbg m-top06"><label class="t-remark g-t-temark">商家信息</label><hr> </h4>
+                    <div class="g-s-p-con product-one-list of-hidden scrollbar-none j-g-s-p-con padding-all swiper-container-horizontal" style="cursor: -webkit-grab;">
+                     
+							{$merinfo['Content']}
+              
+
+
+                                                  
+                    </div>
+                </div>
+              
+            </section>
+
+									<div style=" height:5rem;"></div>
+					
+			</div>
+            </div>
+
+			</div>
+            </div>
+
+
+			
+			
+        <!--地区选择 e-->
+        <!--快捷导航-->
+{include file="../application/index/view/index/nav.html" /}
+	        <!--快捷导航-->
+<div id="main_demo">
+
+
+
+
+</div>  
+    <div class="common-show"></div>
+            <div style=" display:none;" class="footer-cont"><span><img src='{$Think.HOSTPATH}/img/loading1.gif'>正在加载……</span></div>
+
+	<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">请输入消费金额</h4>
+            </div>
+            <div class="modal-body">
+			  
+                  
+					<input name="stprice" style=" width:100%;" value="" type="number" />
+                  
+           
+			
+			
+			</div>
+            <div class="modal-footer">
+             
+                <button type="button" style=" border:0; background:#ec5151;;" class="stbtn btn btn-primary">提交更改</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>	
+
+	
+			
+
+<script>
+    /** 将商品信息存储 */
+	var id = $("input[name='merid']").val();
+	$.get('{$Think.HOSTPATH}/index.php/index/index/studentinfocookie',{id:id},function(){
+	
+	});
+
+$(".smclick").click(function(){
+		var shopid = $(this).attr('data-shopid');
+		var userid = {$userid};
+	  $.get("{$Think.HOSTPATH}/index.php/index/caozuo/merisexit",{shopid:shopid,userid:userid}, function(result){
+
+    if(result > 1)
+	{
+		d_messages('体验劵每人只能购买一次');
+		return false;
+	}
+	else
+	{
+
+		window.location.href='{$Think.HOSTPATH}/index.php/index/index/merdetail?id='+shopid;
+	}
+  });
+});
+$(".tiyanlink").click(function(){
+$("input[name='stprice']").val("");
+$('#myModal').modal('show')
+})
+$(".stbtn").click(function(){
+	var merid = $(".fanhuispan").attr('mer-id');
+	var stprice = $("input[name='stprice']").val();
+	var userid = $(".fanhuispan").attr('user-id');
+	var info = 0 + "," + userid + "," + merid;
+	var discount = $(".mdc").attr('dc');
+	if(stprice.length < 1)
+	{
+		d_messages('请输入金额');
+		return false;
+	}
+	stprice = (parseFloat(discount * 0.1)*parseFloat(stprice)).toFixed(2); 
+	window.location.href="{$Think.HOSTPATH}/index.php/wpay/wpay/merpay?type=0&info="+info+"&fee="+stprice;
+});
+$(".stdis").click(function(){
+var pass = $("input[name='paypass']").val();
+	var merid = $(".fanhuispan").attr('mer-id');
+	//var stprice = $("input[name='stprice']").val();
+	var stprice = 55;
+	if(pass.length < 1)
+	{
+		d_messages("请输入密码");
+		return false;
+	}
+	$.get('{$Think.HOSTPATH}/index.php/wpay/wpay/linqianzhifu',{price:stprice,merid:merid,shopid:0},function(data){
+		if(data == 2)
+		{
+			d_messages('余额不足,请使用其他支付方式');
+			$('#myModal1').modal('hide')
+			return false;
+		}
+
+		else if(data == 1)
+		{
+			d_messages('支付成功');
+			$('#myModal1').modal('hide');
+		}
+		else if(data == 0)
+		{
+			d_messages('支付失败');
+		}
+	})
+});
+changepoint();
+	function changepoint()
+	{
+	
+	var point = $(".getpoint").attr('point');
+	var name = $(".getpoint").attr('name');
+	var k1 = point.split(",");
+	Lng = k1[1];
+    Lat = k1[0];
+    qq.maps.convertor.translate(new qq.maps.LatLng(Lng,Lat), 3, function(res){
+       var src = "http://apis.map.qq.com/uri/v1/routeplan?type=bus&from=&to="+name+"&tocoord="+res[0]+"&policy=1&referer=myapp";
+			$(".getpoint").attr('href',src)
+    });
+	}
+</script>
+	</body>
+
+</html>

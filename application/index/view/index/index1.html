@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta charset="utf-8">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>巴巴布图书平台</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170419" rel="stylesheet" type="text/css" />
+
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170419"></script>
+	    <script src="{$Think.HOSTPATH}/js/shop/rini.js?2017060903"></script>
+ <link href="{$Think.HOSTPATH}/css/shop/erji.css?2017060903" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">var ROOT_URL = '/'; var USER_ID = '{$userid}'</script>
+	<script src="{$Think.HOSTPATH}/js/shop/fastclick.js"></script>
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+	<link href="{$Think.HOSTPATH}/css/shop/shop.css?20170604" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+	
+
+    </head>
+
+<body ontouchstart="">
+<style>
+.dropdown-menu{
+	min-width:70px;
+}
+.erji{
+position: relative;
+    left: 21rem;
+    background: white;
+    z-index: 9999;
+    border-radius: 1%;
+    border: 1px solid black;
+
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+</style>
+<p style="text-align:right; display:none;"></p>
+<div style=" display:none;" id="loading"><img src="{$Think.HOSTPATH}/img/loading.gif" /></div>
+
+
+		<div class="con" id="checkPage">
+			<div class="category">
+			
+				<section class="search category-search common-search">
+
+                    <div class="text-all dis-box j-text-all text-all-back">
+													                  <div style=" " class=" ">
+	<button style="  background: #EEEEEE;
+    
+    height: 3.2rem;" type="button" class="btn dropdown-toggle" id="dropdownMenu1" 
+			data-toggle="dropdown">
+		<span class="wokk">{switch name="stype"}
+    {case value="1"}按名称{/case}
+	{case value="2"}按作者{/case}
+	{case value="3"}按出版社{/case}
+   
+{/switch}</span>
+		<span class="caret"></span>
+	</button>
+	<ul style="    margin-top: -0.5rem;
+    margin-left: 1rem;" class="dropdown-menu " role="menu" aria-labelledby="dropdownMenu1">
+		<li >
+			<a class="aa" sid="1"  href="javascript:0;">按名称</a>
+		</li>
+		<li   >
+			<a  class="aa" role="menuitem" sid="2" tabindex="-1" href="javascript:0;">按作者</a>
+		</li>
+		<li >
+			<a class="aa" sid="3"  href="javascript:0;">按出版社</a>
+		</li>
+	<input type="hidden" name="stype" value="1" />
+
+	</ul>
+</div>
+				
+				  <div style="margin-left: -1rem;" class="box-flex input-text n-input-text i-search-input">
+                 
+                        <div class="j-input-text nav-soso"><input style="    padding-left: 0rem; " type="text" value="{$search}" name="search"/><a onclick="return indexserch();" href="javascript:0;"><i class="iconfont icon-sousuo"></i></a></div>
+                    </div> 
+
+                        						<div style="    margin-top: 0.7rem;    font-size: 1.5rem;">
+                      <div class="">
+    <button type="button" style="font-size:1rem; background:white;" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">{$schoolname}
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1">
+	{volist name="schoollist" id="sll"}
+        <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="{$Think.HOSTPATH}/index.php/index/caozuo/getlocation?schoolid={$sll['SchoolID']}&schoolname={$sll['SchoolName']}">{$sll['SchoolName']}</a>
+        </li>
+		{/volist}
+    </ul>
+</div></div>
+                        					</div>
+				</section>
+				
+
+
+
+
+
+<nav class="kk1">
+    <ul class="kk1ul">
+        <li><a href="javascript:0;">二手教材<i class="fa fa-sort-down">
+                </i></a>
+				            <ul>
+							<!--<li><a href="{$Think.HOSTPATH}/index.php/index/index/index1?ordertype=0&sex={$sex}&sc=0&fenlei=0">默认</a></li>-->
+							<li><a href="{$Think.HOSTPATH}/index.php/index/index/index1?ordertype=0&sex={$sex}&sc=0&fenlei=0&fenleitype=1&zhufenlei=0">全部</a></li>
+				{volist name="fenleilist[1]['row']" id="fl" }
+				{eq name="fl['ParentID']" value="0" }
+                <li><a href="javascript:0;">{eq name="fl['ID']" value="$fenleiinfo['ParentID']"}<i class="fa fa-check">
+                </i>{/eq}{$fl['Name']}</a>
+					<ul>
+						<li><a href="{$Think.HOSTPATH}/index.php/index/index/index1?ordertype=0&sex={$sex}&sc=0&fenlei=0&fenleitype=1&zhufenlei={$fl['ID']}">全部</a></li>
+						{volist name="fenleilist[1]['row']" id="sfl" empty=""}
+							{eq name="sfl['ParentID']" value="$fl['ID']"}
+						  <li><a href="{$Think.HOSTPATH}/index.php/index/index/index1?ordertype=0&sex={$sex}&sc=0&fenleitype=1&fenlei={$sfl['ID']}">{eq name="sfl['ID']" value="$fenlei"}<i class="fa fa-check">
+                </i>{/eq}{$sfl['Name']}</a></li>
+						  {/eq}
+						{/volist}
+					</ul>
+				</li>
+				{/eq}
+				{/volist}
+            </ul>
+				</li>
+		        <li><a href="javascript:0;">二手教辅<i class="fa fa-sort-down">
+                </i></a>
+				            <ul>
+							<!--<li><li><a href="{$Think.HOSTPATH}/index.php/index/index/index1?ordertype=0&sex={$sex}&sc=0&fenlei=0">默认</a></li>-->
+							<li><a href="{$Think.HOSTPATH}/index.php/index/index/index1?ordertype=0&sex={$sex}&sc=0&fenlei=0&fenleitype=3&zhufenlei=0">全部</a></li>
+				
+				{volist name="fenleilist[3]['row']" id="fl" empty=""}
+				{eq name="fl['ParentID']" value="0" }
+                <li><a href="javascript:0;">{eq name="fl['ID']" value="$fenleiinfo['ParentID']"}<i class="fa fa-check">
+                </i>{/eq}{$fl['Name']}</a>
+					<ul>
+					<li><a href="{$Think.HOSTPATH}/index.php/index/index/index1?ordertype=0&sex={$sex}&sc=0&fenlei=0&fenleitype=3&zhufenlei={$fl['ID']}">全部</a></li>
+						{volist name="fenleilist[3]['row']" id="sfl" empty=""}
+							{eq name="sfl['ParentID']" value="$fl['ID']"}
+						  <li><a href="{$Think.HOSTPATH}/index.php/index/index/index1?ordertype=0&sex={$sex}&sc=0&fenleitype=3&fenlei={$sfl['ID']}">{eq name="sfl['ID']" value="$fenlei"}<i class="fa fa-check">
+                </i>{/eq}{$sfl['Name']}</a></li>
+						  {/eq}
+						{/volist}
+					</ul>
+				</li>
+				{/eq}
+				{/volist}
+				
+            </ul>
+        </li>				
+        <li><a href="javascript:0;">其他二手书<i class="fa fa-sort-down">
+                </i></a>
+				            <ul>
+							<!--<li><li><a href="{$Think.HOSTPATH}/index.php/index/index/index1?ordertype=0&sex={$sex}&sc=0&fenlei=0">默认</a></li>-->
+							<li><a href="{$Think.HOSTPATH}/index.php/index/index/index1?ordertype=0&sex={$sex}&sc=0&fenlei=0&fenleitype=2&zhufenlei=0">全部</a></li>
+				{volist name="fenleilist[2]['row']" id="fl" }
+				{eq name="fl['ParentID']" value="0" }
+                <li><a href="javascript:0;">{eq name="fl['ID']" value="$fenleiinfo['ParentID']"}<i class="fa fa-check">
+                </i>{/eq}{$fl['Name']}</a>
+					<ul>
+					<li><a href="{$Think.HOSTPATH}/index.php/index/index/index1?ordertype=0&sex={$sex}&sc=0&fenlei=0&fenleitype=2&zhufenlei={$fl['ID']}">全部</a></li>
+						{volist name="fenleilist[2]['row']" id="sfl" empty="" }
+							{eq name="sfl['ParentID']" value="$fl['ID']"}
+						  <li><a href="{$Think.HOSTPATH}/index.php/index/index/index1?ordertype=0&fenleitype=2&sex={$sex}&sc=0&fenlei={$sfl['ID']}">{eq name="sfl['ID']" value="$fenlei"}<i class="fa fa-check">
+                </i>{/eq}{$sfl['Name']}</a></li>
+						  {/eq}
+						{/volist}
+					</ul>
+				</li>
+				{/eq}
+				{/volist}
+            </ul>
+        </li>
+
+        <li><a href="javascript:0;">				{switch name="ordertype"}
+    {case value="1"}按折扣<i class="fa fa-sort-down">
+                </i>{/case}
+    {case value="2"}按价格<i class="fa fa-sort-down">
+                </i>{/case}
+	    {case value="3"}按上架时间<i class="fa fa-sort-down">
+                </i>{/case}
+    {case value="4"}按出版日期<i class="fa fa-sort-down">
+                </i>{/case}
+	{case value="0"}排序方式<i class="fa fa-sort-down">
+                </i>{/case}
+    {default /}排序方式<i class="fa fa-sort-down">
+                </i>
+{/switch}</a>
+            <ul>
+			<li >
+			<a  href="{$Think.HOSTPATH}/index.php/index/index/index1?ordertype=0&sex={$sex}&sc=0&fenlei={$fenlei}&fenleitype={$fenleitype}&zhufenlei={$zhufenlei}">默认</a>
+		</li>
+		<li >
+			<a  href="{$Think.HOSTPATH}/index.php/index/index/index1?ordertype=1&sex={$sex}&sc=1&fenlei={$fenlei}&fenleitype={$fenleitype}&zhufenlei={$zhufenlei}">按折扣从低到高</a>
+		</li>
+				<li >
+			<a  href="{$Think.HOSTPATH}/index.php/index/index/index1?ordertype=1&sex={$sex}&sc=0&fenlei={$fenlei}&fenleitype={$fenleitype}&zhufenlei={$zhufenlei}">按折扣从高到低</a>
+		</li>
+		
+		
+		<li >
+			<a  href="{$Think.HOSTPATH}/index.php/index/index/index1?ordertype=2&sex={$sex}&sc=1&fenlei={$fenlei}&fenleitype={$fenleitype}&zhufenlei={$zhufenlei}">按价格从低到高</a>
+		</li>
+				<li >
+			<a  href="{$Think.HOSTPATH}/index.php/index/index/index1?ordertype=2&sex={$sex}&sc=0&fenlei={$fenlei}&fenleitype={$fenleitype}&zhufenlei={$zhufenlei}">按价格从高到低</a>
+		</li>
+		
+		
+				<li >
+			<a  href="{$Think.HOSTPATH}/index.php/index/index/index1?ordertype=3&sex={$sex}&sc=1&fenlei={$fenlei}&fenleitype={$fenleitype}&zhufenlei={$zhufenlei}">按上架时间从旧到新</a>
+		</li>
+						<li >
+			<a  href="{$Think.HOSTPATH}/index.php/index/index/index1?ordertype=3&sex={$sex}&sc=0&fenlei={$fenlei}&fenleitype={$fenleitype}&zhufenlei={$zhufenlei}">按上架时间从新到旧</a>
+		</li>
+		
+				<li >
+			<a  href="{$Think.HOSTPATH}/index.php/index/index/index1?ordertype=4&sex={$sex}&sc=1&fenlei={$fenlei}&fenleitype={$fenleitype}&zhufenlei={$zhufenlei}">按出版日期从旧到新</a>
+		</li>
+				<li >
+			<a  href="{$Think.HOSTPATH}/index.php/index/index/index1?ordertype=4&sex={$sex}&sc=0&fenlei={$fenlei}&fenleitype={$fenleitype}&zhufenlei={$zhufenlei}">按出版日期从新到旧</a>
+		</li>
+            </ul>
+        </li>
+        <li><a href="javascript:0;">		{switch name="sex"}
+    {case value="1"}男<i class="fa fa-sort-down">
+                </i>{/case}
+    {case value="2"}女<i class="fa fa-sort-down">
+                </i>{/case}
+    {default /}性别<i class="fa fa-sort-down">
+                </i>
+{/switch}</a>
+		<ul>
+				<li >
+			<a href="{$Think.HOSTPATH}/index.php/index/index/index1?sex=0&ordertype={$ordertype}&sc={$sc}&fenlei={$fenlei}&fenleitype={$fenleitype}&zhufenlei={$zhufenlei}">全部</a>
+		</li>
+		<li>
+			<a href="{$Think.HOSTPATH}/index.php/index/index/index1?sex=1&ordertype={$ordertype}&sc={$sc}&fenlei={$fenlei}&fenleitype={$fenleitype}&zhufenlei={$zhufenlei}">男 <i class="man fa fa-user"></i></a>
+		</li>
+		<li>
+			<a href="{$Think.HOSTPATH}/index.php/index/index/index1?sex=2&ordertype={$ordertype}&sc={$sc}&fenlei={$fenlei}&fenleitype={$fenleitype}&zhufenlei={$zhufenlei}">女 <i class="woman fa fa-user"></i></a>
+		</li>
+		</ul>
+		</li>
+    </ul>
+</nav>
+
+
+
+
+			
+                <!-- 内容 -->
+<div id="myCarousel1" class="carousel slide" data-interval="5000">
+
+        <ol class="carousel-indicators">
+		{volist name="bannerlist" id="k1"}
+            <li data-target="#myCarousel1" data-slide-to="{$i-1}" {eq name="i" value="1"}class="active"{/eq}></li>
+		{/volist}
+        </ol>
+
+        <div class="carousel-inner">
+			{volist name="bannerlist" id="bl"}
+            <div class='item {eq name="i" value="1"}active{/eq}'>
+                <a href="{$bl['Href']}"><img alt="first" style=" width:100%; height:20rem; " src="{:getimg2($bl['Img'])}" />
+                <div class="carousel-caption">{$bl['Name']}</div></a>
+            </div>
+			{/volist}
+        </div>
+		
+		
+		    <!-- 轮播（Carousel）导航 -->
+    <a class="carousel-control left" href="#myCarousel1"
+        data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel1"
+        data-slide="next">&rsaquo;</a>
+    <script>
+        $(function () {
+            $('#myCarousel1').carousel({
+                interval: 2000
+            });
+        })
+    </script>
+    </div>
+
+
+
+
+		    <!-- 最新活动 跑马灯 -->
+   	        <style>
+            #img,#img img{height:40px;overflow:hidden;}
+
+        </style>
+	<section style="margin-bottom: .8rem;" class="goods-evaluation">
+               
+                <div id="img">
+                    <div>
+                    
+
+                       
+                    <div class="dis-box padding-all b-color-f  g-evaluation-title">
+                        <label class="t-remark g-t-temark">最新活动<a  class="rinima" href="javascript:0;" onclick="return rini(this.value);" ></a></label>
+                        <div class="box-flex t-goods1">全部图书5折起<em class="t-first">100%</em></div>
+                
+                    </div>
+                                       
+                    </div>
+                </div>
+            
+                            </section>
+
+		    <!-- 最新活动 跑马灯 end -->	
+		<section style="" class="goods-evaluation">
+               
+          
+                    <div>
+                    
+
+                       
+                    <div class="dis-box padding-all b-color-f  g-evaluation-title">
+                        <label style=" color:black;" class="t-remark g-t-temark">当前选择分类:<span>{switch name="fenleitype" }
+    {case value="1"}教材{/case}
+    {case value="2"}教辅{/case}
+	 {case value="3"}其他{/case}
+    {default /}默认
+{/switch}</span>
+<span>
+{gt name="zhufenlei" value="0"}
+ - {$zflname}
+ {/gt}
+ {gt name="fenlei" value="0"}
+ - {$fenleiinfo['zflname']} - {$fenleiinfo['Name']} 
+ {/gt}
+</span></label>
+                      
+                
+                    </div>
+                                       
+                    </div>
+              
+            
+                            </section>
+				<section class="product-list j-product-list  product-list-small" data="2">
+					<ul>		
+					{volist name="salebooklist" id="sl"}				
+					{gt name="sl['sumc']" value="0"}		
+						
+						<li>
+						
+							<div  onclick="window.location='{$Think.HOSTPATH}/index.php/index/index/bookinfo/bookid/{$sl['BookID']}'" class="product-div">
+							
+								<a href="{$Think.HOSTPATH}/index.php/index/index/bookinfo/bookid/{$sl['BookID']}"><img style="height:12rem;" class="product-list-img" style=" "  src="{:getimg2($sl['BookSimg'])}"></a>
+								<div class="product-text index-product-text">
+								<h4>{$sl['BookName']}</h4>
+								
+								<p class="dis-box p-t-remark"><span class="box-flex">
+							折扣:{:round($sl['Discount'],0)}折起
+						</span><span style=" " class="box-flex">库存:												
+								<span class="booknum{$sl['sid']}">{$sl['sumc']}</span></span>
+								</p>
+								<p>
+								<span class="p-price t-first ">
+															¥{:round(floatval($sl['Amount']*0.1*$sl['Discount']),2)} 起									
+								<small><del>¥{$sl['Amount']}</del></small>
+										</span>
+									</p>
+																	<p>
+								<span style=" font-size:1.0rem;" class="box-flex t-remark">
+												
+											{empty name="sl['Author']"}作者:暂无{else /} 作者:{$sl['Author']}{/empty}										
+										</span>
+									</p>
+																										<p>
+								<span  style=" font-size:1.0rem;" class="box-flex t-remark">
+											{empty name="sl['PublishName']"}出版社:暂无{else /} 出版社:{$sl['PublishName']}{/empty}				
+										</span>
+									{notempty name="sl['KeCheng']"}
+												<span  style=" font-size:1.0rem;" class="box-flex t-remark">
+										课程:{$sl['KeCheng']}		
+										</span>
+									{/notempty}
+										<!-- 购买按钮-->
+										<!--<a style="" href="{$Think.HOSTPATH}/index.php/index/index/buy/bookid/{$sl['BookID']}" class="fr j-goods-attr"><input class="indexbtn" type="button" value="购买" /></a>-->
+									</p>
+									<!--<a href="javascript:void(0);" class="icon-flow-cart fr j-goods-attr" onclick="addToCart({$sl['BookID']}, 0,{$sl['Suserid']},{$sl['sid']})"><i class="iconfont icon-gouwuche"></i></a>-->
+									
+								</div>
+								
+									</div>
+									
+			</li>
+			{/gt}
+										{/volist}	
+
+										
+									</ul>
+									
+					<ul>		
+					{volist name="salebooklist" id="sl"}			
+						{eq name="sl['sumc']" value="0"}					
+						<li>
+							<div  class="product-div">
+								<a href="{$Think.HOSTPATH}/index.php/index/index/bookinfo/bookid/{$sl['BookID']}"><img style="height:12rem;" class="product-list-img" style=" "  src="{:getimg2($sl['BookSimg'])}"></a>
+								<div  class="product-text index-product-text">
+								<a href="{$Think.HOSTPATH}/index.php/index/index/bookinfo/bookid/{$sl['BookID']}"><h4>{$sl['BookName']}</h4></a>
+								
+								<p onclick="window.location='{$Think.HOSTPATH}/index.php/index/index/bookinfo/bookid/{$sl['BookID']}'" class="dis-box p-t-remark"><span class="box-flex">
+							折扣:{:round($sl['Discount'],0)}折起
+						</span><span style=" " class="box-flex">库存:												
+								<span class="booknum{$sl['sid']}">{$sl['sumc']}</span></span>
+								</p>
+								<p onclick="window.location='{$Think.HOSTPATH}/index.php/index/index/bookinfo/bookid/{$sl['BookID']}'">
+								<span class="p-price t-first ">
+															¥{:round(floatval($sl['Amount']*0.1*$sl['Discount']),2)} 起									
+								<small><del>¥{$sl['Amount']}</del></small>
+										</span>
+									</p>
+																	<p>
+								<span onclick="window.location='{$Think.HOSTPATH}/index.php/index/index/bookinfo/bookid/{$sl['BookID']}'" style=" font-size:1.0rem;" class="box-flex t-remark">
+												
+											{empty name="sl['Author']"}作者:暂无{else /} 作者:{$sl['Author']}{/empty}										
+										</span>
+									</p>
+																										<p>
+								<span onclick="window.location='{$Think.HOSTPATH}/index.php/index/index/bookinfo/bookid/{$sl['BookID']}'" style=" font-size:1.0rem;" class="box-flex t-remark">
+											{empty name="sl['PublishName']"}出版社:暂无{else /} 出版社:{$sl['PublishName']}{/empty}				
+										</span>	
+										<!-- 购买按钮-->
+										
+										{eq name=":isindaohuo($userid,$sl['UserList'])" value="0"}
+											<input  style="background:#f4a213; " class="indexbtn tt1" onclick="return rini({$sl['BookID']},this);" data-bookid="{$sl['BookID']}" type="button" value="到货提醒" />
+										{else/}
+									<input style="background:#f4a213; " onclick="return rini({$sl['BookID']},this);"  class="indexbtn tt1" data-bookid="{$sl['BookID']}" type="button" value="已设置" />
+									
+									{/eq}
+										
+									</p>
+
+									<!--<a href="javascript:void(0);" class="icon-flow-cart fr j-goods-attr" onclick="addToCart({$sl['BookID']}, 0,{$sl['Suserid']},{$sl['sid']})"><i class="iconfont icon-gouwuche"></i></a>-->
+									
+								</div>
+									</div>
+							</li>
+							{/eq}
+										{/volist}	
+
+										
+									</ul>									
+									</section>
+									<div style=" height:5rem;"></div>
+							{include file="../application/index/view/index/footer.html" /}
+			</div>
+            </div>
+
+			</div>
+            </div>
+
+
+        <!--地区选择 e-->
+        <!--快捷导航-->
+	        <!--快捷导航-->
+{include file="../application/index/view/index/nav.html" /}
+    <div class="common-show"></div>
+            <div style=" display:none;" class="footer-cont"><span><img src='{$Think.HOSTPATH}/img/loading1.gif'>正在加载……</span></div>
+			
+		
+			
+		<script type="text/javascript">    
+
+				$('.btnsearch').click(function(){
+				$search = $("input[name='search']").val();
+				$stype =  $("input[name='stype']").val();
+					window.location.href = "{$Think.HOSTPATH}/index.php/index/index/index1?search=" + $search+"&stype=" + $stype;
+				})
+				
+				function changesc()
+				{
+					var info = window.location.href;
+					var param = window.location.search;
+					if(param.length < 1)
+					{
+					var k1 = info + "?sc=1";
+					
+						window.location.href = k1;
+						return false;
+					}
+					if(info.indexOf('sc=0')!=-1)
+				　　{
+				　　var kk = info.replace('sc=0','sc=1');
+					window.location.href = kk;
+				　　}
+					else
+					{
+					var kk = info.replace('sc=1','sc=0');
+					window.location.href = kk;
+					}
+				}
+				$(".aa").click(function(){
+				var stype = $(this).attr('sid');
+				$("input[name='stype']").val(stype);
+				$(".wokk").text($(this).text());
+				})
+				
+			
+	
+
+
+		</script>
+
+	</body>
+
+</html>

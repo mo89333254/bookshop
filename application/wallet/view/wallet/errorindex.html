@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>系统提示</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+ 
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+	<link href="{$Think.HOSTPATH}/css/shop/iconfont.css" rel="stylesheet">
+    </head>
+<body>
+<p style="text-align:right; display:none;"></p>
+<div id="loading"><img src="/mobile/public/img/loading.gif" /></div>
+<div class="con">
+			<div class="message">
+				<div class="flow-done-con">
+                    <!---->
+                    <!---->
+                    <i class="iconfont icon-hookring2"></i>
+                    <!---->
+                    <!---->
+					<p style="padding-left:1.5rem;padding-right:1.5rem">程序错误</p>
+				</div>
+				<div class="padding-all message-a">
+                    <!---->
+                    <a class="back" href="/bookshop/public/index.php/index/index/index1">返回列表</a>
+                    <!---->
+				</div>
+
+			</div>
+	</div>
+        <script>
+            window.onload = function(){
+                setTimeout(url,3000);//1000毫秒=1秒后执行test方法
+            }
+            function url(){
+                var a = '';
+                $(".back").each(function (){
+                    window.location.href = $(this).attr("href");
+                    return false;
+                });
+            }
+       </script>
+	</body>
+</html>

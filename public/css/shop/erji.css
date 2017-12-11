@@ -1,0 +1,99 @@
+.kk1
+ {
+    
+    text-align: center;
+	position: relative;
+    z-index: 7;
+
+}
+ 
+.kk1
+ ul ul {
+    display: none;
+}
+ 
+    .kk1
+ ul li:hover > ul {
+        display: block;
+    }
+ 
+ 
+.kk1
+ ul {
+    background: white; 
+
+
+
+ 
+      
+    list-style: none;
+    position: relative;
+    display: inline-table;
+	
+}
+    .kk1
+ ul:after {
+        content: ""; clear: both; display: block;
+		
+    }
+ 
+    .kk1
+ ul li {
+        float: left;
+			width:20%;
+    }
+        .kk1
+ ul li:hover {
+           
+			
+			
+
+        }
+            .kk1
+ ul li:hover a {
+              
+				
+            }
+         
+        .kk1
+ ul li a {
+            display: block; padding: 0.5rem 0 0.5rem 0;
+            color: #black; text-decoration: none;
+			font-size:1.2rem;
+        }
+             
+         
+    .kk1
+ ul ul {
+        
+ border-radius: 0px; padding: 0;
+        position: absolute; top: 100%;
+		
+            border: 1px solid #575f6a;
+    }
+        .kk1
+ ul ul li {
+            float: none; 
+           position: relative;
+			width:100%;
+        }
+            .kk1
+ ul ul li a {
+                padding: 1rem 1rem 1rem 1rem;
+              
+            }   
+                .kk1
+ ul ul li a:hover {
+                   
+					
+                }
+         
+    .kk1
+ ul ul ul {
+        position: absolute; left: 100%; top:0;
+		
+		min-width:12rem;
+    }
+.kk1ul{
+	width:100%;
+}	

@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- BEGIN META -->
+    <meta charset="utf-8">
+
+    <meta name="description" content="">
+
+    <!-- END META -->
+    
+   
+     <title>
+      首页
+     </title>
+     <!-- BEGIN STYLESHEET-->
+		<link href="{$Think.HOSTPATH}/css/Admin/bootstrap.min.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+		<link href="{$Think.HOSTPATH}/css/Admin/bootstrap-reset.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+		<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+
+		<link href="{$Think.HOSTPATH}/css/Admin/index.css" rel="stylesheet"><!-- MORRIS CHART CSS -->
+     <!--dashboard calendar-->
+     <link href="{$Think.HOSTPATH}/css/Admin/clndr.css" rel="stylesheet"><!-- CALENDER CSS -->
+	 	<script src="{$Think.HOSTPATH}/js/jquery.js"></script>
+	<script src="{$Think.HOSTPATH}/js/bootstrap.min.js"></script>
+
+     <!--[if lt IE 9]>
+<script src="js/html5shiv.js">
+</script>
+<script src="js/respond.min.js">
+</script>
+<![endif]-->
+     <!-- END STYLESHEET-->
+  </head>
+  <body>
+          <style>  
+            body,html{  
+
+                font-family: "微软雅黑";  
+
+            }  
+
+        </style> 
+<nav class="navbar navbar-default" role="navigation">
+    <div class="bg-green container-fluid">
+
+    <div>
+
+            <div style="margin-top:13px;" class="form-group">
+                <input type="text" class="bs-title"  placeholder="书名，作者，教程名称">
+            </div>
+
+
+    </div>
+    </div>
+		    <div class="bs container-fluid">
+
+    <div>
+        <ul class="bsn nav nav-justified">
+            <li class="active"><a href="#">教材</a></li>
+			 <li class=""><a href="#">其他</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    排序方式
+                    <b class="caret"></b>
+                </a>
+                <ul class="sd dropdown-menu">
+                    <li><a href="#">价格</a></li>
+                    <li><a href="#">名称</a></li>
+                    <li><a href="#">销量</a></li>
+
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    性别筛选
+                    <b class="caret"></b>
+                </a>
+                <ul class="sd dropdown-menu">
+                    <li><a href="#">全部</a></li>
+                    <li><a href="#">男生</a></li>
+                    <li><a href="#">女生</a></li>
+
+                </ul>
+            </li>
+        </ul>
+  
+    </div>
+    </div>
+	<div id="myCarousel" class="carousel slide">
+	<!-- 轮播（Carousel）指标 -->
+	<ol class="carousel-indicators">
+		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		<li data-target="#myCarousel" data-slide-to="1"></li>
+		<li data-target="#myCarousel" data-slide-to="2"></li>
+	</ol>   
+	<!-- 轮播（Carousel）项目 -->
+	<div class="carousel-inner">
+		<div class="item active">
+			<img   src="http://bababook.com/bookshop/public/img/111.png" style=" width:100%;" alt="First slide">
+		</div>
+		<div class="item">
+			<img src="http://bababook.com/bookshop/public/img/111.png" style=" width:100%;" alt="Second slide">
+		</div>
+		<div class="item">
+			<img  src="http://bababook.com/bookshop/public/img/lock-bg.jpg" style=" width:100%;" alt="Third slide">
+		</div>
+			<!-- 轮播（Carousel）导航 -->
+	<a class="carousel-control left" href="#myCarousel" 
+	   data-slide="prev">&lsaquo;</a>
+	<a class="carousel-control right" href="#myCarousel" 
+	   data-slide="next">&rsaquo;</a>
+	</div>
+	</div>
+	    <div >
+        <a style="line-height:90px; font-size:36px; margin-left:70px;"  href="#">最新活动</a>
+    </div>
+
+
+</nav>
+
+            <div class="form-group">
+<table class="table" style=" border-top: 2px solid #fff;">
+
+
+  <tbody>
+    <tr>
+      <td  style=" width:30%; "><div class="mll-10 ml-10 form-group"><img src="http://open.6api.net/mpic/s4093711.jpg" class="img-responsive" alt="Cinque Terre"></div></td>
+      <td style=" width:50%;">
+<div class=" ml-10 form-group"><h1 class="bs-h1">书本名称</h1>
+<h2 class="bs-h2">课程</h2>
+<h2 class="bs-h2">价格</h2>
+<h2 class="bs-h2">数量</h2></div>
+</td>
+	  <td style=" width:20%;">
+		<div class="form-group pt-90"><button type="button" class="btn btn-buy btn-bs">购买</button></div>
+		<div class="form-group"><h2 class="bs-h2">2017-04-30</h2></div></td>
+    </tr>
+    <tr>
+      <td  style=" width:30%;"><div class="mll-10 ml-10 form-group"><img src="http://bababook.com/bookshop/public/img/lock-bg.jpg" class="img-responsive" alt="Cinque Terre"></div></td>
+      <td style=" width:50%;">
+<div class=" ml-10 form-group"><h1 class="bs-h1">书本名称</h1>
+<h2 class="bs-h2">课程</h2>
+<h2 class="bs-h2">价格</h2>
+<h2 class="bs-h2">数量</h2></div>
+</td>
+	  <td style=" width:20%;">
+		<div class="form-group pt-90"><button type="button" class="btn btn-buy btn-bs">购买</button></div>
+		<div class="form-group"><h2 class="bs-h2">2017-04-30</h2></div></td>
+    </tr>	
+
+
+
+  </tbody>
+</table>
+            </div>
+			
+<div class="ml-10 form-group">
+	
+  
+
+<ul class="bs bboom nav nav-tabs nav-justified navbar-fixed-bottom">
+  <li class="active1"><a href="#"><h1 class="bs-h1"><i class="fa fa-home"></i></h1>
+						<h2 class="bs-h2">首页</h2></a></li>
+  <li><a href="#"><h1 class="bs-h1"><i class="fa fa-tags"></i></h1>
+						<h2 class="bs-h2">学生折</h2></a></li>
+  <li><a href="#"><h1 class="bs-h1"><i class="fa fa-shopping-cart"></i></h1>
+						<h2 class="bs-h2">购物车</h2></a></li>
+  <li><a href="userinfo"><h1 class="bs-h1"><i class="fa fa-user"></i></h1>
+						<h2 class="bs-h2">我的</h2></a></li>
+
+</ul>   
+
+</div>
+
+  </body>
+</html>

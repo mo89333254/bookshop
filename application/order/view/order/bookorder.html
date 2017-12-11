@@ -1,0 +1,381 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>我的书</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+      <link href="{$Think.HOSTPATH}/css/shop/shop.css?2017052001" rel="stylesheet" type="text/css" />
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+   <script src="{$Think.HOSTPATH}/js/shop/fsrPMD.js?v=20170418"></script>
+  <script type="text/javascript">var ROOT_URL = '/'; var USER_ID = {$userid}</script>
+  <script src="{$Think.HOSTPATH}/js/shop/fastclick.js"></script>
+  <link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+    </head>
+<body>
+<style>
+.cheng{
+	color:#FF9900;
+}
+</style>
+<p style="text-align:right; display:none;"></p>
+<div id="loading" style="display: none;"><img src="{$Think.HOSTPATH}/img/loading.gif"></div>
+<div class="con">
+    <div style="padding-top: 0;"  class="goods-info user-order of-hidden ect-tab j-ect-tab ts-3" >
+				<section class=" goods-shop b-color-f no-shopping-title">
+                                                <a href="{$Think.HOSTPATH}/index.php/index/index/userinfo" ><div class="goods-shop-pic of-hidden" > 
+                    <h4  class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					<i  class="fanhuii fa fa-angle-left"></i>
+						<span class="fanhuispan" style="">我的书</span>
+					</label></h4>
+
+                </div></a>
+              
+            </section>
+        <nav class="tab-title b-color-f of-hidden" >
+		
+		<ul  class="dis-box" style="font-size: 2rem;     border-bottom: 1px solid #f3f4f9;  padding-bottom: 1rem;">
+	<li style=" width:50%;" class="getli {eq name="$type" value="2"}active{/eq}">
+		<a href=".get" data-toggle="tab">
+			 买书订单
+		</a>
+	</li>
+	<li class="putli {eq name="$type" value="1"}active{/eq}" style=" width:50%;" ><a href=".post" data-toggle="tab">卖书订单</a></li>
+
+</ul>
+
+            <ul style ="    margin-top: 1rem;" class="dis-box headsale" >
+				{eq name="type" value="2"}
+                <li class="a1 {eq name="$status" value="2"}active{/eq} box-flex"><a class="alla" href="{$Think.HOSTPATH}/index.php/order/order/bookorder/status/2/type/{$type}" status="2">待收货</a></li>
+                <li class="a1 {eq name="$status" value="4"}active{/eq} box-flex"><a class="paya" href="{$Think.HOSTPATH}/index.php/order/order/bookorder/status/4/type/{$type}" status="4">已收货</a></li>
+                <li class="a1 {eq name="$status" value="6"}active{/eq} box-flex"><a class="payb" href="{$Think.HOSTPATH}/index.php/order/order/bookorder/status/6/type/{$type}" status="6">已取消</a></li>
+				{/eq}
+				{eq name="type" value="1"}
+				   <li class="a1 {eq name="$status" value="1"}active{/eq} box-flex"><a class="alla" href="{$Think.HOSTPATH}/index.php/order/order/bookorder/status/1/type/{$type}" status="1">待交货</a></li>
+                <li class="a1 {eq name="$status" value="3"}active{/eq} box-flex"><a class="paya" href="{$Think.HOSTPATH}/index.php/order/order/bookorder/status/3/type/{$type}" status="3">已售</a></li>
+                <li class="a1 {eq name="$status" value="5"}active{/eq} box-flex"><a class="payb" href="{$Think.HOSTPATH}/index.php/order/order/bookorder/status/5/type/{$type}" status="5">被取消 </a></li>
+				<li class="sbook a1 box-flex"><a  href="{$Think.HOSTPATH}/index.php/user/user/editbook" >出售中</a></li>
+				{/eq}
+
+            </ul>
+
+
+
+        </nav>
+		{empty  name="$orderlist"}
+						<div id="j-tab-con" class="tab-con swiper-container-horizontal swiper-container-autoheight">
+            <div  class="swiper-wrapper" style="height: 1761px;">
+                <section class="swiper-slide store_info swiper-slide-active" style="width: 1862px;">
+                        <div class="no-div-message">
+                            <i class="iconfont icon-biaoqingleiben"></i>
+                               <p>亲，还没有订单哦～！</p>
+                            </div>
+                        </section>
+                </div>
+            </div>{/empty}
+        <div id="j-tab-con" class="tab-con swiper-container-horizontal swiper-container-autoheight">
+            <div class="swiper-wrapper" style="height: 884px;">
+                <section class="swiper-slide store_info swiper-slide-active" style="width: 1862px;">
+                        {volist name="orderlist" id="ol"}
+					
+<section class="flow-checkout-pro" style="margin-top: 1rem;">
+                            <header class="b-color-f dis-box padding-all">
+                                <span class=" box-flex">
+                                    
+                                   订单详情
+                                    
+                                </span>
+                                <em class="j-goods-coupon t-first f-04">	{eq name="$ol['status']" value="2"}待收货 <a  class="" href="tel:+86 {$ol['orderinfo'] ->sphone }" > <i  class="cheng fa fa-phone">
+                </i></a>{/eq}
+								{eq name="$ol['status']" value="4"}已收货{/eq}
+	{eq name="$ol['status']" value="6"}已取消{/eq}
+	{eq name="$ol['status']" value="1"}待交货 <a  class="" href="tel:+86 {$ol['orderinfo'] ->phone }" ><i  class="cheng fa fa-phone">
+                </i></a>{/eq}
+	{eq name="$ol['status']" value="3"}已售{/eq}
+	{eq name="$ol['status']" value="5"}被取消{/eq}</em>
+                            </header>
+							
+                            <div class="f-c-p-orderid padding-all m-top1px b-color-f">
+                              
+
+                                <h4 class="t-remark2">
+								 <a class="" href="{$Think.HOSTPATH}/index.php/order/order/bookorder1?orderid={$ol['orderid']}">
+                                    <label class="t-remark">订单号：</label>{$ol['orderid']}
+                                    <!--拼团标识-->
+                                    </a>
+                                    
+                                    <!--拼团标识 end-->
+                                     <span class="t-jiantou"></span>
+                                </h4>
+								
+                                <p class="t-remark3 m-top04">{$ol['date']}<span style=" float:right">
+								{eq name="$ol['status']" value="2"}{$ol['orderinfo'] ->susername }:<a  class="" href="tel:+86 {$ol['orderinfo'] ->phone }" >{$ol['orderinfo'] ->sphone } <i class="cheng fa fa-phone">
+                </i></a>{/eq}
+								{eq name="$ol['status']" value="1"}
+								{$ol['orderinfo'] ->username }:<a  class="" href="tel:+86 {$ol['orderinfo'] ->phone }" >{$ol['orderinfo'] ->phone } <i  class="cheng fa fa-phone">
+                </i></a>{/eq}
+								</span></p>
+								
+                            </div>
+						{volist name="ol['row']" id="or"}
+                            <div class="padding-all user-orderlist-shop dis-box text-all-select">
+                                <a class="product-div-link" href="{$Think.HOSTPATH}/index.php/index/index/bookinfo/bookid/{$or->bookid}"></a>
+								
+                                <ul class="flow-checkout-smallpic box-flex">
+                                    
+                                    <li><img class="product-list-img" src="{$or->goodimg}"></li>
+                                    
+                                </ul>
+                                <span class="t-jiantou">
+                                    <span class="f-c-a-count"> {$or->count}本</span><i class="iconfont icon-jiantou tf-180"></i></span>
+                            </div>
+							{/volist}
+														<div class="padding-all f-05 user-order-money b-color-f">共{$ol['count']}本书 合计：<em class="t-first">¥{$ol['price']}</em></div>
+                            <footer class="padding-all b-color-f m-top1px of-hidden dis-box">
+                                <h4 class="t-remark2 box-flex"></h4>
+                                <p class="ect-button-more ect-button-more-dete n-br-5">
+                                    
+                                    
+                                    
+                                    <!--<a class="btn-default">删除</a>-->
+                                    
+									<a class="btn-default-new br-5 min-btn" 
+									href="{$Think.HOSTPATH}/index.php/order/order/bookorder1?orderid={$ol['orderid']}">查看订单</a>
+									
+									{if condition="$ol['status'] == 2"}
+								
+									<a data-item="{$ol['orderid']}" style="color:white;" class="received-order  br-5" href="javascript:0;" >确认收货</a>
+									<a data-item="{$ol['orderid']}" class="cancel-order btn-default-new br-5" href="javascript:0;" >取消订单</a>
+										{else /} 									
+             				                     
+										{/if}
+										{switch name="$ol['status']"}
+										{case value="1"}<a data-item="{$ol['orderid']}" class="scancel-order btn-default-new br-5" href="javascript:0;" >取消订单</a>{/case}
+											{case value="4"}<a class="del-order btn-default" data-item="{$ol['orderid']}">删除</a>{/case}
+											{case value="6"}<a class="del-order btn-default" data-item="{$ol['orderid']}">删除</a>{/case}
+											
+											
+										{case value="5"}<a class="del-order btn-default" data-item="{$ol['orderid']}">删除</a>	{eq name="$ol['IsRecart']" value="0"}<a data-item="{$ol['orderid']}" class="recart btn-default-new br-5" href="javascript:0;" >重新上架</a>{/eq}
+										{eq name="$ol['IsRecart']" value="1"}<a data-item="{$ol['orderid']}" class="btn-default-new br-5" href="javascript:0;" >已上架</a>{/eq}{/case}
+										{/switch}
+                                </p>
+                            </footer>
+						
+
+                        </section>
+						{/volist}
+
+                </div>
+            </div>
+			                        </section>
+
+        </div>
+    </div>
+    <!--快捷导航-->
+  
+
+{include file="../application/index/view/index/nav.html" /}
+    <div class="common-show"></div>
+    <script type="text/javascript">
+        /*切换*/
+        var tabsSwiper = new Swiper('#j-tab-con', {
+            speed: 100,
+            noSwiping: true,
+            autoHeight: true,
+            onSlideChangeStart: function () {
+                $(".j-tab-title .active").removeClass('active')
+                $(".j-tab-title li").eq(tabsSwiper.activeIndex).addClass('active')
+            }
+        })
+        $(".j-tab-title li").on('touchstart mousedown', function (e) {
+            e.preventDefault()
+            $(".j-tab-title .active").removeClass('active')
+            $(this).addClass('active')
+            tabsSwiper.slideTo($(this).index())
+        })
+        $(".j-tab-title li").click(function (e) {
+            e.preventDefault()
+        })
+
+       //删除订单
+            $(".goods-info").on('click','.del-order', function(){ 
+             var order_id = $(this).attr('data-item');
+             var url='{$Think.HOSTPATH}/index.php/order/order/delorder';
+               layer.open({
+                    content: '是否删除此订单',
+                    btn: ['确定', '取消'],
+                    shadeClose: false,
+                    yes: function() {
+                      $.post(url, {orderid:order_id},
+                         function(result){
+					
+                             if(result > 0){
+								d_messages('操作成功');
+                                window.location.reload();
+                             }
+							 else
+							 {
+								d_messages('操作失败');
+							 }
+                         }, 'json');
+                     },
+                    no: function() {
+
+                         }
+                });
+
+        });
+        //确认订单
+        $(".goods-info").on('click','.received-order', function(){ 
+             var order_id = $(this).attr('data-item');
+             var url='{$Think.HOSTPATH}/index.php/order/order/confirmorder';
+               layer.open({
+                    content: '你确认已经收到货物了吗？',
+                    btn: ['确定', '取消'],
+                    shadeClose: false,
+                    yes: function() {
+                      $.post(url, {orderid:order_id},
+                         function(result){
+ 						 if(result > 0){
+							d_messages('操作成功');
+							   setTimeout(function () { 
+									window.location.reload();
+								}, 1500);
+							
+						 }
+						 else
+						 {
+							d_messages('操作失败');
+						 }
+                         }, 'json');
+                     },
+                    no: function() {
+
+                         }
+                });
+
+        });
+        //重新上架
+        $(".goods-info").on('click','.recart', function(){ 
+             var order_id = $(this).attr('data-item');
+             var url='{$Think.HOSTPATH}/index.php/order/order/recart';
+               layer.open({
+                    content: '你确认要重新上架书本吗？',
+                    btn: ['确定', '取消'],
+                    shadeClose: false,
+                    yes: function() {
+                      $.post(url, {orderid:order_id},
+                         function(result){
+ 						 if(result > 0){
+							d_messages('操作成功');
+							   setTimeout(function () { 
+									window.location.reload();
+								}, 1500);
+							
+						 }
+						 else
+						 {
+							d_messages('已重新上架,请勿重新操作');
+						 }
+                         }, 'json');
+                     },
+                    no: function() {
+
+                         }
+                });
+
+        });		
+		
+			   //买家取消订单
+		$(".goods-info").on('click','.cancel-order', function(){ 
+		 var order_id = $(this).attr('data-item');
+		 var url='{$Think.HOSTPATH}/index.php/order/order/cancelorder';
+		   layer.open({
+				content: '是否取消此订单',
+				btn: ['确定', '取消'],
+				shadeClose: false,
+				yes: function() {
+				  $.post(url, {orderid:order_id},
+					 function(result){
+				
+						 if(result > 0){
+							d_messages('操作成功,资金以退回用户零钱');
+							   setTimeout(function () { 
+									window.location.href = "{$Think.HOSTPATH}/index.php/order/order/bookorder";
+								}, 1500);
+							
+						 }
+						 else
+						 {
+							d_messages('操作失败');
+						 }
+					 }, 'json');
+				 },
+				no: function() {
+
+					 }
+			});
+
+	});
+	
+		//卖家家取消订单
+		$(".goods-info").on('click','.scancel-order', function(){ 
+		 var sorder_id = $(this).attr('data-item');
+		 var url='{$Think.HOSTPATH}/index.php/order/order/scancelorder';
+		   layer.open({
+				content: '是否取消此订单',
+				btn: ['确定', '取消'],
+				shadeClose: false,
+				yes: function() {
+				  $.post(url, {sorderid:sorder_id},
+					 function(result){
+				
+						 if(result > 0){
+							d_messages('操作成功,资金以退回买家用户零钱');
+							   setTimeout(function () { 
+									window.location.href = "{$Think.HOSTPATH}/index.php/order/order/bookorder";
+								}, 1500);
+							
+						 }
+						 else
+						 {
+							d_messages('操作失败');
+						 }
+					 }, 'json');
+				 },
+				no: function() {
+
+					 }
+			});
+
+	});	
+	
+	$(".getli").click(function(){
+	$(".a1").removeClass('active');
+	$('.alla').attr('href','{$Think.HOSTPATH}/index.php/order/order/bookorder/status/2/type/2');
+	$('.paya').attr('href','{$Think.HOSTPATH}/index.php/order/order/bookorder/status/4/type/2');
+	$('.payb').attr('href','{$Think.HOSTPATH}/index.php/order/order/bookorder/status/6/type/2');
+		$('.paya').text("已收货");
+	$('.payb').text("已取消");
+	$('.alla').text("待收货");
+	$('.sbook').remove();
+	});
+		$(".putli").click(function(){
+		$(".a1").removeClass('active');
+		$('.alla').attr('href','{$Think.HOSTPATH}/index.php/order/order/bookorder/status/1/type/1');
+	$('.paya').attr('href','{$Think.HOSTPATH}/index.php/order/order/bookorder/status/3/type/1');
+	$('.payb').attr('href','{$Think.HOSTPATH}/index.php/order/order/bookorder/status/5/type/1');
+	
+	$('.paya').text("已售");
+	$('.payb').text("被取消");
+	$('.alla').text("待交货");
+	$('.sbook').remove();
+	var appendli = '<li class="sbook a1 box-flex"><a  href="{$Think.HOSTPATH}/index.php/user/user/editbook" >出售中</a></li>';
+	$('.headsale').append(appendli);
+	});
+    </script>
+
+</body></html>

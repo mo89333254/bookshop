@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta charset="utf-8">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>替换书本</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+	    <link href="{$Think.HOSTPATH}/css/shop/shop.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">var ROOT_URL = '/mobile/'; var USER_ID = 4;</script>
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+		 	    <link href="{$Think.HOSTPATH}/css/shop/shop.css?2017051701" rel="stylesheet" type="text/css" />
+						<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+    </head>
+
+<body>
+<p style="text-align:right; display:none;"></p>
+<div id="loading"><img src="{$Think.HOSTPATH}/img/loading.gif" /></div>
+<div class="con">
+    <div class="flow-cart blur-div">
+        <!--  -->
+    <!-- 按店铺显示商品  start-->
+    <!--  -->
+			<section class=" goods-shop b-color-f no-shopping-title">
+                                                <a href="{$Think.HOSTPATH}/index.php/index/index/index1" ><div class="goods-shop-pic of-hidden" > 
+                    <h4  class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					<i  class="fanhuii fa fa-angle-left"></i>
+						<span class="fanhuispan" style="">替换书本</span>
+					</label></h4>
+
+                </div></a>
+              
+            </section>
+
+    <section class="flow-have-cart select-three j-select-all">
+
+		{volist name="salebooklist" id="sl" }
+		{gt name="sl['Count']" value="0"}
+		        <section class="j-cart-get-i-more shop0" num="1">
+            <header class="flow-shop-header padding-all of-hidden dis-box">
+                <div style=" margin-left: 2rem;" class="ect-select box-flex is-shop">
+                    <label class="dis-box label-this-all active">
+                      
+                          
+							<div  class="sexdiv {:getchoose($sl['Sex'],1,'man','woman')}">
+							
+                                <img  style=" width:3rem; height:3rem;" 
+								src="{:getimg2($sl['UserImg'])}"/></div>
+                                      <a class="box-flex f-06" href="{$Think.HOSTPATH}/index.php/index/index/yonghushujia?suserid={$sl['Suserid']}">{$sl['NickName']}  <i class="{:getchoose($sl['Sex'],1,'man','woman')} fa fa-user"></i>  的书架   </a>                            <i class="iconfont icon-more f-08 col-7"></i>                            </a>
+                    </label>
+                </div>
+                            </header>
+		
+            <div class="product-list-small" style="padding:0">
+                <ul>
+
+                    <li>
+                                                <!--  -->
+                                                <div style=" background:white;" class="dis-box drop28 com-post-adr">
+                            <input type="hidden" class="total" price="{$sl['Amount']}" number="{$sl['Count']}">
+                            <div class="ect-select">
+                                <label data-cartid="{$cartid}" data-saleid="{$sl['ID']}" data-suserid="{$sl['Suserid']}" class="changerdio1 rec-active"  >
+                                <i class="j-select-btn active-i"></i>
+                                </label>
+                            </div>
+                            <div class="box-flex">
+
+                                <div class="product-div" style="background:none">
+                                    <div class="fl">
+                                        <div class="p-d-img">
+                                                                                            <a href="bookinfo/saleid/{$sl['ID']}">
+                                                                                                        <img class="product-list-img" style=" height:9rem;" src="{:getimg($sl['BookSimg'])}"/>
+                                                </a>
+                                                <!--  -->
+                                        </div>
+                                    </div>
+								<div class="product-text index-product-text">
+								<a href="bookinfo/saleid/{$sl['ID']}/type/change/cartid/{$cartid}"><h4>{$sl['BookName']}</h4></a>
+								
+								<p class="dis-box p-t-remark"><span class="box-flex">
+							折扣:{:round($sl['Discount'],0)}折
+						</span><span style=" " class="box-flex">库存:												
+								{$sl['Count']}</span>
+								</p>
+								<p>
+								<span style=" color:#ec5151;" class="p-price">
+															¥{:round(floatval($sl['Amount']*0.1*$sl['Discount']),2)}									
+								<small><del>¥{$sl['Amount']}</del></small>
+										</span>
+									</p>
+																	<p>
+								<span style=" font-size:1.0rem;" class="box-flex t-remark">
+												
+											{empty name="sl['Author']"}作者:暂无{else /} 作者:{$sl['Author']}{/empty}										
+										</span>
+									</p>
+																										<p>
+								<span style=" font-size:1.0rem;" class="box-flex t-remark">
+											{empty name="sl['PublishName']"}出版社:暂无{else /} 出版社:{$sl['PublishName']}{/empty}				
+										</span>
+									</p>
+
+				
+
+									
+								</div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--  -->
+                    </li>
+
+                </ul>
+            </div>
+	
+			        </section>
+					{/gt}
+			{/volist}
+
+        <!--  -->	<div style=" height:5rem;"></div>
+		</section>
+
+
+</div>
+</div>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <img class="limg" style=" width:31rem; height:31rem; " src="">
+            </div>
+
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+
+		
+
+<script>
+function changBook(cartid,saleid,suserid)
+{
+	$.ajax({
+		type: "POST",
+		url: "{$Think.HOSTPATH}/index.php/index/caozuo/changebook",
+		data: {
+			cartid: cartid,
+			saleid:saleid,
+			suserid:suserid
+		},
+		dataType: "text",
+		success: function (data) {
+			if(data == 1)
+			{
+				d_messages('替换成功');
+				    setTimeout(function () { 
+					window.location.href="{$Think.HOSTPATH}/index.php/index/index/shopcart";
+				}, 1500);
+				
+			}
+			else if(data == 2 )
+			{
+				d_messages('购物车已存在此书');
+			}
+			else if(data == 3)
+			{
+				d_messages('库存为0');
+			}
+			else
+			{
+				d_messages('已经替换 请勿重复操作');
+			}
+		}
+	});
+}
+
+
+
+
+	$(".sexdiv").click(function(){
+	var img = $(this).find('img').attr('src');
+	$(".limg").attr('src',img);
+		$('#myModal').modal('show');
+	});
+	$(".changebtn").click(function(){
+	var bookid = $(this).attr('book-id');
+	var cartid = $(this).attr('cart-id');
+	
+	window.location.href = "{$Think.HOSTPATH}/index.php/index/index/change?bookid=" + bookid + "&cartid=" + cartid;
+	});
+	
+	$(".changerdio1").click(function(){
+	$(".changerdio1").each(function(){
+		$(this).removeClass("active");
+	})
+	$(this).addClass("active");
+	var saleid = $(this).attr("data-saleid");
+	
+	var cartid = $(this).attr("data-cartid");
+	var suserid = $(this).attr('data-suserid')
+	changBook(cartid,saleid,suserid);
+		})
+		
+		
+</script>
+
+<style>
+
+.modal-dialog {  
+    margin: 14rem auto;  
+}  
+</body>
+
+</html>

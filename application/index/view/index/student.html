@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta charset="utf-8">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>学生折</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+ 	    <link href="{$Think.HOSTPATH}/css/shop/shop.css?2017051701" rel="stylesheet" type="text/css" />
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	 <script src="{$Think.HOSTPATH}/js/shop/fsrPMD.js?v=20170418"></script>
+	<script type="text/javascript">var ROOT_URL = '/'; </script>
+	<script src="{$Think.HOSTPATH}/js/shop/fastclick.js"></script>
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+	 <link href="{$Think.HOSTPATH}/css/shop/student.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={$baidukey}"></script>
+    </head>
+
+<body>
+<style>
+.merleft{
+	margin-left: 1.5rem;
+}
+.merhongdian{
+
+
+    height: 1.4rem;
+    min-width: 1.4rem;
+    line-height: 1.4rem;
+    padding: 0 .2rem;
+
+    color: #fff;
+    border-radius: .7rem;
+}
+.student1{
+width:50%;
+font-size:1.5rem;
+}
+.studentbtn{
+	font-size:1.5rem;
+	background:white;
+}
+
+</style>
+<p style="text-align:right; display:none;"></p>
+<div style=" display:none;" id="loading"><img src="{$Think.HOSTPATH}/img/loading.gif" /></div>
+<body>
+
+
+
+		<div class="con" id="checkPage">
+			<div class="category">
+			<section class=" goods-shop b-color-f no-shopping-title">
+                                                <a href="{$Think.HOSTPATH}/index.php/index/index/index1" ><div class="goods-shop-pic of-hidden" > 
+                    <h4  class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					<i  class="fanhuii fa fa-angle-left"></i>
+						<span class="fanhuispan" style="">学生折</span>
+					</label></h4>
+
+                </div></a>
+              
+            </section>
+<section class="goods-shop b-color-f no-shopping-title">
+                                                <div class="goods-shop-pic of-hidden">
+                    <h4 class="title-hrbg m-top06"><label class="t-remark g-t-temark">所在校区</label><hr> </h4>
+
+                </div>
+              
+            </section>
+				<section class="product-list j-product-list  product-list-small" data="2">
+
+					<ul>		
+							
+						<li>
+							<div class="product-div">
+								<a href="{$Think.HOSTPATH}/index.php/user/user/schoolimglist/schoolid/{$schoolinfo['SchoolID']}"><img class="product-list-img" style="    margin-right: 2rem; width: 14rem; height:10rem;"  src="{:getimg2($schoolinfo['SImg'])}"></a>
+								<div class="product-text index-product-text">
+								<a href="{$Think.HOSTPATH}/index.php/user/user/schoolimglist/schoolid/{$schoolinfo['SchoolID']}"><h4 class="sc" point="113.942501,22.539013">{$schoolinfo['SchoolName']}</h4></a>
+								
+								<p class="dis-box p-t-remark"><span class="box-flex">
+										<i class="fa fa-star staract">
+                </i><i class="fa fa-star staract">
+                </i><i class="fa fa-star staract">
+                </i><i class="fa fa-star staract">
+                </i><i class="fa fa-star staract">
+                </i>
+						</span><span style=" " class="sbox-flex">距离:												
+								<span class="scjuli">暂无距离</span></span>
+								</p>
+								
+
+
+
+								
+								</div>
+									</div>
+			</li>
+										
+
+										
+									</ul>
+									</section>
+					<nav class="b-color-f user-nav-box m-top08">
+							<div class="box ul-4 text-c b-color-f">
+								<a style=" padding: 0.5rem 0 0.5rem 0;; width:33%;" href="{$Think.HOSTPATH}/index.php/index/index/student/type/1/redu/{$redu}">
+									<label class="merleft" style="    "><i style=" color: #30C1FC;" class="student icon-bendishenghuo"></i>		
+								<sup  class="merhongdian b-color ">{$mercount['count1']}</sup></label>
+									<p class="f-02 col-7">美食</p>
+
+								</a>
+
+
+
+								<a style="padding: 0.5rem 0 0.5rem 0;; width:33%;" href="{$Think.HOSTPATH}/index.php/index/index/student/type/2/redu/{$redu}">
+									<label class="merleft"><i style=" color: #F55612;" class="student icon-techanmeishiyingyangbaojian"></i>
+																	<sup  class="merhongdian b-color ">{$mercount['count2']}</sup></label>
+									<p class="f-02 col-7">外卖</p>
+								</a>
+								<a style="padding: 0.5rem 0 0.5rem 0;; width:33%;" href="{$Think.HOSTPATH}/index.php/index/index/student/type/3/redu/{$redu}">
+									<label class="merleft"><i style=" color: #B26CFF;" class="student icon-wenhuayule"></i>
+									<sup  class="merhongdian b-color ">{$mercount['count3']}</sup></label>
+									<p class="f-02 col-7">娱乐</p>
+								</a>
+																<a style="padding: 0.5rem 0 0.5rem 0;; width:33%;" href="{$Think.HOSTPATH}/index.php/index/index/student/type/4/redu/{$redu}">
+									<label class="merleft"><i style=" color: #17DB58;" class="student icon-shangpuguanliicon"></i><sup  class="merhongdian b-color ">{$mercount['count4']}</sup>
+									</label>
+									<p class="f-02 col-7">住宿</p>
+								</a>
+																								<a style="padding: 0.5rem 0 0.5rem 0;; width:33%;" href="{$Think.HOSTPATH}/index.php/index/index/student/type/5/redu/{$redu}">
+									<label class="merleft"><i style=" color: #FF61CF;" class="student icon-shangwufuwu"></i>
+									<sup  class="merhongdian b-color ">{$mercount['count5']}</sup></label>
+									<p class="f-02 col-7">生活服务</p>
+								</a>
+																								<a style="padding: 0.5rem 0 0.5rem 0;; width:33%;" href="{$Think.HOSTPATH}/index.php/index/index/student/type/6/redu/{$redu}">
+									<label class="merleft"><i style=" color: #F82E1A;" class="student icon-shoujishumadiannao"></i>
+									<sup  class="merhongdian b-color ">{$mercount['count6']}</sup></label>
+									<p class="f-02 col-7">教育培训</p>
+								</a>
+							</div>
+						</nav>
+						
+						
+				<section style=" margin-top: 1rem;" class="product-sequence dis-box">
+				
+ 
+					<div class="dropdown student1">
+    <button type="button" class="studentbtn btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">校区
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+	{volist name="schoollist" id="sll"}
+	        <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="{$Think.HOSTPATH}/index.php/index/caozuo/getlocation2?schoolid={$sll['SchoolID']}&schoolname={$sll['SchoolName']}">{$sll['SchoolName']}</a>
+        </li>
+	{/volist}
+ 
+    </ul>
+</div>
+<div class="dropdown student1">
+    <button type="button" class="studentbtn btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+
+{eq name="redu" value="0"}排序方式{/eq}
+{eq name="redu" value="1"}热度重高到低{/eq}
+{eq name="redu" value="2"}热度重低到高{/eq}
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+	        <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="{$Think.HOSTPATH}/index.php/index/index/student/type/{$type}/redu/0">默认</a>
+        </li>
+        <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="{$Think.HOSTPATH}/index.php/index/index/student/type/{$type}/redu/1">热度重高到低</a>
+        </li>
+        <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="{$Think.HOSTPATH}/index.php/index/index/student/type/{$type}/redu/2">热度重低到高</a>
+        </li>
+ 
+    </ul>
+</div>
+                    					
+				</section>
+			
+                <!-- 内容 -->
+
+
+
+
+
+				<section  class="product-list j-product-list  product-list-small" data="2">
+
+					<ul>		
+							{volist name="merinfo" id="mi"}
+						<li>
+							<div class="product-div">
+								<a href="{$Think.HOSTPATH}/index.php/index/index/merinfo/mid/{$mi['ID']}"><img class="product-list-img" style="width: 9rem; height:7rem;"  src="{:getimg2($mi['SImg'])}"></a>
+								<div class="product-text index-product-text">
+								<a href="{$Think.HOSTPATH}/index.php/index/index/merinfo/mid/{$mi['ID']}"><h4>{$mi['Merchant']}</h4></a>
+								
+								<p class="dis-box p-t-remark"><span class="box-flex">
+			<i class="fa fa-star staract">
+                </i><i class="fa fa-star staract">
+                </i><i class="fa fa-star staract">
+                </i><i class="fa fa-star staract">
+                </i><i class="fa fa-star staract">
+                </i>￥{$mi['Average']}/人
+						</span>												
+								<span loc="{$mi['Point']}" class="stloc">暂无定位</span></span>
+								</p>
+	
+																	<p>
+
+									</p>
+																										<p>
+								<span style=" font-size:1.0rem;" class="box-flex t-remark">
+											{$mi['SubTitle']}
+										</span>
+									</p>
+								
+								</div>
+									</div>
+						</li>
+							{/volist}
+
+										
+
+										
+									</ul>
+								{empty name="merinfo"}                                <div class="no-div-message">
+                                    <i class="iconfont icon-biaoqingleiben"></i>
+                                    <p>亲，没有商铺哦～！</p>
+                                </div>{/empty}
+									</section>
+									<div style=" height:5rem;"></div>
+					{include file="../application/index/view/index/footer.html" /}
+			</div>
+            </div>
+
+
+<!--选择学校弹出层-->
+
+<div class="msdiv mask-filter-div"></div>
+
+        <!--地区选择 e-->
+        <!--快捷导航-->
+{include file="../application/index/view/index/nav.html" /}
+	        <!--快捷导航-->
+<div id="main_demo">
+    
+
+<script type="text/javascript">
+	// 百度地图API功能
+
+	
+	var geolocation = new BMap.Geolocation();
+	var png = '';
+	var lat = '';
+	geolocation.getCurrentPosition(function(r){
+		if(this.getStatus() == BMAP_STATUS_SUCCESS){
+
+			
+			//alert('您的位置：'+r.point.lng+','+r.point.lat);
+			png = r.point.lng;
+			lat = r.point.lat;
+			var map = new BMap.Map();
+
+	var pointA = new BMap.Point(png,lat);  // 创建点坐标A--大渡口区
+	
+	//学校距离
+	var scname = $(".sc").attr('point');
+	var scholsplit = scname.split(',');
+	var schoolpoint = new BMap.Point(scholsplit[0],scholsplit[1]);
+	$(".scjuli").text((map.getDistance(pointA,schoolpoint)).toFixed(0)+' 米');
+	//alert('从当前地方到横岗大厦的距离是：'+(map.getDistance(pointA,pointB)).toFixed(2)+' 米。');  //获取两点距离,保留小数点后两位
+				$(".stloc").each(function(){
+				//商家距离
+				var ee = $(this).attr('loc');
+				var strpoint = ee.split(',');
+				var pointB = new BMap.Point(strpoint[0],strpoint[1]);
+		
+				$(this).text((map.getDistance(pointA,pointB)).toFixed(0)+' 米');
+			})
+		}
+		else {
+			alert('failed'+this.getStatus());
+		}        
+	},{enableHighAccuracy: true})
+	
+		
+
+
+
+
+
+	//关于状态码
+	//BMAP_STATUS_SUCCESS	检索成功。对应数值“0”。
+	//BMAP_STATUS_CITY_LIST	城市列表。对应数值“1”。
+	//BMAP_STATUS_UNKNOWN_LOCATION	位置结果未知。对应数值“2”。
+	//BMAP_STATUS_UNKNOWN_ROUTE	导航结果未知。对应数值“3”。
+	//BMAP_STATUS_INVALID_KEY	非法密钥。对应数值“4”。
+	//BMAP_STATUS_INVALID_REQUEST	非法请求。对应数值“5”。
+	//BMAP_STATUS_PERMISSION_DENIED	没有权限。对应数值“6”。(自 1.1 新增)
+	//BMAP_STATUS_SERVICE_UNAVAILABLE	服务不可用。对应数值“7”。(自 1.1 新增)
+	//BMAP_STATUS_TIMEOUT	超时。对应数值“8”。(自 1.1 新增)
+	
+	
+
+
+	
+</script>
+
+</div>  
+    <div class="common-show"></div>
+            <div style=" display:none;" class="footer-cont"><span><img src='{$Think.HOSTPATH}/img/loading1.gif'>正在加载……</span></div>
+
+			
+			
+
+	</body>
+
+</html>

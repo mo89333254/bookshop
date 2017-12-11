@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta charset="utf-8">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>卖家书架</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+ 	    <link href="{$Think.HOSTPATH}/css/shop/shop.css" rel="stylesheet" type="text/css" />
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	 <script src="{$Think.HOSTPATH}/js/shop/fsrPMD.js?v=20170418"></script>
+	<script type="text/javascript">var ROOT_URL = '/'; var USER_ID = {$userid}</script>
+	<script src="{$Think.HOSTPATH}/js/shop/fastclick.js"></script>
+		<link href="{$Think.HOSTPATH}/css/shop/iconfont.css" rel="stylesheet">
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+    </head>
+
+<body>
+<p style="text-align:right; display:none;"></p>
+<div style=" display:none;" id="loading"><img src="{$Think.HOSTPATH}/img/loading.gif" /></div>
+<body>
+		<div class="con" id="checkPage">
+			<div class="category">
+			
+                <!-- 内容 -->
+					<section class=" goods-shop b-color-f no-shopping-title">
+                                                <a href="{$Think.HOSTPATH}/index.php/index/index/userinfo" ><div class="goods-shop-pic of-hidden" > 
+                    <h4  class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					<i  class="fanhuii fa fa-angle-left"></i>
+						<span class="fanhuispan" style="">卖家书架</span>
+					</label></h4>
+
+                </div></a>
+              
+            </section>
+
+
+
+
+				<section class="product-list j-product-list  product-list-small" data="2">
+
+					<ul>		
+					{volist name="salebooklist" id="sl"}					
+						<li>
+							<div class="product-div">
+								<a href="{$Think.HOSTPATH}/index.php/index/index/bookinfo/bookid/{$sl['BookID']}"><img class="product-list-img" style=" height:10rem;"  src="{:getimg2($sl['BookSimg'])}"></a>
+								<div class="product-text index-product-text">
+								<a href="{$Think.HOSTPATH}/index.php/index/index/bookinfo/bookid/{$sl['BookID']}"><h4>{$sl['BookName']}</h4></a>
+								
+								<p class="dis-box p-t-remark"><span class="box-flex">
+							折扣:{:round($sl['Discount'],0)}折
+						</span><span style=" " class="box-flex">数量:												
+								{$sl['Count']}</span>
+								</p>
+																		<p>
+								<span style=" font-size:1.0rem;" class="box-flex t-remark">
+												
+											原价:{$sl['Amount']}									
+										</span>
+									</p>
+																	<p>
+								<span style=" font-size:1.0rem;" class="box-flex t-remark">
+												
+											{empty name="sl['Author']"}作者:暂无{else /} 作者:{$sl['Author']}{/empty}										
+										</span>
+									</p>
+																										<p>
+								<span style=" font-size:1.0rem;" class="box-flex t-remark">
+											{empty name="sl['PublishName']"}出版社:暂无{else /} 出版社:{$sl['PublishName']}{/empty}				
+										</span>
+									</p>
+									<a href="{$Think.HOSTPATH}/index.php/user/user/editdetail/saleid/{$sl['ID']}">
+									<span style="position: absolute;right: 1rem; top: 3rem;">
+									<p><i style="font-size: 2rem;" class="iconfont1 icon-lingcunwei"></i></p><p class="t-remark3">编辑</p>
+									</span></a>
+									<span style="position: absolute;right: 1.2rem; top: 8rem;"><i style="font-size: 2rem;"
+									class="iconfont icon-xiao10" onclick="DropBook({$sl['sid']})"></i></span>
+								</div>
+									</div>
+			</li>
+										{/volist}	
+
+										
+									</ul>
+									</section>
+									<div style=" height:5rem;"></div>
+					
+			</div>
+            </div>
+
+			</div>
+            </div>
+
+
+        <!--地区选择 e-->
+        <!--快捷导航-->
+{include file="../application/index/view/index/nav.html" /}
+	        <!--快捷导航-->
+
+    <div class="common-show"></div>
+            <div style=" display:none;" class="footer-cont"><span><img src='{$Think.HOSTPATH}/img/loading1.gif'>正在加载……</span></div>
+		<script type="text/javascript">    
+            			var Sliders = function() {
+				// 筛选价格区间 js
+				$("#slider-range").slider({
+					range: true,
+					min: 190,
+					max: 540,
+					step: 100,
+					values: [0, 540],
+					slide: function(event, ui) {
+						$("#slider-range-amount").text(ui.values[0] + " ~ " + ui.values[1]);
+                        $("input[name=price_min]").val(ui.values[0]);
+                        $("input[name=price_max]").val(ui.values[1]);
+					}
+				});
+				$("#slider-range-amount").text($("#slider-range").slider("values", 0) + " ~ " + $("#slider-range").slider("values", 1));
+			}();
+				//删除
+				function DropBook(sid) {
+					
+					var url='{$Think.HOSTPATH}/index.php/index/caozuo/delbook';
+					   layer.open({
+							content: '你真的要将该图书下架吗?',
+							btn: ['确定', '取消'],
+							shadeClose: false,
+							yes: function() {
+							  $.post(url, {saleid:sid},
+								 function(result){
+							
+									 if(result > 0){
+										d_messages('操作成功');
+										    setTimeout(function () { 
+													window.location.href = "{$Think.HOSTPATH}/index.php/user/user/editbook";
+												}, 600);
+										
+									 }
+									 else
+									 {
+										d_messages('操作失败');
+									 }
+								 }, 'json');
+							 },
+							no: function() {
+
+								 }
+						});
+				}
+		</script>
+
+	</body>
+
+</html>

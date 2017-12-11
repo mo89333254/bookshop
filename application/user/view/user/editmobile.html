@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>修改手机</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+ 
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+		    <link href="{$Think.HOSTPATH}/css/shop/shop.css?v=20170418" rel="stylesheet" type="text/css" />
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+	<link href="{$Think.HOSTPATH}/css/shop/iconfont.css" rel="stylesheet">
+    </head>
+<body>
+<p style="text-align:right; display:none;"></p>
+<div id="loading"><img src="{$Think.HOSTPATH}/img/loading.gif" /></div>
+
+		<!--  -->
+		<!--  -->
+<div class="con b-color-f">
+					<section class=" goods-shop b-color-f no-shopping-title">
+                                                <a href="{$Think.HOSTPATH}/index.php/user/user/edituser" ><div class="goods-shop-pic of-hidden" > 
+                    <h4  class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					<i  class="fanhuii fa fa-angle-left"></i>
+						<span class="fanhuispan" style="">修改手机</span>
+					</label></h4>
+
+                </div></a>
+              
+            </section>
+    <form action="/mobile/index.php?m=user&amp;c=profile&amp;a=realname" method="post" class="form-horizontal" role="form" onsubmit="return false;">
+        <section class="j-f-tel margin-lr">
+
+   
+
+
+            <div class="text-all dis-box j-text-all bank_name">
+                <label>手机号码</label>
+                <div class="box-flex input-text">
+                    <input id="mobile_phone" class="j-input-text inputcard" type="tel" name="mobile_phone" placeholder="手机号码" value="">
+                    <i class="iconfont icon-guanbi1 close-common j-is-null"></i>
+                </div>
+            </div>
+            <div class="text-all dis-box j-text-all bank_name">
+                <label>短信验证码</label>
+                <div class="box-flex input-text">
+                    <input class="j-input-text inputcard" type="number" name="mobile_code" id="mobile_code" placeholder="短信验证码">
+                    <i class="iconfont icon-guanbi1 close-common j-is-null"></i>
+                </div>
+                <button type="button" class="box-flex btn-submit j-submit-phone br-5"  >获取验证码</button>
+			
+            </div>
+            <input type="hidden" name="step" value="first">
+            <input type="hidden" name="real_id" value="">
+            <input style=" margin-bottom:0.5rem;" type="submit" value="同意绑定手机" class="tongyi btn-submit br-5">
+				<span style=" color:#666;"><i class="fa fa-exclamation-circle"></i> 您是第一次使用,请关联您的常用的手机号码</span>
+        </section>
+    </form>
+</div>
+		<!--  -->
+    <!--快捷导航-->
+	{include file="../application/index/view/index/nav.html" /}
+
+
+    <div class="common-show"></div>
+        <script>
+		var countdown=60; 
+		function settime() { 
+
+			
+			var obj = $('.j-submit-phone');
+			
+			if (countdown == 0) { 
+				
+				obj.attr("disabled",false);
+				obj.removeClass('vcodeda');
+				obj.text("免费获取验证码"); 
+				countdown = 60; 
+				
+				return;
+			} else { 
+				obj.attr("disabled",true);
+				obj.addClass('vcodeda');
+				obj.text("重新发送(" + countdown + ")"); 
+				countdown--; 
+			} 
+		setTimeout(function() { 
+			settime() }
+			,1000) 
+			
+		}
+		
+		$('.j-submit-phone').click(function(){
+		
+			var mobile = $("#mobile_phone").val();
+			
+			if(mobile && /^1[3|4|5|8]\d{9}$/.test(mobile)){
+				//对的
+			} else{
+				d_messages("请输入有效的手机号码");
+				return;
+			}
+		settime();
+			ajax_mobile();
+			
+			
+		})
+
+       
+        //ajax发送验证码
+        function ajax_mobile(){
+        	 var mobile =$("#mobile_phone").val();
+        	
+        	 $.post("{$Think.HOSTPATH}/index.php/user/user/getcode",{num:mobile},function(){
+        		 
+        	 });
+        }
+
+
+      
+			$('.tongyi').click(function(){
+				 var mobile =$("#mobile_phone").val();
+				  var code =$("#mobile_code").val();
+					if(mobile && /^1[3|4|5|8]\d{9}$/.test(mobile)){
+						//对的
+					} else{
+						d_messages("请输入有效的手机号码");
+						return false;
+					}
+				  if(code.length < 1)
+				  {
+					d_messages("请输入验证码");
+					return false;
+				  }
+				  $.post('{$Think.HOSTPATH}/index.php/user/user/editmobilemode',{mobile:mobile,code:code},function(data){
+					if(data == 3)
+					{
+						d_messages('验证码错误');
+						return false;
+					}
+					else if(data == 1)
+					{
+						d_messages('修改成功');
+						window.location.href="{$Think.HOSTPATH}/index.php/index/index/userinfo";
+					}
+				  })
+			})
+        </script>
+
+        
+	</body>
+
+</html>

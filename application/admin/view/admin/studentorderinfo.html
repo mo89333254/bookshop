@@ -1,0 +1,99 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<title>学生折订单信息</title>
+
+
+
+	 	<script src="{$Think.HOSTPATH}/js/jquery.js"></script>
+	<script src="{$Think.HOSTPATH}/js/bootstrap.min.js"></script>
+	<link href="{$Think.HOSTPATH}/css/Admin/bootstrap.min.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+	<link href="{$Think.HOSTPATH}/css/Admin/bootstrap-switch.css" rel="stylesheet">
+	<link href="{$Think.HOSTPATH}/css/Admin/index.css" rel="stylesheet">
+<script src="{$Think.HOSTPATH}/js/bootstrap-switch.js"></script>
+   	<style type="text/css">
+		#fm{
+			margin:0;
+			padding:10px 30px;
+		}
+		.ftitle{
+			font-size:14px;
+			font-weight:bold;
+			color:#666;
+			padding:5px 0;
+			margin-bottom:10px;
+			border-bottom:1px solid #ccc;
+			width:650px;
+			margin:0 auto;
+		}
+		.fitem{
+			margin:0 auto 5px;
+			width:650px;
+		
+		}
+		.fitem label{
+			display:inline-block;
+			width:80px;
+			text-align:right;
+			
+		}
+	</style>
+	
+</head>
+<body>
+
+
+
+<div class="col-lg-12">
+            <div class="page-header">
+              <h1 id="tables">订单信息</h1>
+            </div>
+
+            <div class="bs-example">
+              <table class="table  table-bordered table-hover">
+                <thead>
+     
+                </thead>
+                <tbody>
+			
+                  <tr>				  
+                    <td>订单号</td>
+                    <td>{$orderinfo.OrderID}</td> 
+                  </tr>
+
+                  <tr>				  
+                    <td>交易时间</td>
+                    <td>{$orderinfo.CreateTime}</td> 
+                  </tr>
+                  <tr>				  
+                    <td>交易状态</td>
+                    <td>{eq name="orderinfo.Status" value="0"}已支付{else/}待支付{/eq}</td> 
+                  </tr>
+                  <tr>				  
+                    <td>订单金额</td>
+                    <td>{$orderinfo.Price}</td> 
+                  </tr>
+                  <tr>				  
+                    <td>支付方式</td>
+                    <td>{eq name="orderinfo.PayType" value="0"}微信支付{else/}零钱支付{/eq}</td> 
+                  </tr>
+                  <tr>				  
+                    <td>购买类型</td>
+                    <td>{eq name="orderinfo.Type" value="0"}学生折{else/}体验劵{/eq}</td> 
+                  </tr>					  
+				
+                </tbody>
+              </table>
+            </div><!-- /example -->
+<br>
+          </div>
+		 
+
+</body>
+
+</html>

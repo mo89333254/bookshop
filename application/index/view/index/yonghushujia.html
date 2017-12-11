@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta charset="utf-8">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>	 {eq name="suserid" value="0"}巴巴布自营书架{else/}卖家书架{/eq}</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+ 	    <link href="{$Think.HOSTPATH}/css/shop/shop.css" rel="stylesheet" type="text/css" />
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	 <script src="{$Think.HOSTPATH}/js/shop/fsrPMD.js?v=20170418"></script>
+	<script type="text/javascript">var ROOT_URL = '/'; var USER_ID = {$userid}</script>
+	<script src="{$Think.HOSTPATH}/js/shop/fastclick.js"></script>
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+	
+    </head>
+
+<body>
+<p style="text-align:right; display:none;"></p>
+<div style=" display:none;" id="loading"><img src="{$Think.HOSTPATH}/img/loading.gif" /></div>
+<body>
+		<div class="con" id="checkPage">
+			<div class="category">
+			<section class=" goods-shop b-color-f no-shopping-title">
+                                                <a href="{$Think.HOSTPATH}/index.php/index/index/userinfo" ><div class="goods-shop-pic of-hidden" > 
+                    <h4  class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					<i  class="fanhuii fa fa-angle-left"></i>
+						<span class="fanhuispan" style="">	 {eq name="suserid" value="0"}巴巴布自营书架{else/}卖家书架{/eq}</span>
+					</label></h4>
+
+                </div></a>
+              
+            </section>
+
+
+			
+                <!-- 内容 -->
+ {gt name="suserid" value="0"}
+<section class="goods-shop b-color-f ">
+                                <div class="goods-shop-info padding-all">
+                   
+                    <section class="dis-box">
+                        <div style=" width:11.8rem;" class="g-s-i-img"><img data-toggle="modal" data-target="#myModal" src="{:getimg2($suserinfo['UserImg'])}"></div>
+						
+                        <div class="g-s-i-title box-flex">
+                             <a href="javascript:0;" ><h3 class="ellipsis-one">{$suserinfo['NickName']}</h3></a>
+                            <p class="t-remark m-top04">性别:{:getchoose($suserinfo['Sex'],1,'男','女')}</p>
+							 <p class="t-remark m-top04">校区:{$suserinfo['SchoolName']}</p>
+							  <p class="t-remark m-top04">专业:{$suserinfo['Department']}</p>
+							   <p class="t-remark m-top04">年级:{$suserinfo['Class']}</p>
+                        </div>
+						
+                    </section>
+
+                </div>
+
+            </section>
+{/gt}
+<section class="m-top08 goods-evaluation">
+              
+                    <div class="dis-box padding-all b-color-f  g-evaluation-title">
+                        <label class="t-remark g-t-temark">该卖家正在出售的书</label>
+
+                    </div>
+               
+                            </section>
+
+				<section style=" margin-top:1rem;" class="product-list j-product-list  product-list-small" data="2">
+
+					<ul>		
+					{volist name="salebooklist" id="sl"}		
+							{gt name="sl['Count']" value="0"}					
+						<li>
+							<div class="product-div">
+								<a href="bookinfo/bookid/{$sl['BookID']}"><img class="product-list-img" style=" height:12rem;"  src="{:getimg2($sl['BookSimg'])}"></a>
+								<div class="product-text index-product-text">
+								<a href="bookinfo/bookid/{$sl['BookID']}"><h4>{$sl['BookName']}</h4></a>
+								
+								<p class="dis-box p-t-remark"><span class="box-flex">
+							折扣:{:round($sl['Discount'],0)}折
+						</span><span style=" " class="box-flex">库存:												
+								<span class="booknum{$sl['ID']}">{$sl['Count']}</span></span>
+								</p>
+								<p class="dis-box p-t-remark"><span style=" color:#ec5151;" class="box-flex t-remark">
+						¥{:round(floatval($sl['Amount']*0.1*$sl['Discount']),2)}									
+								<small><del>¥{$sl['Amount']}</del></small>
+						</span><span class="box-flex t-remark"><a style="color:white; font-size:1rem;" href="javascript:void(0);" class="gouwuchebtn" onclick="addToCart({$sl['BookID']}, 0,{$sl['Suserid']},{$sl['ID']})">
+				<i style=" " class="iconfont icon-gouwuche"></i>加入购物车</a></span>
+								</p>
+																	<p>
+								<span style=" font-size:1.0rem;" class="box-flex t-remark">
+												
+											{empty name="sl['Author']"}作者:暂无{else /} 作者:{$sl['Author']}{/empty}										
+										</span>
+									</p>
+																										<p>
+								<span style=" font-size:1.0rem;" class="box-flex t-remark">
+											{empty name="sl['PublishName']"}出版社:暂无{else /} 出版社:{$sl['PublishName']}{/empty}				
+										</span>
+									</p>
+																		{notempty name="sl['KeCheng']"}
+												<span  style=" font-size:1.0rem;" class="box-flex t-remark">
+										课程:{$sl['KeCheng']}		
+										</span>
+									{/notempty}
+								
+								</div>
+									</div>
+			</li>
+			{/gt}
+										{/volist}	
+
+										
+									</ul>
+									</section>
+									<div style=" height:5rem;"></div>
+					
+			</div>
+            </div>
+
+			</div>
+            </div>
+
+
+        <!--地区选择 e-->
+        <!--快捷导航-->
+		<nav class="commom-nav dis-box ts-5">
+        <div class="left-icon">
+            <div class="nav-icon"><i class="iconfont icon-jiantou1"></i>快速导航</div>
+            <div class="filter-top filter-top-index" id="scrollUp">
+                <i class="iconfont icon-jiantou"></i>
+                <span>顶部</span>
+            </div>
+        </div>
+        <div class="right-cont box-flex">
+            <ul class="nav-cont">
+                <li>
+                      <a href="/bookshop/public/index.php/index/index/index1">
+                        <i class="iconfont icon-home"></i>
+                        <p>首页</p>
+                      </a>  
+                </li>
+                <li>
+                    <a href="/bookshop/public/index.php/index/index/student">
+                         <i class="iconfont icon-sousuo"></i>
+                         <p>学生折</p>
+                    </a>  
+                </li>
+
+                <li>
+                     <a href="/bookshop/public/index.php/index/index/shopcart">
+                         <i class="iconfont icon-gouwuche"></i>
+                         <p>购物车</p>
+                      </a> 
+                </li>
+                <li>
+                    <a href="/bookshop/public/index.php/index/index/userinfo">
+                         <i class="iconfont icon-geren"></i>
+                         <p>我的</p>
+                    </a> 
+                </li>
+
+                        </ul>
+        </div>
+    </nav>
+	        <!--快捷导航-->
+
+    <div class="common-show"></div>
+            <div style=" display:none;" class="footer-cont"><span><img src='{$Think.HOSTPATH}/img/loading1.gif'>正在加载……</span></div>
+		<script type="text/javascript">    
+            			var Sliders = function() {
+				// 筛选价格区间 js
+				$("#slider-range").slider({
+					range: true,
+					min: 190,
+					max: 540,
+					step: 100,
+					values: [0, 540],
+					slide: function(event, ui) {
+						$("#slider-range-amount").text(ui.values[0] + " ~ " + ui.values[1]);
+                        $("input[name=price_min]").val(ui.values[0]);
+                        $("input[name=price_max]").val(ui.values[1]);
+					}
+				});
+				$("#slider-range-amount").text($("#slider-range").slider("values", 0) + " ~ " + $("#slider-range").slider("values", 1));
+			}();
+                        //异步数据
+            /*$(function(){
+                // 通过埋点判断是否使用缓存
+                var categoryPageFlag = window.BuryingPoint.search(/category/);
+                if(categoryPageFlag >= 0){
+                    var is_cache = false;
+                }else{
+                    var is_cache = true;
+                }
+                // 缓存ID
+                var cache_prefix = "3d71da856aa677127fcf654d7638c778";
+                // 请求URL
+                var url = "http://demo.dscmall.cn/mobile/index.php?m=category&a=products&id=380&brand=0&intro=&price_min=0&price_max=0&filter_attr=0&sort=goods_id&order=desc&keyword=&isself=0&hasgoods=0&promotion=0&region_id=2&area_id=19";
+                //$('#J_list').more({'address': url, 'trigger':'.get_more', 'amount':'10'});
+                //订单列表
+                $('.product-list').infinite({url: url, template:'j-product', cache: is_cache, cache_prefix: cache_prefix});
+                //加载更多
+                var loadingHeight = $(".product-list").outerHeight(true);  
+                function loadimgCont(){
+                    if ($(document).scrollTop() >= $(window).height() <$(document).height() - $(window).height()) {
+                            $(".footer-cont").html("<span><img src='{$Think.HOSTPATH}/img/loading1.gif'>正在加载……</span>")
+                    }
+                    if ($(document).scrollTop() >= $(document).height() - $(window).height()) {
+                             $(".footer-cont").html("<span>没有更多了</span>")
+                    }
+                    if(loadingHeight< $(window).height()){
+                         $(".footer-cont").css("display","none");
+                    }else{
+                         $(".footer-cont").css("display","block");
+                    }
+                }
+                loadimgCont();
+                $(window).scroll(function() {     
+                loadimgCont()
+                });
+                })*/
+		</script>
+
+	</body>
+
+</html>

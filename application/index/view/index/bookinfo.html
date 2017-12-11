@@ -1,0 +1,766 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta charset="utf-8">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>书本信息</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">var ROOT_URL = '/'; var USER_ID = {$userid}</script>
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	 <script src="{$Think.HOSTPATH}/js/shop/rini.js?2017060403"></script>
+	 	    <link href="{$Think.HOSTPATH}/css/shop/shop.css?2017051701" rel="stylesheet" type="text/css" />
+		<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+    </head>
+<body>
+<style>
+.goods-photo img {
+    width: 60%;
+
+}
+.daohuobtn {
+background: #f4a213;
+   
+right: 6.3rem;
+    bottom: 1.3rem;
+    width: 7.8rem;
+    height: 2rem;
+    line-height: 2rem;
+	top:102rem;
+    border-radius: 5%;
+    text-align: center;
+border:0;
+	font-size:1.5rem;
+
+}
+.gouwuchebtn {
+background: #ec5151;
+   
+
+    width: 7rem;
+    height: 2rem;
+    line-height: 2rem;
+	
+    text-align: center;
+	border-radius: 5%;
+	
+}
+
+.daohuobtn1 {
+background: #f4a213;
+   
+right: 1.3rem;
+    bottom: 1.3rem;
+    width: 7.8rem;
+    height: 2rem;
+    line-height: 2rem;
+	
+    border-radius: 5%;
+    text-align: center;
+	border:0;
+font-size:1.5rem;
+}
+
+.gouwubtn1 {
+background: #ec5151;
+   
+right: 1.3rem;
+    bottom: 1.3rem;
+    width: 7.8rem;
+    height: 2rem;
+    line-height: 2rem;
+	
+    border-radius: 5%;
+    text-align: center;
+	
+}
+
+</style>
+<p style="text-align:right; display:none;"></p>
+<div id="loading"><img src="{$Think.HOSTPATH}/img/loading.gif" /></div>
+			<section class=" goods-shop b-color-f no-shopping-title">
+                                                <a href="{$Think.HOSTPATH}/index.php/index/index/index1"><div class="goods-shop-pic of-hidden" > 
+                    <h4  class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					<i  class="fanhuii fa fa-angle-left"></i>
+						<span class="fanhuispan" style="">书本信息</span>
+					</label></h4>
+
+                </div></a>
+              
+            </section>
+<div class="goods-photo j-show-goods-img goods-banner  swiper-container-horizontal">
+                <span class="goods-num" id="goods-num"><span id="g-active-num">1</span>/<span id="g-all-num">1</span></span>
+                <div class="swiper-wrapper">
+                                                            <li class="swiper-slide tb-lr-center swiper-slide-active" >
+                        <img class="fangda" src="	{if condition="(strpos($bookinfo['BookSimg'],'http') ===0)"}
+								{else /} /bookshop/public/uploads/
+								{/if}{$bookinfo['BookSimg']}" alt="">
+                    </li>
+					{volist name="sbookimg" id="sb"}
+					  <li class="swiper-slide tb-lr-center swiper-slide-active" >
+                        <img class="fangda" src="{:getimg2($sb)}" alt="">
+                    </li>
+					{/volist}
+
+                                                        </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+<div class="con goods" id="checkPage">
+
+
+    <form name="ECS_FORMBUY" id="ECS_FORMBUY" method="post" action="javascript:addToCart(696)">
+        <div>
+
+
+            <section class="goods-title b-color-f padding-all ">
+                <div class="dis-box">
+                  <div class="box-flex">
+                    <h3>
+                                              
+                                                {$bookinfo['BookName']}</h3>
+                        </div>
+ 
+                </div>
+            </section>
+            <section class="goods-price padding-all b-color-f">
+                <p class="p-price" ><span class="t-first" id="ECS_SHOPPRICE">¥0.00</span><em class="em-promotion"><font id="ECS_DISCOUNT">{$bookinfo['Discount']}</font>折</em></p>
+				<p class="p-market">
+                                 市场价格： <del id="ECS_MARKETPRICE">¥{$bookinfo['Amount']}</del>
+                                 </p>
+
+                <p class=" dis-box g-p-tthree m-top06">
+                    <span class="box-flex text-left">作者： {$bookinfo['Author']}</span>
+                                                           <!--  <span class="box-flex text-right">当前库存 <font class="booknum{$bookinfo['saleid']} goods_attr_num"></font></span>-->
+                                       
+                </p>
+								<p class="p-market">
+                                 <span class="box-flex text-left">出版社： {$bookinfo['PublishName']}</span>
+                                 </p>
+								 				<p class="p-market">
+                                <span class="box-flex text-left">出版日期： {:Date('Y-m-d',strtotime($bookinfo['PublishDate']))}</span>
+                                 </p>
+								 				<p class="p-market">
+                              <span class="box-flex text-left">页码： {$bookinfo['Pages']}							  
+							  		{eq name="$bookinfo['sumc']" value="0"}
+									{eq name=":isindaohuo($userid,$bookinfo['UserList'])" value="0"}
+										<input style=" color: white;" data-bookid="{$bookinfo['BookID']}" type="button" onclick="return rini({$bookinfo['BookID']},this);" class="nmb daohuobtn fr j-goods-attr" value="到货提醒" />
+									{/eq}
+									{eq name=":isindaohuo($userid,$bookinfo['UserList'])" value="1"}
+									<input style="  color: white;" data-bookid="{$bookinfo['BookID']}" type="button" onclick="return rini({$bookinfo['BookID']},this);" class="nmb daohuobtn1 fr j-goods-attr" value="已设置" />
+									{/eq}
+									{/eq}
+									
+									{gt name="$bookinfo['sumc']" value="0"}
+										<a href="{$Think.HOSTPATH}/index.php/index/index/buy?bookid={$bookinfo['BookID']}" style="  color: white;"  class="nmb gouwubtn1 fr j-goods-attr" >选择卖家</a>
+									{/gt}
+									</span>
+
+							  
+							  
+                                 </p>
+								 {notempty name="bookinfo['KeCheng']"}
+								 				<p class="p-market">
+                              <span class="box-flex text-left">课程： {$bookinfo['KeCheng']}</span>
+                                 </p>
+									{/notempty}
+
+
+            </section>
+
+
+
+                        <section class="m-top08 b-color-f goods-attr j-goods-attr ">
+
+                <!--商品属性弹出层star-->
+                <div class="mask-filter-div"></div>
+                <div class="show-goods-attr j-filter-show-div ts-3 b-color-1">
+                    <section class="s-g-attr-title b-color-1  product-list-small">
+                        <div class="product-div" style="overflow: inherit;">
+                            <div class="product-list-box"><img class="product-list-img" src="	{if condition="(strpos($bookinfo['BookSimg'],'http') ===0)"}
+								{else /} /bookshop/public/uploads/
+								{/if}{$bookinfo['BookSimg']}"></div>
+                            <div class="product-text">
+                                <div class="dis-box position-rel">
+                                    <h5 class="f-04 box-flex onelist-hidden" style="margin-right: 2rem;">{$bookinfo['BookName']}</h5>
+                                    <i class="iconfont icon-guanbi2 show-div-guanbi"></i>
+                                </div>
+                                <div ><span class="f-06 t-first" id="ECS_GOODS_AMOUNT">
+                                                                        ¥0.00                                                                    </span></div>
+                                <span class="box-flex f-02 col-9">库存:<font class="goods_attr_num"></font></span>
+                            </div>
+                        </div>
+                    </section>
+					
+                    <section class="s-g-attr-con swiper-scroll b-color-f padding-all m-top1px">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                
+                                <h4 class="t-remark">数量</h4>
+                                <!-- 普通商品可修改数量 -->
+                                                                <div class="div-num dis-box m-top08">
+                                    <a class="num-less" onClick="changePrice('1')"></a>
+                                    <input class="box-flex" type="text" value="1" onblur="changePrice('2')" name="number" id="goods_number" />
+                                    <a class="num-plus" onClick="changePrice('3')"></a>
+                                </div>
+                                                            </div>
+                        </div>
+                        <div class="swiper-scrollbar"></div>
+                    </section>
+					
+                    <section class="ect-button-more dis-box">
+                        <input type="hidden" value="6" id="province_id" name="province_region_id">
+                        <input type="hidden" value="77" id="city_id" name="city_region_id">
+                        <input type="hidden" value="0" id="district_id" name="district_region_id">
+                        <input type="hidden" value="3" id="region_id" name="region_id">
+                        <input type="hidden" value="{$bookinfo['BookID']}" id="goods_id" name="good_id">
+						<input type="hidden" value="{$bookinfo['saleid']}" id="sale_id" name="sale_id">
+                        <input type="hidden" value="{$userid}}" id="user_id" name="user_id">
+						 <input type="hidden" value="{$collect}" name="collect">
+         
+						
+						{eq name="changetype" value=""}
+                        <a class="btn-disab box-flex quehuo" href="javascript:0;" style="display:none">暂时缺货</a>
+						
+                      
+                        <a  class="btn-submit box-flex add-to-cart" href="javascript:;" onclick="addToCart_quick({$bookinfo['BookID']},0,{$bookinfo['Suserid']},{$bookinfo['saleid']})" >加入购物车</a>
+						{/eq}
+						{eq name="changetype" value="change"}
+						 <a class="btn-cart box-flex add-to-cart" href="javascript:;" onclick="addToCart({$bookinfo['BookID']},0,{$bookinfo['saleid']}})" >立即购买</a>
+						{/eq}
+                    </section>
+					
+                </div>
+                <!--商品属性弹出层end-->
+            </section>
+			
+			      <!--书本简介end-->
+<section class="m-top08  goods-shop b-color-f no-shopping-title">
+                                                <div class="goods-shop-pic of-hidden">
+                    <h4 class="title-hrbg m-top06"><label class="t-remark g-t-temark">书本简介</label><hr> </h4>
+                    <div class="g-s-p-con product-one-list of-hidden scrollbar-none j-g-s-p-con padding-all swiper-container-horizontal">
+                        <div class="swiper-wrapper ">
+
+                 <p>{$bookinfo['Summary']}</p>
+              
+
+
+                                                    </div>
+                    </div>
+                </div>
+              
+            </section>
+							 <!--卖家留言end-->
+							                       <!--  <section class="m-top08 goods-evaluation">
+                <a href="/mobile/index.php?m=goods&a=comment&id=685">
+                    <div class="dis-box padding-all b-color-f  g-evaluation-title">
+                        <label class="t-remark g-t-temark">卖家评价</label>
+
+                    </div>
+                </a>
+                            </section>
+
+							
+<section class="m-top08 goods-shop b-color-f ">
+                                <div class="goods-shop-info padding-all">
+                   
+                    <section class="dis-box">
+                        <div class="g-s-i-img"><img data-toggle="modal" data-target="#myModal" src="{:getimg2($bookinfo['UserImg'])}"></div>
+						
+                        <div class="g-s-i-title box-flex">
+                             <a href="{$Think.HOSTPATH}/index.php/index/index/yonghushujia?suserid={$bookinfo['Suserid']}" ><h3 class="ellipsis-one">
+							 {eq name="bookinfo['Suserid']" value="0"}巴巴布自营{else/}{$bookinfo['NickName']}{/eq}
+							   的书架</h3></a>
+                            <p class="t-remark m-top04">{:getchoose($bookinfo['Content'],'','暂无留言',$bookinfo['Content'])}</p>
+                        </div>
+						
+                    </section>
+
+                </div>
+
+            </section>-->
+			
+			<!-- 卖家书架 -->
+			   <!-- <section style=" margin-top:1rem;" class="flow-have-cart select-three j-select-all">
+
+		{volist name="salebooklist" id="sl" }
+			{gt name="$sl['Count']" value="0"}
+		        <section class="j-cart-get-i-more shop0" num="1">
+            <header class="flow-shop-header padding-all of-hidden dis-box">
+                <div  class="ect-select box-flex is-shop">
+                    <label class="dis-box label-this-all active">
+                      
+                          
+							<div  class="sexdiv {:getchoose($sl['Sex'],1,'man','woman')}">
+							
+                                <img class="shujia"  style=" width:3rem; height:3rem;" 
+								src="{:getimg2($sl['UserImg'])}"/></div>
+                                      <a class="box-flex f-06" href="{$Think.HOSTPATH}/index.php/index/index/yonghushujia?suserid={$sl['Suserid']}">{$sl['NickName']}
+				<i class="{:getchoose($sl['Sex'],1,'man','woman')} fa fa-user"></i>									  的书架</a>                            <i class="iconfont icon-more f-08 col-7"></i>                            </a>
+                    </label>
+                </div>
+                            </header>
+		
+            <div class="product-list-small" style="padding:0">
+                <ul>
+
+                    <li>
+                                               
+                                                <div style=" background:white;" class="dis-box drop28 com-post-adr">
+                            <input type="hidden" class="total" price="{$sl['Amount']}" number="{$sl['Count']}">
+ 
+                            <div class="box-flex">
+
+                                <div class="product-div" style="background:none">
+     
+								<div class=" index-product-text">
+		
+								{notempty name="sl['KeCheng']"}
+								<p>
+								<span class="t-remark " >
+											课程:{$sl['KeCheng']}								
+								
+										</span>
+									</p>
+									{/notempty}
+								<p class="dis-box p-t-remark"><span class="box-flex t-remark">
+							折扣:{:round($sl['Discount'],0)}折
+						</span><span class="box-flex t-remark">库存:												
+								<span class="booknum{$sl['sid']}">{$sl['Count']}</span></span>
+								</p>
+								
+								<p class="dis-box p-t-remark"><span style=" color:#ec5151;" class="box-flex t-remark">
+						¥{:round(floatval($sl['Amount']*0.1*$sl['Discount']),2)}									
+								<small><del>¥{$sl['Amount']}</del></small>
+						</span><span class="box-flex t-remark"><a style="color:white; font-size:1rem;" href="javascript:void(0);" class="gouwuchebtn" onclick="addToCart_quick({$sl['BookID']},0,{$sl['Suserid']},{$sl['sid']})">
+				<i style=" " class="iconfont icon-gouwuche"></i>加入购物车</a></span>
+								</p>
+								
+
+
+			
+				{eq name="$sl['Count']" value="0"}
+									{eq name=":isindaohuo($userid,$sl['UserList'])" value="0"}
+										<a href="javascript:void(0);" style=" color: white;" data-saleid="{$sl['sid']}" class="nmb daohuobtn fr j-goods-attr" >到货提醒</a>
+									{/eq}
+									{eq name=":isindaohuo($userid,$sl['UserList'])" value="1"}
+									<a href="javascript:void(0);" style="  color: white;" data-saleid="{$sl['sid']}" class="nmb daohuobtn1 fr j-goods-attr" >已设置</a>
+									{/eq}
+			
+				{else/}
+				
+
+				{/eq}
+				
+												
+									
+								</div>
+                                </div>
+
+                            </div>
+                        </div>
+                      
+                    </li>
+
+                </ul>
+            </div>
+	
+			        </section>
+					{/gt}
+			{/volist}
+	<div style=" height:5rem;"></div>
+		</section>-->
+
+        </div>
+
+<!-- 按钮触发模态框 -->
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <img class="sshujia" style=" width:31rem; height:31rem; " src="{:getimg2($bookinfo['UserImg'])}">
+            </div>
+
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<!-- 书本图片放大（Modal） -->
+<div class="modal fade" id="bookimgri" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div style="width:100%" class="modal-dialog">
+        <div class="modal-content" style="top:-12rem;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <img class='nbimg' style="width:100%; height:auto; " src="">
+            </div>
+
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+		
+<section class="filter-btn dis-box">
+        	<!--飞入购物车位置s-->
+    		<span class="quick_links" id="shopCart"></span>
+    		<!--飞入购物车位置e-->
+                                              
+                                       
+               <a saleid={$bookinfo['saleid']} style="width:50%;" class="addcollect filter-btn-flow  heart j-heart {:getchoose($collect,1,'','active')}"  href="javascript:0;" >
+                <i class="shoucang ts-2"></i>
+                <em>收藏</em>
+            </a>
+                
+            
+
+       
+            <a style=" margin-left: 9rem;" href="/bookshop/public/index.php/index/index/shopcart" class="filter-btn-flow heart">
+                <i class="flow"></i>
+				{eq name="changetype" value=""}
+                <sup class="b-color cart-num">{$sum}</sup>
+				{/eq}
+                <em>购物车</em>
+            </a>
+			
+           <!--{eq name="changetype" value=""}
+            <a class="btn-disab box-flex quehuo" href="javascript:0;" style="display:none">暂时缺货</a>
+			 <a class="btn-cart box-flex daohuo" href="javascript:0;"  style="display:none">到货提醒</a>
+                          <a class="btn-submit box-flex add-to-cart btnCart" href="{$Think.HOSTPATH}/index.php/index/index/buy/bookid/{$bookinfo['BookID']}">购买</a>
+                  {/eq}     
+				{eq name="changetype" value="change"}       
+                          <a class="btn-submit box-flex add-to-cart btnCart" href="javascript:;" 
+						  onclick="changBook({$cartid},{$bookinfo['saleid']},{$bookinfo['Suserid']})">替换</a>
+                  {/eq} -->
+        </section>
+
+        
+    </form>
+</div>
+
+
+
+
+	        <!--快捷导航-->
+{include file="../application/index/view/index/nav.html" /}
+
+    <div class="shopping-prompt ts-2">
+        <img src="http://demo.dscmall.cn/mobile/public/img/fengxiang.png" />
+    </div>
+    <div class="goods-bg-box">
+    	<div class="goods-list-close position-abo"><i class="iconfont icon-guanbi2 text-r"></i></div>
+    </div>
+
+    <div class="common-show"></div>
+<script type="text/javascript">
+"use strict";
+    /*商品详情相册切换*/
+    var swiper = new Swiper('.goods-photo', {
+        paginationClickable: true,
+        onInit: function(swiper) {
+            document.getElementById("g-active-num").innerHTML = swiper.activeIndex + 1;
+            document.getElementById("g-all-num").innerHTML = swiper.slides.length;
+		
+        },
+        onSlideChangeStart: function(swiper) {
+            document.getElementById("g-active-num").innerHTML = swiper.activeIndex + 1;
+		
+        }
+    });
+    /*推荐商品滚动*/
+    var swiper = new Swiper('.j-g-s-p-con', {
+        scrollbarHide: true,
+        slidesPerView: 'auto',
+        centeredSlides: false,
+        grabCursor: true
+    });
+    $(function(){
+        changePrice('onload');
+        //商品详情属性弹出层
+        $(".click-show-attr").click(function(){
+          $(".show-goods-attr").addClass("show");
+           $(".mask-filter-div").addClass("show");
+      });
+    })
+    /**
+     * 点选可选属性或改变数量时修改商品价格的函数
+     */
+    function changePrice(type)
+    {
+        var max_number = -1;
+        var min_number = 1;
+        var qty = $("#goods_number").val();
+		var s_bookid = $("#goods_id").val();
+		var s_saleid = $("#sale_id").val();
+        if(type == 1){
+            if(qty > min_number){
+                qty--;
+            }
+        }
+        if(type == 3){
+            if(max_number == -1){
+                max_number = $(".goods_attr_num").html() ? parseInt($(".goods_attr_num").html()) : 1;
+            }
+            if(qty < max_number){
+                qty++;
+            }
+        }
+        // 购买数量 不能为0 并且必须为整数
+        if(qty <= 0 || !/^[0-9]*$/.test(qty) ){ qty = 1;}
+        var attr = getSelectedAttributes(document.forms['ECS_FORMBUY']);
+
+        //ecmoban模板堂 --zhuo start 限购
+                var warehouse = 3;
+        var area = 30;
+
+        var attr_id = '';
+                attr_id = getSelectedAttributesGroup(document.forms['ECS_FORMBUY']);
+        
+        $.get('/bookshop/public/index.php/index/caozuo/getbookinfo', {'saleid':s_saleid,'onload': type,'qty': qty}, function(data){
+            changePriceResponse(data);
+        }, 'json');
+    }
+    /**
+     * 获得选定的商品属性组
+     */
+    function getSelectedAttributesGroup(formBuy)
+    {
+        var spec_arr = new Array();
+        var j = 0;
+
+        $("form[name='ECS_FORMBUY'] :input[name='spec_list']").each(function(index, element) {
+            spec_arr[j] = ($(this).val());
+            j++ ;
+        });
+
+        return spec_arr.join(',');
+    }
+
+    /**
+     * 接收返回的信息
+     */
+	 var s_get_label = "";
+    function changePriceResponse(res){
+
+	res = eval("("+res+")");
+
+        if (res.err_msg.length > 0){
+            d_messages(res.err_msg);
+        } else {
+            //属性图片
+            if(res.attr_img) {
+                $(".s-g-attr-title .product-list-img").attr('src',res.attr_img);
+            }
+            //用户可购买的数量
+            $("#goods_number").val(res.limit_number);
+            //更改数量的同时显示
+            var get_text = '';
+            s_get_label = $(".show-goods-attr .s-g-attr-con").find("label.active"); //获取被选中label
+            if(s_get_label.length > 0){
+                s_get_label.each(function() {
+                    get_text += $(this).text() + "、";
+                });
+            }
+            var goods_number = $("#goods_number").val();
+            goods_number = parseInt(goods_number) ? parseInt(goods_number) : 1;
+            get_text = get_text + goods_number + "个";
+            $(".j-goods-attr").find(".t-goods1").text(get_text);
+            if ($(".goods_attr_num").length > 0){
+                $(".goods_attr_num").html(res.attr_number);
+            }
+            if(res.err_no == 2){
+                d_messages("该地区暂不支持配送");
+            }
+            else{
+                if(res.attr_number <= 0){
+                    $(".add-to-cart").hide();
+                    $(".quehuo").show();
+					 $(".daohuo").show();
+                }
+                else{
+                                        $(".add-to-cart").show();
+                    $(".quehuo").hide();
+					 $(".daohuo").hide();
+                                    }
+            }
+            //总价
+            if ($("#ECS_GOODS_AMOUNT").length > 0){
+                $("#ECS_GOODS_AMOUNT").html(res.result);
+            }
+            var total_res;
+            if($("#ECS_SHOPPRICE").length > 0){
+                                    total_res = res.result;
+                                $("#ECS_SHOPPRICE").html(total_res);
+                $("#ECS_GOODS_AMOUNT").html(total_res);
+
+            }
+            if($("#ECS_DISCOUNT").length > 0){
+                $("#ECS_DISCOUNT").html(res.discount);
+            }
+            if($("#ECS_MARKETPRICE").length > 0){
+                $("#ECS_MARKETPRICE").html(res.result_market);
+            }
+        }
+    }
+
+
+    /*加入购物车的模式*/
+      function checkAdd($goods_id,$add_type,$suserid,$saleid){
+        if($add_type==1){
+            $(".show-goods-attr").addClass("show");
+            $(".mask-filter-div").addClass("show");
+        }
+        if($add_type==0){
+             addToCart_quick($goods_id,$add_type,$suserid,$saleid);
+        }
+    }
+</script>
+<script src="{$Think.HOSTPATH}/js/shop/jquery.cookie.js"></script>
+<script src="{$Think.HOSTPATH}/js/shop/fastclick.js"></script>
+<script type="text/javascript">
+"use strict";
+$(function($) {
+    /** 将商品信息存储 */
+	var saleid1 = $("input[name='sale_id']").val();
+	$.get('{$Think.HOSTPATH}/index.php/index/index/bookinfocookie',{saleid:saleid1},function(){
+	
+	})
+	// 元素以及其他一些变量
+	var eleFlyElement = document.querySelector("#flyItem"),
+		eleShopCart = document.querySelector("#shopCart");
+	var numberItem = 0;
+	// 抛物线运动
+	var myParabola = funParabola(eleFlyElement, eleShopCart, {
+		speed: 10, //抛物线速度
+		curvature: 0.009, //控制抛物线弧度
+		complete: function() {
+			eleFlyElement.style.visibility = "hidden";
+			//eleShopCart.querySelector("span").innerHTML = ++numberItem;
+		}
+	});
+	// 绑定点击事件
+	if(eleFlyElement && eleShopCart) {
+
+		[].slice.call(document.getElementsByClassName("btnCart")).forEach(function(button) {
+			button.addEventListener("click", function(event) {
+				// 滚动大小
+				var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+					scrollTop = document.documentElement.scrollTop || document.body.scrollTop || 0;
+				eleFlyElement.style.left = event.clientX + scrollLeft + "px";
+				eleFlyElement.style.top = event.clientY + scrollTop + "px";
+				eleFlyElement.style.visibility = "visible";
+
+				// 需要重定位
+				myParabola.position().move();
+			});
+		});
+	}
+    //禁止ios双击穿透
+    /*window.addEventListener('load', function() {
+      FastClick.attach(document.body);
+    }, false);  */
+	
+	/*$('#myModal').on('shown.bs.modal', function (e) {  
+            // 关键代码，如没将modal设置为 block，则$modala_dialog.height() 为零  
+            $(this).css('display', 'block');  
+            var modalHeight=$(window).height() / 2 - $('#myModal .modal-dialog').height() / 2;  
+            $(this).find('.modal-dialog').css({  
+                'margin-top': modalHeight  
+            });  
+        });  */
+		
+
+});
+function changBook(cartid,saleid,suserid)
+{
+	$.ajax({
+		type: "POST",
+		url: "{$Think.HOSTPATH}/index.php/index/caozuo/changebook",
+		data: {
+			cartid: cartid,
+			saleid:saleid,
+			suserid:suserid
+		},
+		dataType: "text",
+		success: function (data) {
+			if(data == 1)
+			{
+				d_messages('替换成功');
+				window.location.href="{$Think.HOSTPATH}/index.php/index/index/shopcart";
+			}
+			else if(data == 2 )
+			{
+				d_messages('购物车已存在此书');
+			}
+			else
+			{
+				d_messages('已经替换 请勿重复操作');
+			}
+		}
+	});
+}
+
+</script>
+<script>
+"use strict";
+$(".addcollect").click(function(){
+	var type = $("input[name='collect']").val();
+	var saleid = $(this).attr('saleid');
+	  $.post("{$Think.HOSTPATH}/index.php/index/caozuo/addtocollect",{saleid:saleid,type:type},function(result){
+		if(result == 0)
+		{
+			d_messages('操作失败');
+		}
+		else if(result > 0)
+		{
+			
+			
+			if(type == 1)
+			{
+				$("input[name='collect']").val(2);
+				$(".addcollect").addClass('active');
+			}
+			else if(type == 2)
+			{
+				$("input[name='collect']").val(1);
+				$(".addcollect").removeClass('active');
+			}
+		}
+  });
+})
+
+$(".fangda").click(function(){
+	var src = $(this).attr('src');
+
+	$('#bookimgri').modal('show');
+	$(".nbimg").attr('src',src);
+})
+
+
+
+
+
+$(".shujia").click(function(){
+var img = $(this).attr('src');
+$(".sshujia").attr('src',img);
+$("#myModal").modal('show');
+
+})	
+
+
+</script>
+<style>
+
+.modal-dialog {  
+    margin: 14rem auto;  
+}  
+</style>
+</body>
+</html>

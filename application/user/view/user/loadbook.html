@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>我要卖书</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+	    <link href="{$Think.HOSTPATH}/css/shop/shop.css?20170518" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">var ROOT_URL = '/';</script>
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+		<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+    </head>
+<body>
+<style>
+.text-all{
+    padding: 0rem 0;
+	border-bottom: 1 solid #f6f6f9;
+}
+.text-all label{
+	font-size:1.2rem;
+}
+.input-text input{
+	font-size:1.2rem;
+}
+.loadbook img {
+    width: 7.5rem;
+     height: 8.5rem;
+}
+.s-xian-box {
+    border-bottom: 1 solid #f6f6f9;
+}
+</style>
+<p style="text-align:right; display:none;"></p>
+<div id="loading"><img src="{$Think.HOSTPATH}/img/loading.gif" /></div>
+
+<div class="con b-color-f" >
+			<section class=" goods-shop b-color-f no-shopping-title">
+                                                <a href="javascript:0;" onclick="history.back(-1);"><div class="goods-shop-pic of-hidden" > 
+                    <h4  class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					<i  class="fanhuii fa fa-angle-left"></i>
+						<span class="fanhuispan" style="">我要卖书</span>
+					</label></h4>
+
+                </div></a>
+              
+            </section>
+			<section class="goods-price padding-all b-color-f">
+               
+
+
+<div style="width:50%; float:left; line-height: 3.3rem;">
+                <p class=" dis-box g-p-tthree m-top06">
+                    <span class="box-flex text-left">书本名称：<span class="title"></span></span>
+                                                           
+                                       
+                </p>
+																 				<p class="p-market">
+                             
+                                 </p>
+												 				<p class="p-market">
+                              <span class="box-flex text-left">副标题： <span class="stitle"></span></span>
+                                 </p>
+								 								 				<p class="p-market">
+                              <span class="box-flex text-left">源标题： <span class="otitle"></span></span>
+                                 </p>
+								 								 								 				<p class="p-market">
+                              <span class="box-flex text-left">作者 <span class="author"></span></span>
+                                 </p>
+								<p class="p-market">
+                                 <span class="box-flex text-left">出版社： <span class="pb"></span></span>
+                                 </p>
+								 				<p class="p-market">
+                                <span class="box-flex text-left">出版日期： <span class="pbd"></span></span>
+                                 </p>
+								 
+								 				<p class="p-market">
+                              <span class="box-flex text-left">页码： <span class="page"></span></span>
+                                 </p>
+							<p class="p-market">
+                              <span class="box-flex text-left">价格： <span class="amount"></span></span>
+                                 </p>
+
+					<p class="p-market">
+                              <span class="box-flex text-left">内容简介：</span>
+                                 </p></div>
+								 								 <div style="     float: right;  padding: 2rem 3rem 1rem 0;">
+								<img class="bookimg" src="" style=" width:10rem;" />
+								 </div>
+								
+
+								 
+            </section>
+			
+			
+   
+        <section class="j-f-tel margin-lr">
+		
+ 
+
+			<div class="text-all">
+						<div class="box-flex input-text">
+  <textarea style=" font-size:1.5rem;" disabled="disabled" name="summary" class="form-control" rows="3"></textarea>
+						
+						</div>
+					</div>
+					
+
+            <input type="hidden" name="step" value="first" />
+            <input type="hidden" name="real_id" value="" />
+			<input type="hidden" name="isbn" value="" />
+			<input class="hd" type="hidden" name="bookid" value="" />
+			<input class="hd" type="hidden" name="userid" value="{$userid}" />
+
+            <input style="margin-top: 2rem;" type="button" value="扫码卖书" class="saoma btn-submit br-5" />
+        </section>
+
+
+
+	
+</div>
+{include file="../application/index/view/index/nav.html" /}
+    <!--快捷导航-->
+
+        <!--快捷导航-->
+	
+    <div class="common-show"></div>
+<script type="text/javascript">
+
+	function getbookinfo(){
+			var s_isbn = $("input[name='isbn']").val();
+			if(s_isbn.length < 1)
+			{
+				d_messages('请扫码ISBN');
+
+				return false;
+			}
+			if(s_isbn.length !=10 && s_isbn.length !=13)
+			{
+				d_messages('请输入正确的ISBN');
+				return false;
+			}
+		
+	        $.post("{$Think.HOSTPATH}/index.php/salebook/salebook/getbookinfo", {isbn:s_isbn,json:1}, function(data){
+			
+			
+		
+            if(data!= 0){
+                d_messages('获取成功');
+				$(".title").text(data.BookName);
+				$(".stitle").text(data.SubTitle);
+				$(".otitle").text(data.OriginTitle);
+				$(".author").text(data.Author);
+				$(".pb").text(data.PublishName);
+				$(".pbd").text(data.PublishDate);
+				$(".amount").text(data.Amount);
+				$(".page").text(data.Pages);
+				$("input[name='bookid']").val(data.ID);
+				$("textarea[name='summary']").text(data.Summary);
+				if(data.BookSimg.indexOf('http') == -1)
+				{
+					data.BookSimg = "{$Think.HOSTPATH}/uploads/"+data.BookSimg;
+				}
+				
+                $(".bookimg").attr('src',data.BookSimg);
+				
+				$(".saoma").remove();
+				var newinput = "<input style='margin-top: 2rem;' onclick='return getup();' type='button' value='下一步' class='btn-submit br-5' />"
+				$(".margin-lr").append(newinput);
+				return false;
+            }
+
+        }, 'json').error(function() {
+		d_messages("找不到书本信息");
+			  setTimeout(function () { 
+        maishu();
+    }, 1000);
+		});
+	}
+
+
+		function getup(){
+			var bookid = $("input[name='bookid']").val();
+			var userid = $("input[name='userid']").val();
+			var price = $(".amount").text();
+			window.location.href="{$Think.HOSTPATH}/index.php/user/user/publishbook?bookid="+bookid+"&price="+price;
+			
+		}
+
+	
+
+	
+
+
+
+
+
+				wx.config({
+		debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+		appId: '{$appid}', // 必填，公众号的唯一标识
+		timestamp: {$time}, // 必填，生成签名的时间戳
+		nonceStr: '{$noncestr}', // 必填，生成签名的随机串
+		signature: '{$sign}',// 必填，签名，见附录1
+		jsApiList: ['getLocation','showAllNonBaseMenuItem','chooseImage','startRecord','stopRecord','playVoice','getLocation','openLocation','scanQRCode','chooseWXPay'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+		});
+		
+		wx.ready(function(){
+    // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+		maishu();
+		});
+	
+
+
+		function maishu(){  
+
+		wx.scanQRCode({
+			needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+			scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+			success: function (res) {
+			var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+			var isbn = result.split(",");
+			$("input[name='isbn']").val(isbn[1]);
+			getbookinfo();
+		}
+		});
+  };
+  $(".saoma").click(function(){
+	maishu();
+  })
+  
+
+</script>
+</body>
+</html>

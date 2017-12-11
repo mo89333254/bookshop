@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>订单确认</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+ 	    <link href="{$Think.HOSTPATH}/css/shop/shop.css" rel="stylesheet" type="text/css" />
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	 <script src="{$Think.HOSTPATH}/js/shop/fsrPMD.js?v=20170418"></script>
+	<script type="text/javascript">var ROOT_URL = '/'; var USER_ID = {$userid}</script>
+	<script src="{$Think.HOSTPATH}/js/shop/fastclick.js"></script>
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+    </head>
+<body>
+<p style="text-align:right; display:none;"></p>
+<div id="loading"><img src="{$Think.HOSTPATH}/img/loading.gif" /></div>
+				<section class=" goods-shop b-color-f no-shopping-title">
+                                                <a href="{$Think.HOSTPATH}/index.php/order/order/bookorder" ><div class="goods-shop-pic of-hidden" > 
+                    <h4  class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					<i  class="fanhuii fa fa-angle-left"></i>
+						<span class="fanhuispan" style="">订单确认</span>
+					</label></h4>
+
+                </div></a>
+              
+            </section>
+<form action="{$Think.HOSTPATH}/index.php/wpay/wpay/wpay" method="post" name="theForm" id="theForm" onSubmit="return checkpay();" >
+    <div class="con">
+        <div class="flow-checkout">
+            <div class="flow-header" id="flow-header">
+                                <section class="flow-checkout-adr padding-all">
+
+                    <div class="address-icon"><i class="iconfont icon-dingwei"></i></div>
+                    <div class="flow-have-adr">
+                        <p class="f-h-adr-title ">
+                            {$userinfo['NickName']} &nbsp; <label>{$userinfo['Phone']}</label>
+                                                    </p>
+                        <p class="f-h-adr-con f-04 m-top04">{$userinfo['SchoolName']}&nbsp;{$userinfo['SchoolAdd']}</p>
+                    </div>
+                    <span class="t-jiantou"><i class="iconfont icon-jiantou tf-180"></i></span>
+                </section>
+
+                            </div>
+            <div id="flow-cont-height">
+                <!-- 门店信息-->
+				{volist name="orderlist" id="ol"}
+                 <section style=" margin-top:2rem;">
+                    <section class="flow-checkout-pro j-flow-checkout-pro  active">
+                        <header class="b-color-f padding-all">
+                          卖家:{$ol['name']}     </header>
+                        <div class="product-list-small m-top1px b-color-f dis-box">
+                                                        <ul class="box-flex flow-checkout-bigpic">
+														{volist name="ol['row']" id="ov"}
+                                                                                                <li>
+                                    <div class="product-div">
+                                        <a class="product-div-link" href="{$Think.HOSTPATH}/index.php/index/index/bookinfo/bookid/{$ov['BookID']}"></a>
+                                        <img class="product-list-img" src="{:getimg2($ov['BookSimg'])}"/>
+                                        <div class="product-text">
+                                            <h4>{$ov['BookName']}</h4>
+                                            <p><span class="p-price t-first ">¥{:round(floatval($ov['Amount']*0.1*$ov['Discount']),2)} <small class="fr t-remark">x{$ov['scount']}</small></span></p>
+                                            <p class="dis-box p-t-remark"></p>
+                                        </div>
+                                    </div>
+                                </li>{/volist}
+
+                                                                                            </ul>
+                            
+                        </div>
+                                            </section>
+
+                </section>
+				{/volist}
+                <section class="flow-checkout-select b-color-f m-top08">
+                    <ul>
+                                                                        <li>
+
+                        </li>
+                                                                        <!-- 自营商家 -->
+
+                                                <li class="j-goods-site-li j-goods-site-li-time0 show-temark-div">
+                            <section class="distribution-time j-distribution-time0 j-distribution-time b-color-f">
+                                <div class="text-right dis-box">
+                                    <label class="t-remark g-t-temark">时间</label>
+                                    <span class="t-goods1 box-flex distribution-time-con">
+                                        <input type="text" name="shipping_dateStr[0]" value="" id="txt_area0"/>
+                                        <input type="hidden" id="hd_area"/>
+                                    </span>
+                                    <i class="iconfont icon-rili t-first"></i>
+                                </div>
+                            </section>
+
+                        </li>
+                                                <input type="hidden" name="shipping_type[0]" id="shipping_type0" value="0">
+																		
+						<li style=" display:none;" class="dis-box padding-all">
+                            <label class="t-remark g-t-temark">买家留言</label>
+                            <div class="box-flex t-goods1 flow-check-input">
+                                <input name="content" class="f-04" style="line-height: normal;" maxlength="50" placeholder="选填(50)"/>
+                            </div>
+                        
+                    </ul>
+      
+                    <input type="hidden" id="amount0" value="¥10497.00">
+                    <input type="hidden" id="goods_price_amount0" value="¥10497.00">
+					<input type="hidden" id="phonetype" value="{$userinfo['PhoneType']}">
+                </section>
+                </section>
+                <!--支付方式star-->
+                <!--<section class="m-top10">
+                    <ul>
+                                                <li class="dis-box padding-all-n m-top1px b-color-f " id="payment">
+                            <label class="t-remark g-t-temark">支付方式</label>
+                            <div class="div-pay box-flex t-goods1 text-right " id="payment_info">
+                                                                <span>请选择</span>
+                                                            </div>
+                            <div class="t-goods1"><span class="t-jiantou"><i class="iconfont icon-jiantou tf-180"></i></span></div>
+                            
+                            <div class="kk1 show-goods-dist ts-3 b-color-1 j-show-goods-text ">
+                                <section class="goods-show-title of-hidden padding-all-n b-color-f">
+                                    <h3 class="fl g-c-title-h3">支付方式</h3>
+                                    <i class="iconfont icon-guanbi2 show-div-guanbi fr"></i>
+                                </section>
+                                <section class="s-g-list-con swiper-scroll">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide select-two">
+                                            <ul class="j-get-one padding-all-n">
+                                                                                                <li class="pay-select ect-select goods-site"  data-code="0">
+                                                    <label class="ts-1 ">
+                                                        <dd>
+                                                            <span>微信支付</span>
+                                                                                                                    </dd>
+                                                        <i class="fr iconfont icon-gou ts-1"></i>
+                                                    </label>
+                                                </li>
+                                                                                                <li class="pay-select ect-select goods-site"  data-code="1">
+                                                    <label class="ts-1 ">
+                                                        <dd>
+                                                            <span>余额支付</span>
+                                                                                                                    </dd>
+                                                        <i class="fr iconfont icon-gou ts-1"></i>
+                                                    </label>
+                                                </li>
+
+                                                                                            </ul>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                           
+                            <input name="paytype" type="hidden" value="2"/>
+                        </li>
+
+
+                                            </ul>
+                </section>--!>
+				<!--支付方式end-->
+                
+				<section class="m-top10" id="ECS_ORDERTOTAL"><section class="flow-checkout-tprice">
+					<header class="b-color-f padding-all">
+						商品总价<span class="t-first fr">¥{:round($stotal,2)}</span>
+					</header>
+					<ul class="m-top1px b-color-f">
+						<!-- 手续费 -->
+			
+						 
+						<!--<li class="padding-all of-hidden">
+							<label class="t-remark g-t-temark fl">手续费</label>
+							<span class="t-first fr">+ ¥{$service}</span>
+						</li>-->
+
+							</ul>
+				</section></section>
+								<section class="m-top10" id="ECS_ORDERTOTAL"><section class="flow-checkout-tprice">
+					<header class="b-color-f padding-all">
+						零钱余额<span class="t-first fr">¥{$userinfo['Property']}</span>
+					</header>
+					<ul class="m-top1px b-color-f">
+						<!-- 手续费 -->
+			
+						 
+						<!--<li class="padding-all of-hidden">
+							<label class="t-remark g-t-temark fl">手续费</label>
+							<span class="t-first fr">+ ¥{$service}</span>
+						</li>-->
+
+							</ul>
+				</section></section>
+            </div>
+        </div>
+    </div>
+
+    <div class="kk2 mask-filter-div"></div>
+    <!--悬浮btn star-->
+    <section class="filter-btn f-checkout-filter-btn dis-box pl">
+        <input type="hidden" name="user_id" value="{$userid}"/>
+
+		<input type="hidden" name="paytype" value="0" />
+		<input type="hidden" name="cart_value" value="{$cart_value}" />
+		<input type="hidden" name="count" value="{$scount}" />
+		<input type="hidden" name="name" value="{$userinfo['NickName']}" />
+		<input type="hidden" name="phone" value="{$userinfo['Phone']}" />
+		<input type="hidden" name="schoolname" value="{$userinfo['SchoolName']}" />
+		<input type="hidden" name="schooladd" value="{$userinfo['SchoolAdd']}" />
+		<input type="hidden" name="total" value="{$stotal}" />
+        <span class="box-flex t-remark">实付款(共{$scount}本书) <em class="t-first" id="amount">¥{:round($stotal,2)}</em></span>
+                <div><a href="javascript:;" type="button" class="btn-submit" onclick="$('#theForm').submit();">提交订单</a></div>
+    </section>
+</form>
+<!--悬浮btn end-->
+<!--快捷导航-->
+
+{include file="../application/index/view/index/nav.html" /}
+    <div class="common-show"></div>
+<script type="text/javascript">
+    $(function ($) {
+      $("#payment_info").click(function(){
+	  			$('.kk2').addClass('show');
+			$('.kk1').addClass('show');
+	  })
+		
+				$(".pay-select").click(function(){
+			var payname = $(this).find('span').text();
+			var paytype = $(this).attr('data-code');
+			
+			$('.kk1').removeClass('show');
+			$('.kk2').removeClass('show');
+			$('.div-pay span').text(payname);
+			$('input[name="paytype"]').val(paytype);
+		});
+    });
+    var flow_no_payment = "";
+    var flow_no_shipping = "";
+
+
+
+    
+
+		
+	function checkpay(){
+		/*if($('input[name="paytype"]').val() > 1)
+		{
+			d_messages('请选择支付方式');
+			return false;
+		}*/
+		var total = $('input[name="total"]').val();
+		if(total == 0)
+		{
+			d_messages('书本价格出错');
+			return false;
+		}		
+		if($("#phonetype").val() < 2)
+		{
+			d_messages('绑定手机号码才能买单,现在跳转页面');
+			  setTimeout(function () { 
+					window.location.href="/bookshop/public/index.php/user/user/editmobile";
+				}, 2000);
+			
+			return false;
+		}
+		
+
+	}
+    </script>
+</body>
+</html>

@@ -1,0 +1,2595 @@
+[ 2017-05-18T02:51:13+08:00 ] 123.184.16.57 111.206.36.137 GET /bookshop/public/index.php/index/index/userinfo
+[ log ] www.ok-life.com/bookshop/public/index.php/index/index/userinfo [运行时间：0.022756s][吞吐率：43.94req/s] [内存消耗：3,128.41kb] [文件加载：50]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'userinfo',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0',
+  'referer' => 'http://www.baidu.com/s?wd=www',
+  'connection' => 'Keep-Alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'en-US,*',
+  'host' => 'www.ok-life.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->userinfo[ /var/www/html/bookshop/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/index/view/index/userinfo.html [ array (
+  0 => 'userinfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000304s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `userinfo` [ RunTime:0.000743s ]
+[ sql ] [ SQL ] SELECT * FROM `userinfo` WHERE  `OpenID` IS NULL LIMIT 1 [ RunTime:0.000201s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T02:51:22+08:00 ] 123.184.16.57 111.206.36.13 GET /bookshop/public/index.php/index/index/bookinfo/saleid/48
+[ log ] www.ok-life.com/bookshop/public/index.php/index/index/bookinfo/saleid/48 [运行时间：0.027166s][吞吐率：36.81req/s] [内存消耗：3,142.93kb] [文件加载：50]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'bookinfo',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0',
+  'referer' => 'http://www.baidu.com/s?wd=www',
+  'connection' => 'Keep-Alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'en-US,*',
+  'host' => 'www.ok-life.com',
+)
+[ info ] [ PARAM ] array (
+  'saleid' => '48',
+)
+[ info ] [ RUN ] app\index\controller\Index->bookinfo[ /var/www/html/bookshop/application/index/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/index/view/index/bookinfo.html [ array (
+  0 => 'userid',
+  1 => 'bookinfo',
+  2 => 'sbookimg',
+  3 => 'changetype',
+  4 => 'userinfo',
+  5 => 'collect',
+  6 => 'cartid',
+  7 => 'sum',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000249s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `userinfo` [ RunTime:0.000784s ]
+[ sql ] [ SQL ] SELECT * FROM `userinfo` WHERE  `ID` IS NULL LIMIT 1 [ RunTime:0.000231s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `saleinfo` [ RunTime:0.000539s ]
+[ sql ] [ SQL ] SELECT `w`.*,`a`.*,a.Status as S_Status,`x`.*,a.ID as saleid FROM `saleinfo` `a` LEFT JOIN `bookinfo` `w` ON `a`.`BookID`=`w`.`ID` LEFT JOIN `userinfo` `x` ON `a`.`SuserID`=`x`.`ID` WHERE  `a`.`ID` = '48' LIMIT 1 [ RunTime:0.000421s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `shopcartinfo` [ RunTime:0.000449s ]
+[ sql ] [ SQL ] SELECT sum(Count) as shopcartsum FROM `shopcartinfo` WHERE  `Userid` IS NULL LIMIT 1 [ RunTime:0.000167s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T02:51:32+08:00 ] 123.184.16.57 111.206.36.133 GET /bookshop/public/index.php/index/index/bookinfocookie?saleid=48
+[ log ] www.ok-life.com/bookshop/public/index.php/index/index/bookinfocookie?saleid=48 [运行时间：0.029816s][吞吐率：33.54req/s] [内存消耗：1,934.82kb] [文件加载：39]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'bookinfocookie',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/index/index/bookinfo/saleid/48',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0',
+  'cookie' => 'PHPSESSID=chu7rrsc2rju2v7ovrlsm175l4',
+  'connection' => 'Keep-Alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'en-US,*',
+  'host' => 'www.ok-life.com',
+)
+[ info ] [ PARAM ] array (
+  'saleid' => '48',
+)
+[ info ] [ RUN ] app\index\controller\Index->bookinfocookie[ /var/www/html/bookshop/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-05-18T02:51:32+08:00 ] 123.184.16.57 111.206.36.13 GET /bookshop/public/index.php/index/caozuo/getbookinfo?saleid=48&onload=onload&qty=1
+[ log ] www.ok-life.com/bookshop/public/index.php/index/caozuo/getbookinfo?saleid=48&onload=onload&qty=1 [运行时间：0.040631s][吞吐率：24.61req/s] [内存消耗：2,911.20kb] [文件加载：49]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'caozuo',
+    2 => 'getbookinfo',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/index/index/bookinfo/saleid/48',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0',
+  'cookie' => 'PHPSESSID=chu7rrsc2rju2v7ovrlsm175l4',
+  'connection' => 'Keep-Alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'en-US,*',
+  'host' => 'www.ok-life.com',
+)
+[ info ] [ PARAM ] array (
+  'saleid' => '48',
+  'onload' => 'onload',
+  'qty' => '1',
+)
+[ info ] [ RUN ] app\index\controller\Caozuo->GetBookInfo[ /var/www/html/bookshop/application/index/controller/Caozuo.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002324s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `saleinfo` [ RunTime:0.000679s ]
+[ sql ] [ SQL ] SELECT `w`.*,`a`.*,a.Status as S_Status FROM `saleinfo` `a` LEFT JOIN `bookinfo` `w` ON `a`.`BookID`=`w`.`ID` WHERE  `a`.`ID` = '48' LIMIT 1 [ RunTime:0.001458s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T03:02:53+08:00 ] 123.184.16.57 115.239.212.134 GET /bookshop/public/index.php/index/index/index1
+[ log ] www.ok-life.com/bookshop/public/index.php/index/index/index1 [运行时间：0.286806s][吞吐率：3.49req/s] [内存消耗：3,396.05kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index1',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0',
+  'referer' => 'http://www.baidu.com/s?wd=www',
+  'connection' => 'Keep-Alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'en-US,*',
+  'host' => 'www.ok-life.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index1[ /var/www/html/bookshop/application/index/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/index/view/index/index1.html [ array (
+  0 => 'userid',
+  1 => 'salebooklist',
+  2 => 'search',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000325s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `userinfo` [ RunTime:0.000724s ]
+[ sql ] [ SQL ] SELECT * FROM `userinfo` WHERE  `OpenID` IS NULL LIMIT 1 [ RunTime:0.000202s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `saleinfo` [ RunTime:0.000441s ]
+[ sql ] [ SQL ] SELECT `w`.*,`a`.*,a.Status as S_Status,a.ID as sid FROM `saleinfo` `a` LEFT JOIN `bookinfo` `w` ON `a`.`BookID`=`w`.`ID` WHERE  `Status` = 1 [ RunTime:0.000382s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T03:19:48+08:00 ] 123.184.16.57 111.206.36.10 GET /bookshop/public/index.php/index/index/index1?code=041HVGCP1peek71ZDcGP1gZWCP1HVGCD&state=STATE
+[ log ] www.ok-life.com/bookshop/public/index.php/index/index/index1?code=041HVGCP1peek71ZDcGP1gZWCP1HVGCD&state=STATE [运行时间：0.586135s][吞吐率：1.71req/s] [内存消耗：3,397.40kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index1',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0',
+  'referer' => 'http://www.baidu.com/s?wd=www',
+  'connection' => 'Keep-Alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'en-US,*',
+  'host' => 'www.ok-life.com',
+)
+[ info ] [ PARAM ] array (
+  'code' => '041HVGCP1peek71ZDcGP1gZWCP1HVGCD',
+  'state' => 'STATE',
+)
+[ info ] [ RUN ] app\index\controller\Index->index1[ /var/www/html/bookshop/application/index/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/index/view/index/index1.html [ array (
+  0 => 'userid',
+  1 => 'salebooklist',
+  2 => 'search',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000284s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `userinfo` [ RunTime:0.000837s ]
+[ sql ] [ SQL ] SELECT * FROM `userinfo` WHERE  `OpenID` = 'ojSqVwV8N6bjl73eM6ZOOwLca9O0' LIMIT 1 [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `saleinfo` [ RunTime:0.000519s ]
+[ sql ] [ SQL ] SELECT `w`.*,`a`.*,a.Status as S_Status,a.ID as sid FROM `saleinfo` `a` LEFT JOIN `bookinfo` `w` ON `a`.`BookID`=`w`.`ID` WHERE  `Status` = 1 [ RunTime:0.000462s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T07:48:45+08:00 ] 123.184.16.57 111.206.36.134 GET /bookshop/public/index.php/user/user/editdetail/saleid/47
+[ log ] www.ok-life.com/bookshop/public/index.php/user/user/editdetail/saleid/47 [运行时间：0.024037s][吞吐率：41.60req/s] [内存消耗：3,207.90kb] [文件加载：52]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'user',
+    1 => 'user',
+    2 => 'editdetail',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0',
+  'referer' => 'http://www.baidu.com/s?wd=www',
+  'connection' => 'Keep-Alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'en-US,*',
+  'host' => 'www.ok-life.com',
+)
+[ info ] [ PARAM ] array (
+  'saleid' => '47',
+)
+[ info ] [ RUN ] app\user\controller\User->editdetail[ /var/www/html/bookshop/application/user/controller/User.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/user/view/user/editdetail.html [ array (
+  0 => 'bookinfo',
+  1 => 'bookimglist',
+  2 => 'userid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000301s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `saleinfo` [ RunTime:0.000646s ]
+[ sql ] [ SQL ] SELECT `a`.*,`b`.*,a.Content as content,a.ID as sid FROM `saleinfo` `a` LEFT JOIN `bookinfo` `b` ON `a`.`BookID`=`b`.`ID` WHERE  `a`.`ID` = '47' LIMIT 1 [ RunTime:0.000331s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T07:58:15+08:00 ] 123.184.16.57 123.147.165.192 GET /bookshop/public/index.php/index/index/index1?code=0710oyFm1TOJcm03JAFm1BJDFm10oyFP&state=STATE
+[ log ] www.ok-life.com/bookshop/public/index.php/index/index/index1?code=0710oyFm1TOJcm03JAFm1BJDFm10oyFP&state=STATE [运行时间：0.024926s][吞吐率：40.12req/s] [内存消耗：3,262.44kb] [文件加载：52]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index1',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'identity',
+  'host' => 'www.ok-life.com',
+  'cookie' => 'bookhistory=%5B%2247%22%2C%2248%22%2C%2216%22%5D; PHPSESSID=vidtvjhdknapis9ipeeaaevon0',
+  'connection' => 'close',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H321 MicroMessenger/6.5.5 NetType/4G Language/zh_CN',
+)
+[ info ] [ PARAM ] array (
+  'code' => '0710oyFm1TOJcm03JAFm1BJDFm10oyFP',
+  'state' => 'STATE',
+)
+[ info ] [ RUN ] app\index\controller\Index->index1[ /var/www/html/bookshop/application/index/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/index/view/index/index1.html [ array (
+  0 => 'userid',
+  1 => 'salebooklist',
+  2 => 'search',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000251s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `saleinfo` [ RunTime:0.000640s ]
+[ sql ] [ SQL ] SELECT `w`.*,`a`.*,a.Status as S_Status,a.ID as sid FROM `saleinfo` `a` LEFT JOIN `bookinfo` `w` ON `a`.`BookID`=`w`.`ID` WHERE  `Status` = 1 [ RunTime:0.000417s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:25:48+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/index/index/index1?code=051i2Sic2qqQxB0XIthc2ixQic2i2Sid&state=STATE
+[ log ] www.ok-life.com/bookshop/public/index.php/index/index/index1?code=051i2Sic2qqQxB0XIthc2ixQic2i2Sid&state=STATE [运行时间：0.670373s][吞吐率：1.49req/s] [内存消耗：3,397.57kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index1',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 wechatdevtools/0.7.0 MicroMessenger/6.3.9 Language/zh_CN webview/0',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+)
+[ info ] [ PARAM ] array (
+  'code' => '051i2Sic2qqQxB0XIthc2ixQic2i2Sid',
+  'state' => 'STATE',
+)
+[ info ] [ RUN ] app\index\controller\Index->index1[ /var/www/html/bookshop/application/index/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/index/view/index/index1.html [ array (
+  0 => 'userid',
+  1 => 'salebooklist',
+  2 => 'search',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000285s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `userinfo` [ RunTime:0.000819s ]
+[ sql ] [ SQL ] SELECT * FROM `userinfo` WHERE  `OpenID` = 'ojSqVwWLyGZApPuOspqTUyun0v5I' LIMIT 1 [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `saleinfo` [ RunTime:0.000471s ]
+[ sql ] [ SQL ] SELECT `w`.*,`a`.*,a.Status as S_Status,a.ID as sid FROM `saleinfo` `a` LEFT JOIN `bookinfo` `w` ON `a`.`BookID`=`w`.`ID` WHERE  `Status` = 1 [ RunTime:0.000557s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:25:52+08:00 ] 123.184.16.57 14.20.39.83 POST /bookshop/public/index.php/index/caozuo/addshopcart
+[ log ] www.ok-life.com/bookshop/public/index.php/index/caozuo/addshopcart [运行时间：0.033893s][吞吐率：29.50req/s] [内存消耗：2,772.52kb] [文件加载：48]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'caozuo',
+    2 => 'addshopcart',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'content-length' => '256',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://www.ok-life.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 wechatdevtools/0.7.0 MicroMessenger/6.3.9 Language/zh_CN webview/0',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/index/index/index1?code=051i2Sic2qqQxB0XIthc2ixQic2i2Sid&state=STATE',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ti28b5dc5t8ib9e0k9dh0ehdk2',
+)
+[ info ] [ PARAM ] array (
+  'goods' => '{"warehouse_id":"","area_id":"19","quick":0,"spec":[],"goods_id":36,"store_id":0,"number":1,"parent":0,"user_id":"8","suser_id":16,"sale_id":48}',
+)
+[ info ] [ RUN ] app\index\controller\Caozuo->AddShopCart[ /var/www/html/bookshop/application/index/controller/Caozuo.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000359s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `shopcartinfo` [ RunTime:0.000773s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.Count as bookcount FROM `shopcartinfo` `a` LEFT JOIN `saleinfo` `b` ON `a`.`BookID`=`b`.`BookID` WHERE  `a`.`BookID` = 36  AND `a`.`UserID` = '8'  AND `a`.`SaleID` = 48 LIMIT 1 [ RunTime:0.000380s ]
+[ sql ] [ SQL ] INSERT INTO `shopcartinfo` (`BookID` , `UserID` , `Count` , `Suserid` , `SaleID`) VALUES (36 , 8 , 1 , 16 , 48) [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SELECT sum(Count) as goodsnum FROM `shopcartinfo` WHERE  `UserID` = 8 LIMIT 1 [ RunTime:0.000258s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:25:58+08:00 ] 123.184.16.57 14.20.39.83 POST /bookshop/public/index.php/index/caozuo/addshopcart
+[ log ] www.ok-life.com/bookshop/public/index.php/index/caozuo/addshopcart [运行时间：0.021949s][吞吐率：45.56req/s] [内存消耗：2,772.52kb] [文件加载：48]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'caozuo',
+    2 => 'addshopcart',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'content-length' => '256',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://www.ok-life.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 wechatdevtools/0.7.0 MicroMessenger/6.3.9 Language/zh_CN webview/0',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/index/index/index1?code=051i2Sic2qqQxB0XIthc2ixQic2i2Sid&state=STATE',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ti28b5dc5t8ib9e0k9dh0ehdk2',
+)
+[ info ] [ PARAM ] array (
+  'goods' => '{"warehouse_id":"","area_id":"19","quick":0,"spec":[],"goods_id":38,"store_id":0,"number":1,"parent":0,"user_id":"8","suser_id":16,"sale_id":49}',
+)
+[ info ] [ RUN ] app\index\controller\Caozuo->AddShopCart[ /var/www/html/bookshop/application/index/controller/Caozuo.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000252s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `shopcartinfo` [ RunTime:0.000586s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.Count as bookcount FROM `shopcartinfo` `a` LEFT JOIN `saleinfo` `b` ON `a`.`BookID`=`b`.`BookID` WHERE  `a`.`BookID` = 38  AND `a`.`UserID` = '8'  AND `a`.`SaleID` = 49 LIMIT 1 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] INSERT INTO `shopcartinfo` (`BookID` , `UserID` , `Count` , `Suserid` , `SaleID`) VALUES (38 , 8 , 1 , 16 , 49) [ RunTime:0.000199s ]
+[ sql ] [ SQL ] SELECT sum(Count) as goodsnum FROM `shopcartinfo` WHERE  `UserID` = 8 LIMIT 1 [ RunTime:0.000170s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:25:59+08:00 ] 123.184.16.57 14.20.39.83 POST /bookshop/public/index.php/index/caozuo/addshopcart
+[ log ] www.ok-life.com/bookshop/public/index.php/index/caozuo/addshopcart [运行时间：0.024753s][吞吐率：40.40req/s] [内存消耗：2,772.52kb] [文件加载：48]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'caozuo',
+    2 => 'addshopcart',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'content-length' => '256',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://www.ok-life.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 wechatdevtools/0.7.0 MicroMessenger/6.3.9 Language/zh_CN webview/0',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/index/index/index1?code=051i2Sic2qqQxB0XIthc2ixQic2i2Sid&state=STATE',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ti28b5dc5t8ib9e0k9dh0ehdk2',
+)
+[ info ] [ PARAM ] array (
+  'goods' => '{"warehouse_id":"","area_id":"19","quick":0,"spec":[],"goods_id":40,"store_id":0,"number":1,"parent":0,"user_id":"8","suser_id":16,"sale_id":50}',
+)
+[ info ] [ RUN ] app\index\controller\Caozuo->AddShopCart[ /var/www/html/bookshop/application/index/controller/Caozuo.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000403s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `shopcartinfo` [ RunTime:0.000712s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.Count as bookcount FROM `shopcartinfo` `a` LEFT JOIN `saleinfo` `b` ON `a`.`BookID`=`b`.`BookID` WHERE  `a`.`BookID` = 40  AND `a`.`UserID` = '8'  AND `a`.`SaleID` = 50 LIMIT 1 [ RunTime:0.000258s ]
+[ sql ] [ SQL ] INSERT INTO `shopcartinfo` (`BookID` , `UserID` , `Count` , `Suserid` , `SaleID`) VALUES (40 , 8 , 1 , 16 , 50) [ RunTime:0.000210s ]
+[ sql ] [ SQL ] SELECT sum(Count) as goodsnum FROM `shopcartinfo` WHERE  `UserID` = 8 LIMIT 1 [ RunTime:0.000246s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:26:00+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/index/index/shopcart
+[ log ] www.ok-life.com/bookshop/public/index.php/index/index/shopcart [运行时间：0.022928s][吞吐率：43.61req/s] [内存消耗：3,187.86kb] [文件加载：50]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'shopcart',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 wechatdevtools/0.7.0 MicroMessenger/6.3.9 Language/zh_CN webview/0',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/index/index/index1?code=051i2Sic2qqQxB0XIthc2ixQic2i2Sid&state=STATE',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ti28b5dc5t8ib9e0k9dh0ehdk2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->shopcart[ /var/www/html/bookshop/application/index/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/index/view/index/shopcart.html [ array (
+  0 => 'shopcartlist',
+  1 => 'countlist',
+  2 => 'stotal',
+  3 => 'scount',
+  4 => 'userid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000258s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `shopcartinfo` [ RunTime:0.000548s ]
+[ sql ] [ SQL ] SELECT `a`.*,a.Count as scount,a.ID as sid,`b`.*,`c`.*,`d`.* FROM `shopcartinfo` `a` LEFT JOIN `bookinfo` `b` ON `a`.`BookID`=`b`.`ID` LEFT JOIN `saleinfo` `d` ON `d`.`ID`=`a`.`SaleID` LEFT JOIN `userinfo` `c` ON `d`.`Suserid`=`c`.`ID` WHERE  `a`.`UserID` = '8' [ RunTime:0.000434s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:26:01+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/css/img/iconfont-gou.png
+[ log ] www.ok-life.com/bookshop/public/css/img/iconfont-gou.png [运行时间：0.015058s][吞吐率：66.41req/s] [内存消耗：1,840.01kb] [文件加载：40]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'bookshop',
+    1 => 'public',
+    2 => 'css',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'accept' => 'image/webp,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 wechatdevtools/0.7.0 MicroMessenger/6.3.9 Language/zh_CN webview/0',
+  'referer' => 'http://www.ok-life.com/bookshop/public/css/shop/app.min.css?v=20170418',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ti28b5dc5t8ib9e0k9dh0ehdk2',
+)
+[ info ] [ PARAM ] array (
+  '/css/img/iconfont-gou_png' => '',
+  'img' => 'iconfont-gou.png',
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-05-18T10:26:03+08:00 ] 123.184.16.57 14.20.39.83 POST /bookshop/public/index.php/order/order/pay
+[ log ] www.ok-life.com/bookshop/public/index.php/order/order/pay [运行时间：0.025352s][吞吐率：39.44req/s] [内存消耗：3,186.24kb] [文件加载：52]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'order',
+    1 => 'order',
+    2 => 'pay',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'content-length' => '36',
+  'cache-control' => 'max-age=0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'origin' => 'http://www.ok-life.com',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 wechatdevtools/0.7.0 MicroMessenger/6.3.9 Language/zh_CN webview/0',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/index/index/shopcart',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ti28b5dc5t8ib9e0k9dh0ehdk2',
+)
+[ info ] [ PARAM ] array (
+  'cart_value' => '516,515,514',
+  'store_id' => '',
+)
+[ info ] [ RUN ] app\order\controller\Order->pay[ /var/www/html/bookshop/application/order/controller/Order.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/order/view/order/pay.html [ array (
+  0 => 'orderlist',
+  1 => 'countlist',
+  2 => 'stotal',
+  3 => 'userinfo',
+  4 => 'scount',
+  5 => 'service',
+  6 => 'result',
+  7 => 'cart_value',
+  8 => 'userid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000266s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `userinfo` [ RunTime:0.000770s ]
+[ sql ] [ SQL ] SELECT `a`.*,`b`.`SchoolName`,`b`.`SchoolID` FROM `userinfo` `a` LEFT JOIN `schoolinfo` `b` ON `a`.`SchoolID`=`b`.`SchoolID` WHERE  `ID` = 8 LIMIT 1 [ RunTime:0.000344s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `shopcartinfo` [ RunTime:0.000446s ]
+[ sql ] [ SQL ] SELECT `a`.*,`w`.*,`x`.*,`y`.*,a.Count as scount,a.ID as sid FROM `shopcartinfo` `a` LEFT JOIN `saleinfo` `y` ON `y`.`ID`=`a`.`SaleID` LEFT JOIN `bookinfo` `w` ON `y`.`BookID`=`w`.`ID` LEFT JOIN `userinfo` `x` ON `y`.`SuserID`=`x`.`ID` WHERE  `a`.`ID` IN ('516','515','514') [ RunTime:0.000385s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:26:09+08:00 ] 123.184.16.57 14.20.39.83 POST /bookshop/public/index.php/wpay/wpay/wpay
+[ log ] www.ok-life.com/bookshop/public/index.php/wpay/wpay/wpay [运行时间：1.036371s][吞吐率：0.96req/s] [内存消耗：3,398.24kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'wpay',
+    1 => 'wpay',
+    2 => 'wpay',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'content-length' => '279',
+  'cache-control' => 'max-age=0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'origin' => 'http://www.ok-life.com',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 wechatdevtools/0.7.0 MicroMessenger/6.3.9 Language/zh_CN webview/0',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/order/order/pay',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ti28b5dc5t8ib9e0k9dh0ehdk2',
+)
+[ info ] [ PARAM ] array (
+  'shipping_dateStr' => 
+  array (
+    0 => '',
+  ),
+  'shipping_type' => 
+  array (
+    0 => '0',
+  ),
+  'content' => '',
+  'paytype' => '0',
+  'user_id' => '4',
+  'cart_value' => '516,515,514',
+  'count' => '3',
+  'name' => '莫之熊',
+  'phone' => '15013766962',
+  'schoolname' => '深圳大学',
+  'schooladd' => '横岗大帝',
+  'total' => '17.66',
+)
+[ info ] [ RUN ] app\wpay\controller\Wpay->wpay[ /var/www/html/bookshop/application/wpay/controller/Wpay.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/wpay/view/wpay/wpay.html [ array (
+  0 => 'stotal',
+  1 => 'appid',
+  2 => 'noncestr',
+  3 => 'time',
+  4 => 'sign',
+  5 => 'signtype',
+  6 => 'prepayid',
+  7 => 'paysign',
+  8 => 'orderid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000282s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `shopcartinfo` [ RunTime:0.000733s ]
+[ sql ] [ SQL ] SELECT `a`.*,`w`.*,`x`.*,`y`.*,a.Count as scount,a.ID as sid,y.ID as saleid,w.Amount as price,x.ID as uid,x.SchoolID as schoolid,`b`.* FROM `shopcartinfo` `a` LEFT JOIN `bookinfo` `w` ON `a`.`BookID`=`w`.`ID` LEFT JOIN `saleinfo` `y` ON `y`.`ID`=`a`.`SaleID` LEFT JOIN `userinfo` `x` ON `y`.`SuserID`=`x`.`ID` LEFT JOIN `schoolinfo` `b` ON `x`.`SchoolID`=`b`.`SchoolID` WHERE  `a`.`ID` IN ('516','515','514') [ RunTime:0.000511s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `saleinfo` [ RunTime:0.000515s ]
+[ sql ] [ SQL ] UPDATE `saleinfo`  SET `Count`=Count-1  WHERE  `BookID` = 36  AND `Suserid` = 16 [ RunTime:0.000278s ]
+[ sql ] [ SQL ] UPDATE `saleinfo`  SET `Count`=Count-1  WHERE  `BookID` = 38  AND `Suserid` = 16 [ RunTime:0.000120s ]
+[ sql ] [ SQL ] UPDATE `saleinfo`  SET `Count`=Count-1  WHERE  `BookID` = 40  AND `Suserid` = 16 [ RunTime:0.000136s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `orderinfo` [ RunTime:0.000545s ]
+[ sql ] [ SQL ] INSERT INTO `orderinfo` (`OrderID` , `GoodsID` , `PayType` , `Count` , `UserID` , `Status` , `ExtendInfo` , `Amount` , `CreateTime` , `CreateDate` , `SaleType` , `SaleID`) VALUES ('1495074371972' , '516,515,514' , 0 , 3 , 8 , 1 , '' , 18.55 , '2017-05-18 10:26:08' , '2017-05-18 10:26:08' , 2 , '[{\"saleid\":\"48\",\"bookid\":\"36\",\"count\":\"1\",\"price\":3.8,\"bookname\":\"谁说深圳是小渔村\",\"suserid\":\"16\",\"snickname\":\"灰机辉\",\"goodimg\":\"https:\\/\\/img3.doubanio.com\\/lpic\\/s27963775.jpg\",\"userid\":\"16\",\"nickname\":\"莫之熊\",\"schoolid\":null,\"schoolname\":\"深圳大学\",\"shcooladd\":null,\"phone\":\"15013766962\",\"schooladd\":\"横岗大帝\"},{\"saleid\":\"49\",\"bookid\":\"38\",\"count\":\"1\",\"price\":3.96,\"bookname\":\"衣服衣服捉迷藏\",\"suserid\":\"16\",\"snickname\":\"灰机辉\",\"goodimg\":\"https:\\/\\/img3.doubanio.com\\/lpic\\/s3461720.jpg\",\"userid\":\"16\",\"nickname\":\"莫之熊\",\"schoolid\":null,\"schoolname\":\"深圳大学\",\"shcooladd\":null,\"phone\":\"15013766962\",\"schooladd\":\"横岗大帝\"},{\"saleid\":\"50\",\"bookid\":\"40\",\"count\":\"1\",\"price\":9.9,\"bookname\":\"神奇猜猜\",\"suserid\":\"16\",\"snickname\":\"灰机辉\",\"goodimg\":\"https:\\/\\/img1.doubanio.com\\/lpic\\/s10527179.jpg\",\"userid\":\"16\",\"nickname\":\"莫之熊\",\"schoolid\":null,\"schoolname\":\"深圳大学\",\"shcooladd\":null,\"phone\":\"15013766962\",\"schooladd\":\"横岗大帝\"}]') [ RunTime:0.000294s ]
+[ sql ] [ SQL ] INSERT INTO `orderinfo` (`OrderID` , `GoodsID` , `PayType` , `Count` , `UserID` , `Status` , `ExtendInfo` , `Amount` , `CreateTime` , `CreateDate` , `SaleType` , `SaleID` , `BindOrder`) VALUES ('1495074370522' , '516,515,514' , 0 , 3 , 16 , 1 , '' , 17.66 , '2017-05-18 10:26:08' , '2017-05-18 10:26:08' , 1 , '[{\"saleid\":\"48\",\"bookid\":\"36\",\"count\":\"1\",\"price\":3.8,\"bookname\":\"谁说深圳是小渔村\",\"suserid\":\"16\",\"snickname\":\"灰机辉\",\"goodimg\":\"https:\\/\\/img3.doubanio.com\\/lpic\\/s27963775.jpg\",\"userid\":\"16\",\"nickname\":\"莫之熊\",\"schoolid\":null,\"schoolname\":\"深圳大学\",\"shcooladd\":null,\"phone\":\"15013766962\",\"schooladd\":\"横岗大帝\"},{\"saleid\":\"49\",\"bookid\":\"38\",\"count\":\"1\",\"price\":3.96,\"bookname\":\"衣服衣服捉迷藏\",\"suserid\":\"16\",\"snickname\":\"灰机辉\",\"goodimg\":\"https:\\/\\/img3.doubanio.com\\/lpic\\/s3461720.jpg\",\"userid\":\"16\",\"nickname\":\"莫之熊\",\"schoolid\":null,\"schoolname\":\"深圳大学\",\"shcooladd\":null,\"phone\":\"15013766962\",\"schooladd\":\"横岗大帝\"},{\"saleid\":\"50\",\"bookid\":\"40\",\"count\":\"1\",\"price\":9.9,\"bookname\":\"神奇猜猜\",\"suserid\":\"16\",\"snickname\":\"灰机辉\",\"goodimg\":\"https:\\/\\/img1.doubanio.com\\/lpic\\/s10527179.jpg\",\"userid\":\"16\",\"nickname\":\"莫之熊\",\"schoolid\":null,\"schoolname\":\"深圳大学\",\"shcooladd\":null,\"phone\":\"15013766962\",\"schooladd\":\"横岗大帝\"}]' , '1495074371972') [ RunTime:0.000252s ]
+[ sql ] [ SQL ] DELETE FROM `shopcartinfo`    WHERE  `ID` IN (516,515,514) [ RunTime:0.000191s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:26:09+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/public/img/loading.gif
+[ log ] www.ok-life.com/bookshop/public/public/img/loading.gif [运行时间：0.014002s][吞吐率：71.42req/s] [内存消耗：1,839.87kb] [文件加载：40]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'bookshop',
+    1 => 'public',
+    2 => 'public',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'accept' => 'image/webp,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 wechatdevtools/0.7.0 MicroMessenger/6.3.9 Language/zh_CN webview/0',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/wpay/wpay/wpay',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ti28b5dc5t8ib9e0k9dh0ehdk2',
+)
+[ info ] [ PARAM ] array (
+  '/public/img/loading_gif' => '',
+  'img' => 'loading.gif',
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-05-18T10:27:02+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/index/index/userinfo
+[ log ] www.ok-life.com/bookshop/public/index.php/index/index/userinfo [运行时间：0.024793s][吞吐率：40.33req/s] [内存消耗：3,132.08kb] [文件加载：50]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'userinfo',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 wechatdevtools/0.7.0 MicroMessenger/6.3.9 Language/zh_CN webview/0',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/wpay/wpay/wpay',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ti28b5dc5t8ib9e0k9dh0ehdk2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->userinfo[ /var/www/html/bookshop/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/index/view/index/userinfo.html [ array (
+  0 => 'userinfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000327s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `userinfo` [ RunTime:0.000888s ]
+[ sql ] [ SQL ] SELECT * FROM `userinfo` WHERE  `OpenID` = 'ojSqVwWLyGZApPuOspqTUyun0v5I' LIMIT 1 [ RunTime:0.000293s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:27:03+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/uploads/20170516/3904f69b42ffc12dacda84d996ada28a.jpg
+[ log ] www.ok-life.com/bookshop/public/uploads/20170516/3904f69b42ffc12dacda84d996ada28a.jpg [运行时间：0.069368s][吞吐率：14.42req/s] [内存消耗：1,839.95kb] [文件加载：40]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'bookshop',
+    1 => 'public',
+    2 => 'uploads',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'accept' => 'image/webp,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 wechatdevtools/0.7.0 MicroMessenger/6.3.9 Language/zh_CN webview/0',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/index/index/userinfo',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ti28b5dc5t8ib9e0k9dh0ehdk2',
+)
+[ info ] [ PARAM ] array (
+  '/uploads/20170516/3904f69b42ffc12dacda84d996ada28a_jpg' => '',
+  0 => '3904f69b42ffc12dacda84d996ada28a.jpg',
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-05-18T10:27:06+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/order/order/bookorder
+[ log ] www.ok-life.com/bookshop/public/index.php/order/order/bookorder [运行时间：0.024121s][吞吐率：41.46req/s] [内存消耗：3,154.42kb] [文件加载：52]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'order',
+    1 => 'order',
+    2 => 'bookorder',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 wechatdevtools/0.7.0 MicroMessenger/6.3.9 Language/zh_CN webview/0',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/index/index/userinfo',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ti28b5dc5t8ib9e0k9dh0ehdk2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\order\controller\Order->bookorder[ /var/www/html/bookshop/application/order/controller/Order.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/order/view/order/bookorder.html [ array (
+  0 => 'userid',
+  1 => 'status',
+  2 => 'type',
+  3 => 'orderlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000264s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `orderinfo` [ RunTime:0.000668s ]
+[ sql ] [ SQL ] SELECT * FROM `orderinfo` WHERE  `UserID` = 8  AND `SaleType` = 2 ORDER BY CreateTime desc [ RunTime:0.000292s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:27:15+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/admin/admin/index
+[ log ] www.ok-life.com/bookshop/public/index.php/admin/admin/index [运行时间：0.017460s][吞吐率：57.27req/s] [内存消耗：2,307.06kb] [文件加载：46]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'ECS[visit_times]=7',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-05-18T10:27:15+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/admin/admin/login
+[ log ] www.ok-life.com/bookshop/public/index.php/admin/admin/login [运行时间：0.017011s][吞吐率：58.79req/s] [内存消耗：2,280.64kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'ECS[visit_times]=7; PHPSESSID=hlni61l588mjafmrhlv4ch3j41',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Admin->login[ /var/www/html/bookshop/application/admin/controller/Admin.php ]
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/admin/view/admin/login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-05-18T10:27:15+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/admin/admin/img/favicon.ico
+[ log ] www.ok-life.com/bookshop/public/index.php/admin/admin/img/favicon.ico [运行时间：0.016116s][吞吐率：62.05req/s] [内存消耗：2,306.98kb] [文件加载：46]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'img',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/admin/admin/login',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'ECS[visit_times]=7; PHPSESSID=hlni61l588mjafmrhlv4ch3j41',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-05-18T10:27:16+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/admin/admin/login
+[ log ] www.ok-life.com/bookshop/public/index.php/admin/admin/login [运行时间：0.016277s][吞吐率：61.44req/s] [内存消耗：2,280.81kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/admin/admin/login',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'ECS[visit_times]=7; PHPSESSID=hlni61l588mjafmrhlv4ch3j41',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Admin->login[ /var/www/html/bookshop/application/admin/controller/Admin.php ]
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/admin/view/admin/login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-05-18T10:27:21+08:00 ] 123.184.16.57 14.20.39.83 POST /bookshop/public/index.php/admin/admin/getlogin
+[ log ] www.ok-life.com/bookshop/public/index.php/admin/admin/getlogin [运行时间：0.024104s][吞吐率：41.49req/s] [内存消耗：3,213.10kb] [文件加载：52]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getlogin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'content-length' => '27',
+  'accept' => '*/*',
+  'origin' => 'http://www.ok-life.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/admin/admin/login',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'ECS[visit_times]=7; PHPSESSID=hlni61l588mjafmrhlv4ch3j41',
+)
+[ info ] [ PARAM ] array (
+  'AdminName' => 'admin',
+  'Pass' => '123456',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Admin->getlogin[ /var/www/html/bookshop/application/admin/controller/Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000270s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admininfo` [ RunTime:0.000633s ]
+[ sql ] [ SQL ] SELECT * FROM `admininfo` WHERE  `AdminName` = 'admin'  AND `AdminPass` = '123456' LIMIT 1 [ RunTime:0.000227s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:27:21+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/admin/admin/index
+[ log ] www.ok-life.com/bookshop/public/index.php/admin/admin/index [运行时间：0.015977s][吞吐率：62.59req/s] [内存消耗：2,281.97kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/admin/admin/login',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'ECS[visit_times]=7; PHPSESSID=hlni61l588mjafmrhlv4ch3j41',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Admin->index[ /var/www/html/bookshop/application/admin/controller/Admin.php ]
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/admin/view/admin/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-05-18T10:27:21+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/admin/admin/day
+[ log ] www.ok-life.com/bookshop/public/index.php/admin/admin/day [运行时间：0.023142s][吞吐率：43.21req/s] [内存消耗：3,225.59kb] [文件加载：52]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'day',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/admin/admin/index',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'ECS[visit_times]=7; PHPSESSID=hlni61l588mjafmrhlv4ch3j41',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Admin->day[ /var/www/html/bookshop/application/admin/controller/Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/admin/view/admin/day.html [ array (
+  0 => 'count1',
+  1 => 'amount',
+  2 => 'success',
+  3 => 'orderreport',
+  4 => 'prcent',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000261s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `orderinfo` [ RunTime:0.000642s ]
+[ sql ] [ SQL ] SELECT * FROM `orderinfo` WHERE  `CreateTime` BETWEEN '2017-05-18' AND '2017-05-19'  AND `SaleType` = 2 [ RunTime:0.000256s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:27:22+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/css/img/nav-expand.png
+[ log ] www.ok-life.com/bookshop/public/css/img/nav-expand.png [运行时间：0.023573s][吞吐率：42.42req/s] [内存消耗：1,839.70kb] [文件加载：40]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'bookshop',
+    1 => 'public',
+    2 => 'css',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'accept' => 'image/webp,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+  'referer' => 'http://www.ok-life.com/bookshop/public/css/Admin/style.css',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'ECS[visit_times]=7; PHPSESSID=hlni61l588mjafmrhlv4ch3j41',
+)
+[ info ] [ PARAM ] array (
+  '/css/img/nav-expand_png' => '',
+  'img' => 'nav-expand.png',
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-05-18T10:27:22+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/admin/admin/get6dayreport
+[ log ] www.ok-life.com/bookshop/public/index.php/admin/admin/get6dayreport [运行时间：0.030347s][吞吐率：32.95req/s] [内存消耗：3,214.46kb] [文件加载：52]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'get6dayreport',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'accept' => '*/*',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/admin/admin/day',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'ECS[visit_times]=7; PHPSESSID=hlni61l588mjafmrhlv4ch3j41',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Admin->get6dayreport[ /var/www/html/bookshop/application/admin/controller/Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000257s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `orderinfo` [ RunTime:0.000683s ]
+[ sql ] [ SQL ] SELECT count(OrderID) as total,`CreateDate` FROM `orderinfo` WHERE  ( `CreateTime` >= '2017-05-14 00:00:00' AND `CreateTime` < '2017-05-19 00:00:00' )  AND `SaleType` = 2 GROUP BY CreateDate [ RunTime:0.000329s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:27:22+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/css/img/nav-expand.png
+[ log ] www.ok-life.com/bookshop/public/css/img/nav-expand.png [运行时间：0.014622s][吞吐率：68.39req/s] [内存消耗：1,839.70kb] [文件加载：40]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'bookshop',
+    1 => 'public',
+    2 => 'css',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'accept' => 'image/webp,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+  'referer' => 'http://www.ok-life.com/bookshop/public/css/Admin/style.css',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'ECS[visit_times]=7; PHPSESSID=hlni61l588mjafmrhlv4ch3j41',
+)
+[ info ] [ PARAM ] array (
+  '/css/img/nav-expand_png' => '',
+  'img' => 'nav-expand.png',
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-05-18T10:27:23+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/admin/admin/bookorder
+[ log ] www.ok-life.com/bookshop/public/index.php/admin/admin/bookorder [运行时间：0.024943s][吞吐率：40.09req/s] [内存消耗：3,372.35kb] [文件加载：55]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'bookorder',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/admin/admin/index',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'ECS[visit_times]=7; PHPSESSID=hlni61l588mjafmrhlv4ch3j41',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Admin->bookorder[ /var/www/html/bookshop/application/admin/controller/Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/admin/view/admin/bookorder.html [ array (
+  0 => 'bookorderlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000236s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `orderinfo` [ RunTime:0.000643s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `orderinfo` `a` LEFT JOIN `userinfo` `b` ON `a`.`UserID`=`b`.`ID` WHERE  `SaleType` = 2 LIMIT 1 [ RunTime:0.000236s ]
+[ sql ] [ SQL ] SELECT `a`.*,a.Status as IDStatus,`b`.`NickName` FROM `orderinfo` `a` LEFT JOIN `userinfo` `b` ON `a`.`UserID`=`b`.`ID` WHERE  `SaleType` = 2 ORDER BY CreateTime desc LIMIT 0,10 [ RunTime:0.000260s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:27:24+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/admin/admin/studentorder
+[ log ] www.ok-life.com/bookshop/public/index.php/admin/admin/studentorder [运行时间：0.025614s][吞吐率：39.04req/s] [内存消耗：3,357.76kb] [文件加载：55]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'studentorder',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/admin/admin/index',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'ECS[visit_times]=7; PHPSESSID=hlni61l588mjafmrhlv4ch3j41',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Admin->studentorder[ /var/www/html/bookshop/application/admin/controller/Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/admin/view/admin/studentorder.html [ array (
+  0 => 'orderlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000284s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `studentorder` [ RunTime:0.000642s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `studentorder` `a` LEFT JOIN `userinfo` `b` ON `a`.`UserID`=`b`.`ID` LIMIT 1 [ RunTime:0.000241s ]
+[ sql ] [ SQL ] SELECT `a`.*,`b`.`NickName` FROM `studentorder` `a` LEFT JOIN `userinfo` `b` ON `a`.`UserID`=`b`.`ID` LIMIT 0,10 [ RunTime:0.000210s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:27:25+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/admin/admin/studentorder
+[ log ] www.ok-life.com/bookshop/public/index.php/admin/admin/studentorder [运行时间：0.025299s][吞吐率：39.53req/s] [内存消耗：3,357.76kb] [文件加载：55]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'studentorder',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/admin/admin/index',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'ECS[visit_times]=7; PHPSESSID=hlni61l588mjafmrhlv4ch3j41',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Admin->studentorder[ /var/www/html/bookshop/application/admin/controller/Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/admin/view/admin/studentorder.html [ array (
+  0 => 'orderlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000317s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `studentorder` [ RunTime:0.000625s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `studentorder` `a` LEFT JOIN `userinfo` `b` ON `a`.`UserID`=`b`.`ID` LIMIT 1 [ RunTime:0.000234s ]
+[ sql ] [ SQL ] SELECT `a`.*,`b`.`NickName` FROM `studentorder` `a` LEFT JOIN `userinfo` `b` ON `a`.`UserID`=`b`.`ID` LIMIT 0,10 [ RunTime:0.000182s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:27:27+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/admin/admin/bookorder
+[ log ] www.ok-life.com/bookshop/public/index.php/admin/admin/bookorder [运行时间：0.025574s][吞吐率：39.10req/s] [内存消耗：3,372.35kb] [文件加载：55]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'bookorder',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/admin/admin/index',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'ECS[visit_times]=7; PHPSESSID=hlni61l588mjafmrhlv4ch3j41',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Admin->bookorder[ /var/www/html/bookshop/application/admin/controller/Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/admin/view/admin/bookorder.html [ array (
+  0 => 'bookorderlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000250s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `orderinfo` [ RunTime:0.000863s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `orderinfo` `a` LEFT JOIN `userinfo` `b` ON `a`.`UserID`=`b`.`ID` WHERE  `SaleType` = 2 LIMIT 1 [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SELECT `a`.*,a.Status as IDStatus,`b`.`NickName` FROM `orderinfo` `a` LEFT JOIN `userinfo` `b` ON `a`.`UserID`=`b`.`ID` WHERE  `SaleType` = 2 ORDER BY CreateTime desc LIMIT 0,10 [ RunTime:0.000289s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:27:41+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/order/order/bookorder1?orderid=1495074371972
+[ log ] www.ok-life.com/bookshop/public/index.php/order/order/bookorder1?orderid=1495074371972 [运行时间：0.024872s][吞吐率：40.21req/s] [内存消耗：3,139.61kb] [文件加载：52]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'order',
+    1 => 'order',
+    2 => 'bookorder1',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 wechatdevtools/0.7.0 MicroMessenger/6.3.9 Language/zh_CN webview/0',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/order/order/bookorder',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ti28b5dc5t8ib9e0k9dh0ehdk2',
+)
+[ info ] [ PARAM ] array (
+  'orderid' => '1495074371972',
+)
+[ info ] [ RUN ] app\order\controller\Order->bookorder1[ /var/www/html/bookshop/application/order/controller/Order.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/order/view/order/bookorder1.html [ array (
+  0 => 'orderlist',
+  1 => 'userid',
+  2 => 'orderinfo',
+  3 => 'stotal',
+  4 => 'scount',
+  5 => 'service',
+  6 => 'result',
+  7 => 'userinfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000268s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `orderinfo` [ RunTime:0.000740s ]
+[ sql ] [ SQL ] SELECT `a`.*,`b`.`SchoolName`,`c`.`NickName`,`c`.`Phone`,`c`.`SchoolID` FROM `orderinfo` `a` LEFT JOIN `userinfo` `c` ON `a`.`UserID`=`c`.`ID` LEFT JOIN `schoolinfo` `b` ON `b`.`SchoolID`=`c`.`SchoolID` WHERE  `a`.`OrderID` = '1495074371972' LIMIT 1 [ RunTime:0.000293s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:27:55+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/wpay/wpay/wpay?orderid=1495074371972&price=18.54&type=1
+[ log ] www.ok-life.com/bookshop/public/index.php/wpay/wpay/wpay?orderid=1495074371972&price=18.54&type=1 [运行时间：0.378524s][吞吐率：2.64req/s] [内存消耗：2,450.62kb] [文件加载：48]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'wpay',
+    1 => 'wpay',
+    2 => 'wpay',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 wechatdevtools/0.7.0 MicroMessenger/6.3.9 Language/zh_CN webview/0',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/order/order/bookorder1?orderid=1495074371972',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ti28b5dc5t8ib9e0k9dh0ehdk2',
+)
+[ info ] [ PARAM ] array (
+  'orderid' => '1495074371972',
+  'price' => '18.54',
+  'type' => '1',
+)
+[ info ] [ RUN ] app\wpay\controller\Wpay->wpay[ /var/www/html/bookshop/application/wpay/controller/Wpay.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/wpay/view/wpay/wpay.html [ array (
+  0 => 'stotal',
+  1 => 'appid',
+  2 => 'noncestr',
+  3 => 'time',
+  4 => 'sign',
+  5 => 'signtype',
+  6 => 'prepayid',
+  7 => 'paysign',
+  8 => 'orderid',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-05-18T10:27:55+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/public/img/loading.gif
+[ log ] www.ok-life.com/bookshop/public/public/img/loading.gif [运行时间：0.022945s][吞吐率：43.58req/s] [内存消耗：1,840.01kb] [文件加载：40]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'bookshop',
+    1 => 'public',
+    2 => 'public',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'accept' => 'image/webp,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 wechatdevtools/0.7.0 MicroMessenger/6.3.9 Language/zh_CN webview/0',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/wpay/wpay/wpay?orderid=1495074371972&price=18.54&type=1',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ti28b5dc5t8ib9e0k9dh0ehdk2',
+)
+[ info ] [ PARAM ] array (
+  '/public/img/loading_gif' => '',
+  'img' => 'loading.gif',
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-05-18T10:28:15+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/index/index/index1?code=011XdALP0H55k82FHtNP0XjvLP0XdALn&state=STATE
+[ log ] www.ok-life.com/bookshop/public/index.php/index/index/index1?code=011XdALP0H55k82FHtNP0XjvLP0XdALn&state=STATE [运行时间：0.026308s][吞吐率：38.01req/s] [内存消耗：3,262.68kb] [文件加载：52]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index1',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'cookie' => 'PHPSESSID=vidtvjhdknapis9ipeeaaevon0',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H321 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'accept-language' => 'zh-cn',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+)
+[ info ] [ PARAM ] array (
+  'code' => '011XdALP0H55k82FHtNP0XjvLP0XdALn',
+  'state' => 'STATE',
+)
+[ info ] [ RUN ] app\index\controller\Index->index1[ /var/www/html/bookshop/application/index/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/index/view/index/index1.html [ array (
+  0 => 'userid',
+  1 => 'salebooklist',
+  2 => 'search',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000296s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `saleinfo` [ RunTime:0.000695s ]
+[ sql ] [ SQL ] SELECT `w`.*,`a`.*,a.Status as S_Status,a.ID as sid FROM `saleinfo` `a` LEFT JOIN `bookinfo` `w` ON `a`.`BookID`=`w`.`ID` WHERE  `Status` = 1 [ RunTime:0.000458s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:28:17+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/index/index/userinfo
+[ log ] www.ok-life.com/bookshop/public/index.php/index/index/userinfo [运行时间：0.025849s][吞吐率：38.69req/s] [内存消耗：3,131.70kb] [文件加载：50]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'userinfo',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=vidtvjhdknapis9ipeeaaevon0',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H321 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/index/index/index1?code=011XdALP0H55k82FHtNP0XjvLP0XdALn&state=STATE',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->userinfo[ /var/www/html/bookshop/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/index/view/index/userinfo.html [ array (
+  0 => 'userinfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000306s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `userinfo` [ RunTime:0.000835s ]
+[ sql ] [ SQL ] SELECT * FROM `userinfo` WHERE  `OpenID` = 'ojSqVwWLyGZApPuOspqTUyun0v5I' LIMIT 1 [ RunTime:0.000299s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:28:17+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/uploads/20170516/3904f69b42ffc12dacda84d996ada28a.jpg
+[ log ] www.ok-life.com/bookshop/public/uploads/20170516/3904f69b42ffc12dacda84d996ada28a.jpg [运行时间：0.017353s][吞吐率：57.63req/s] [内存消耗：1,839.94kb] [文件加载：40]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'bookshop',
+    1 => 'public',
+    2 => 'uploads',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=vidtvjhdknapis9ipeeaaevon0',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H321 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/index/index/userinfo',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  '/uploads/20170516/3904f69b42ffc12dacda84d996ada28a_jpg' => '',
+  0 => '3904f69b42ffc12dacda84d996ada28a.jpg',
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-05-18T10:28:21+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/order/order/bookorder
+[ log ] www.ok-life.com/bookshop/public/index.php/order/order/bookorder [运行时间：0.024072s][吞吐率：41.54req/s] [内存消耗：3,154.10kb] [文件加载：52]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'order',
+    1 => 'order',
+    2 => 'bookorder',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=vidtvjhdknapis9ipeeaaevon0',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H321 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/index/index/userinfo',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\order\controller\Order->bookorder[ /var/www/html/bookshop/application/order/controller/Order.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/order/view/order/bookorder.html [ array (
+  0 => 'userid',
+  1 => 'status',
+  2 => 'type',
+  3 => 'orderlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000237s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `orderinfo` [ RunTime:0.000693s ]
+[ sql ] [ SQL ] SELECT * FROM `orderinfo` WHERE  `UserID` = 8  AND `SaleType` = 2 ORDER BY CreateTime desc [ RunTime:0.000295s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:28:23+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/order/order/bookorder1?orderid=1495074371972
+[ log ] www.ok-life.com/bookshop/public/index.php/order/order/bookorder1?orderid=1495074371972 [运行时间：0.023214s][吞吐率：43.08req/s] [内存消耗：3,138.85kb] [文件加载：52]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'order',
+    1 => 'order',
+    2 => 'bookorder1',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=vidtvjhdknapis9ipeeaaevon0',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H321 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/order/order/bookorder',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'orderid' => '1495074371972',
+)
+[ info ] [ RUN ] app\order\controller\Order->bookorder1[ /var/www/html/bookshop/application/order/controller/Order.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/order/view/order/bookorder1.html [ array (
+  0 => 'orderlist',
+  1 => 'userid',
+  2 => 'orderinfo',
+  3 => 'stotal',
+  4 => 'scount',
+  5 => 'service',
+  6 => 'result',
+  7 => 'userinfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000255s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `orderinfo` [ RunTime:0.000651s ]
+[ sql ] [ SQL ] SELECT `a`.*,`b`.`SchoolName`,`c`.`NickName`,`c`.`Phone`,`c`.`SchoolID` FROM `orderinfo` `a` LEFT JOIN `userinfo` `c` ON `a`.`UserID`=`c`.`ID` LEFT JOIN `schoolinfo` `b` ON `b`.`SchoolID`=`c`.`SchoolID` WHERE  `a`.`OrderID` = '1495074371972' LIMIT 1 [ RunTime:0.000312s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:28:26+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/wpay/wpay/wpay?orderid=1495074371972&price=18.54&type=1
+[ log ] www.ok-life.com/bookshop/public/index.php/wpay/wpay/wpay?orderid=1495074371972&price=18.54&type=1 [运行时间：0.385074s][吞吐率：2.60req/s] [内存消耗：2,450.45kb] [文件加载：48]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'wpay',
+    1 => 'wpay',
+    2 => 'wpay',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=vidtvjhdknapis9ipeeaaevon0',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H321 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/order/order/bookorder1?orderid=1495074371972',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'orderid' => '1495074371972',
+  'price' => '18.54',
+  'type' => '1',
+)
+[ info ] [ RUN ] app\wpay\controller\Wpay->wpay[ /var/www/html/bookshop/application/wpay/controller/Wpay.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/wpay/view/wpay/wpay.html [ array (
+  0 => 'stotal',
+  1 => 'appid',
+  2 => 'noncestr',
+  3 => 'time',
+  4 => 'sign',
+  5 => 'signtype',
+  6 => 'prepayid',
+  7 => 'paysign',
+  8 => 'orderid',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-05-18T10:28:27+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/public/img/loading.gif
+[ log ] www.ok-life.com/bookshop/public/public/img/loading.gif [运行时间：0.018438s][吞吐率：54.24req/s] [内存消耗：1,839.59kb] [文件加载：40]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'bookshop',
+    1 => 'public',
+    2 => 'public',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=vidtvjhdknapis9ipeeaaevon0',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H321 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/wpay/wpay/wpay?orderid=1495074371972&price=18.54&type=1',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  '/public/img/loading_gif' => '',
+  'img' => 'loading.gif',
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-05-18T10:28:36+08:00 ] 123.184.16.57 101.226.66.177 GET /bookshop/public/index.php/wpay/wpay/wpay?orderid=1495074371972&price=18.54&type=1
+[ log ] www.ok-life.com/bookshop/public/index.php/wpay/wpay/wpay?orderid=1495074371972&price=18.54&type=1 [运行时间：0.396558s][吞吐率：2.52req/s] [内存消耗：2,513.93kb] [文件加载：51]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'wpay',
+    1 => 'wpay',
+    2 => 'wpay',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 4.4.4; HUAWEI ALE-CL00 Build/HuaweiALE-CL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043024 Safari/537.36 MicroMessenger/6.5.4.1000 NetType/4G Language/zh_CN',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+)
+[ info ] [ PARAM ] array (
+  'orderid' => '1495074371972',
+  'price' => '18.54',
+  'type' => '1',
+)
+[ info ] [ RUN ] app\wpay\controller\Wpay->wpay[ /var/www/html/bookshop/application/wpay/controller/Wpay.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: prepay_id[/var/www/html/bookshop/application/wpay/controller/Wpay.php:304]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:30:03+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/wpay/wpay/wpay?orderid=1495074371972&price=18.54&type=1
+[ log ] www.ok-life.com/bookshop/public/index.php/wpay/wpay/wpay?orderid=1495074371972&price=18.54&type=1 [运行时间：0.392723s][吞吐率：2.55req/s] [内存消耗：2,655.46kb] [文件加载：50]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'wpay',
+    1 => 'wpay',
+    2 => 'wpay',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 wechatdevtools/0.7.0 MicroMessenger/6.3.9 Language/zh_CN webview/0',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/order/order/bookorder1?orderid=1495074371972',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ti28b5dc5t8ib9e0k9dh0ehdk2',
+)
+[ info ] [ PARAM ] array (
+  'orderid' => '1495074371972',
+  'price' => '18.54',
+  'type' => '1',
+)
+[ info ] [ RUN ] app\wpay\controller\Wpay->wpay[ /var/www/html/bookshop/application/wpay/controller/Wpay.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/wpay/view/wpay/wpay.html [ array (
+  0 => 'stotal',
+  1 => 'appid',
+  2 => 'noncestr',
+  3 => 'time',
+  4 => 'sign',
+  5 => 'signtype',
+  6 => 'prepayid',
+  7 => 'paysign',
+  8 => 'orderid',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-05-18T10:30:03+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/public/img/loading.gif
+[ log ] www.ok-life.com/bookshop/public/public/img/loading.gif [运行时间：0.068528s][吞吐率：14.59req/s] [内存消耗：1,840.71kb] [文件加载：40]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'bookshop',
+    1 => 'public',
+    2 => 'public',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'accept' => 'image/webp,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 wechatdevtools/0.7.0 MicroMessenger/6.3.9 Language/zh_CN webview/0',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/wpay/wpay/wpay?orderid=1495074371972&price=18.54&type=1',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ti28b5dc5t8ib9e0k9dh0ehdk2',
+)
+[ info ] [ PARAM ] array (
+  '/public/img/loading_gif' => '',
+  'img' => 'loading.gif',
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-05-18T10:30:17+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/index/index/index1
+[ log ] www.ok-life.com/bookshop/public/index.php/index/index/index1 [运行时间：0.024991s][吞吐率：40.01req/s] [内存消耗：3,262.22kb] [文件加载：52]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index1',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=vidtvjhdknapis9ipeeaaevon0',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H321 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/wpay/wpay/wpay?orderid=1495074371972&price=18.54&type=1',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index1[ /var/www/html/bookshop/application/index/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/index/view/index/index1.html [ array (
+  0 => 'userid',
+  1 => 'salebooklist',
+  2 => 'search',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000260s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `saleinfo` [ RunTime:0.000696s ]
+[ sql ] [ SQL ] SELECT `w`.*,`a`.*,a.Status as S_Status,a.ID as sid FROM `saleinfo` `a` LEFT JOIN `bookinfo` `w` ON `a`.`BookID`=`w`.`ID` WHERE  `Status` = 1 [ RunTime:0.000466s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:30:19+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/index/index/userinfo
+[ log ] www.ok-life.com/bookshop/public/index.php/index/index/userinfo [运行时间：0.024076s][吞吐率：41.54req/s] [内存消耗：3,131.59kb] [文件加载：50]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'userinfo',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=vidtvjhdknapis9ipeeaaevon0',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H321 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/index/index/index1',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->userinfo[ /var/www/html/bookshop/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/index/view/index/userinfo.html [ array (
+  0 => 'userinfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000275s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `userinfo` [ RunTime:0.000786s ]
+[ sql ] [ SQL ] SELECT * FROM `userinfo` WHERE  `OpenID` = 'ojSqVwWLyGZApPuOspqTUyun0v5I' LIMIT 1 [ RunTime:0.000316s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:30:20+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/uploads/20170516/3904f69b42ffc12dacda84d996ada28a.jpg
+[ log ] www.ok-life.com/bookshop/public/uploads/20170516/3904f69b42ffc12dacda84d996ada28a.jpg [运行时间：0.015278s][吞吐率：65.45req/s] [内存消耗：1,839.94kb] [文件加载：40]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'bookshop',
+    1 => 'public',
+    2 => 'uploads',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=vidtvjhdknapis9ipeeaaevon0',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H321 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/index/index/userinfo',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  '/uploads/20170516/3904f69b42ffc12dacda84d996ada28a_jpg' => '',
+  0 => '3904f69b42ffc12dacda84d996ada28a.jpg',
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-05-18T10:30:23+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/order/order/bookorder
+[ log ] www.ok-life.com/bookshop/public/index.php/order/order/bookorder [运行时间：0.024815s][吞吐率：40.30req/s] [内存消耗：3,154.10kb] [文件加载：52]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'order',
+    1 => 'order',
+    2 => 'bookorder',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=vidtvjhdknapis9ipeeaaevon0',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H321 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/index/index/userinfo',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\order\controller\Order->bookorder[ /var/www/html/bookshop/application/order/controller/Order.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/order/view/order/bookorder.html [ array (
+  0 => 'userid',
+  1 => 'status',
+  2 => 'type',
+  3 => 'orderlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000316s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `orderinfo` [ RunTime:0.000872s ]
+[ sql ] [ SQL ] SELECT * FROM `orderinfo` WHERE  `UserID` = 8  AND `SaleType` = 2 ORDER BY CreateTime desc [ RunTime:0.000295s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:30:26+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/order/order/bookorder1?orderid=1495074371972
+[ log ] www.ok-life.com/bookshop/public/index.php/order/order/bookorder1?orderid=1495074371972 [运行时间：0.024466s][吞吐率：40.87req/s] [内存消耗：3,138.85kb] [文件加载：52]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'order',
+    1 => 'order',
+    2 => 'bookorder1',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=vidtvjhdknapis9ipeeaaevon0',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H321 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/order/order/bookorder',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'orderid' => '1495074371972',
+)
+[ info ] [ RUN ] app\order\controller\Order->bookorder1[ /var/www/html/bookshop/application/order/controller/Order.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/order/view/order/bookorder1.html [ array (
+  0 => 'orderlist',
+  1 => 'userid',
+  2 => 'orderinfo',
+  3 => 'stotal',
+  4 => 'scount',
+  5 => 'service',
+  6 => 'result',
+  7 => 'userinfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000288s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `orderinfo` [ RunTime:0.000718s ]
+[ sql ] [ SQL ] SELECT `a`.*,`b`.`SchoolName`,`c`.`NickName`,`c`.`Phone`,`c`.`SchoolID` FROM `orderinfo` `a` LEFT JOIN `userinfo` `c` ON `a`.`UserID`=`c`.`ID` LEFT JOIN `schoolinfo` `b` ON `b`.`SchoolID`=`c`.`SchoolID` WHERE  `a`.`OrderID` = '1495074371972' LIMIT 1 [ RunTime:0.000328s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:30:29+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/wpay/wpay/wpay?orderid=1495074371972&price=18.54&type=1
+[ log ] www.ok-life.com/bookshop/public/index.php/wpay/wpay/wpay?orderid=1495074371972&price=18.54&type=1 [运行时间：0.366171s][吞吐率：2.73req/s] [内存消耗：2,450.51kb] [文件加载：48]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'wpay',
+    1 => 'wpay',
+    2 => 'wpay',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=vidtvjhdknapis9ipeeaaevon0',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H321 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/order/order/bookorder1?orderid=1495074371972',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'orderid' => '1495074371972',
+  'price' => '18.54',
+  'type' => '1',
+)
+[ info ] [ RUN ] app\wpay\controller\Wpay->wpay[ /var/www/html/bookshop/application/wpay/controller/Wpay.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/wpay/view/wpay/wpay.html [ array (
+  0 => 'stotal',
+  1 => 'appid',
+  2 => 'noncestr',
+  3 => 'time',
+  4 => 'sign',
+  5 => 'signtype',
+  6 => 'prepayid',
+  7 => 'paysign',
+  8 => 'orderid',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-05-18T10:30:30+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/public/img/loading.gif
+[ log ] www.ok-life.com/bookshop/public/public/img/loading.gif [运行时间：0.014911s][吞吐率：67.06req/s] [内存消耗：1,839.59kb] [文件加载：40]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'bookshop',
+    1 => 'public',
+    2 => 'public',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=vidtvjhdknapis9ipeeaaevon0',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H321 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/wpay/wpay/wpay?orderid=1495074371972&price=18.54&type=1',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  '/public/img/loading_gif' => '',
+  'img' => 'loading.gif',
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-05-18T10:30:38+08:00 ] 123.184.16.57 101.226.103.59 POST /bookshop/public/index.php/wpay/wpay/notify
+[ log ] www.ok-life.com/bookshop/public/index.php/wpay/wpay/notify [运行时间：0.070384s][吞吐率：14.21req/s] [内存消耗：3,252.92kb] [文件加载：54]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'wpay',
+    1 => 'wpay',
+    2 => 'notify',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'connection' => 'Keep-Alive',
+  'pragma' => 'no-cache',
+  'content-length' => '864',
+  'host' => 'www.ok-life.com',
+  'user-agent' => 'Mozilla/4.0',
+  'content-type' => 'text/xml',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\wpay\controller\Wpay->notify[ /var/www/html/bookshop/application/wpay/controller/Wpay.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: orderids[/var/www/html/bookshop/application/wpay/controller/Wpay.php:802]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:30:48+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/index/index/index1?code=021s1yTB0vCVNc2f5UUB0CWFTB0s1yTg&state=STATE
+[ log ] www.ok-life.com/bookshop/public/index.php/index/index/index1?code=021s1yTB0vCVNc2f5UUB0CWFTB0s1yTg&state=STATE [运行时间：0.026178s][吞吐率：38.20req/s] [内存消耗：3,262.68kb] [文件加载：52]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index1',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'cookie' => 'PHPSESSID=vidtvjhdknapis9ipeeaaevon0',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H321 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'accept-language' => 'zh-cn',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+)
+[ info ] [ PARAM ] array (
+  'code' => '021s1yTB0vCVNc2f5UUB0CWFTB0s1yTg',
+  'state' => 'STATE',
+)
+[ info ] [ RUN ] app\index\controller\Index->index1[ /var/www/html/bookshop/application/index/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/index/view/index/index1.html [ array (
+  0 => 'userid',
+  1 => 'salebooklist',
+  2 => 'search',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000244s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `saleinfo` [ RunTime:0.000665s ]
+[ sql ] [ SQL ] SELECT `w`.*,`a`.*,a.Status as S_Status,a.ID as sid FROM `saleinfo` `a` LEFT JOIN `bookinfo` `w` ON `a`.`BookID`=`w`.`ID` WHERE  `Status` = 1 [ RunTime:0.000421s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:30:50+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/index/index/userinfo
+[ log ] www.ok-life.com/bookshop/public/index.php/index/index/userinfo [运行时间：0.024408s][吞吐率：40.97req/s] [内存消耗：3,131.70kb] [文件加载：50]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'userinfo',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=vidtvjhdknapis9ipeeaaevon0',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H321 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/index/index/index1?code=021s1yTB0vCVNc2f5UUB0CWFTB0s1yTg&state=STATE',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->userinfo[ /var/www/html/bookshop/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/index/view/index/userinfo.html [ array (
+  0 => 'userinfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000278s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `userinfo` [ RunTime:0.000801s ]
+[ sql ] [ SQL ] SELECT * FROM `userinfo` WHERE  `OpenID` = 'ojSqVwWLyGZApPuOspqTUyun0v5I' LIMIT 1 [ RunTime:0.000284s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:30:50+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/uploads/20170516/3904f69b42ffc12dacda84d996ada28a.jpg
+[ log ] www.ok-life.com/bookshop/public/uploads/20170516/3904f69b42ffc12dacda84d996ada28a.jpg [运行时间：0.014624s][吞吐率：68.38req/s] [内存消耗：1,839.94kb] [文件加载：40]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'bookshop',
+    1 => 'public',
+    2 => 'uploads',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=vidtvjhdknapis9ipeeaaevon0',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H321 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/index/index/userinfo',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  '/uploads/20170516/3904f69b42ffc12dacda84d996ada28a_jpg' => '',
+  0 => '3904f69b42ffc12dacda84d996ada28a.jpg',
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-05-18T10:30:52+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/order/order/bookorder
+[ log ] www.ok-life.com/bookshop/public/index.php/order/order/bookorder [运行时间：0.024648s][吞吐率：40.57req/s] [内存消耗：3,154.10kb] [文件加载：52]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'order',
+    1 => 'order',
+    2 => 'bookorder',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=vidtvjhdknapis9ipeeaaevon0',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H321 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/index/index/userinfo',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\order\controller\Order->bookorder[ /var/www/html/bookshop/application/order/controller/Order.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/order/view/order/bookorder.html [ array (
+  0 => 'userid',
+  1 => 'status',
+  2 => 'type',
+  3 => 'orderlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000247s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `orderinfo` [ RunTime:0.000678s ]
+[ sql ] [ SQL ] SELECT * FROM `orderinfo` WHERE  `UserID` = 8  AND `SaleType` = 2 ORDER BY CreateTime desc [ RunTime:0.000298s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:30:53+08:00 ] 123.184.16.57 183.3.234.58 POST /bookshop/public/index.php/wpay/wpay/notify
+[ log ] www.ok-life.com/bookshop/public/index.php/wpay/wpay/notify [运行时间：0.078911s][吞吐率：12.67req/s] [内存消耗：3,252.92kb] [文件加载：54]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'wpay',
+    1 => 'wpay',
+    2 => 'notify',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'connection' => 'Keep-Alive',
+  'pragma' => 'no-cache',
+  'content-length' => '864',
+  'host' => 'www.ok-life.com',
+  'user-agent' => 'Mozilla/4.0',
+  'content-type' => 'text/xml',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\wpay\controller\Wpay->notify[ /var/www/html/bookshop/application/wpay/controller/Wpay.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: orderids[/var/www/html/bookshop/application/wpay/controller/Wpay.php:802]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:31:11+08:00 ] 123.184.16.57 183.3.234.59 POST /bookshop/public/index.php/wpay/wpay/notify
+[ log ] www.ok-life.com/bookshop/public/index.php/wpay/wpay/notify [运行时间：0.089646s][吞吐率：11.15req/s] [内存消耗：3,252.92kb] [文件加载：54]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'wpay',
+    1 => 'wpay',
+    2 => 'notify',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'connection' => 'Keep-Alive',
+  'pragma' => 'no-cache',
+  'content-length' => '864',
+  'host' => 'www.ok-life.com',
+  'user-agent' => 'Mozilla/4.0',
+  'content-type' => 'text/xml',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\wpay\controller\Wpay->notify[ /var/www/html/bookshop/application/wpay/controller/Wpay.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: orderids[/var/www/html/bookshop/application/wpay/controller/Wpay.php:802]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:31:14+08:00 ] 123.184.16.57 14.20.39.83 GET /bookshop/public/index.php/order/order/bookorder1?orderid=1495074371972
+[ log ] www.ok-life.com/bookshop/public/index.php/order/order/bookorder1?orderid=1495074371972 [运行时间：0.025658s][吞吐率：38.97req/s] [内存消耗：3,138.85kb] [文件加载：52]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'order',
+    1 => 'order',
+    2 => 'bookorder1',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ok-life.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=vidtvjhdknapis9ipeeaaevon0',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H321 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ok-life.com/bookshop/public/index.php/order/order/bookorder',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'orderid' => '1495074371972',
+)
+[ info ] [ RUN ] app\order\controller\Order->bookorder1[ /var/www/html/bookshop/application/order/controller/Order.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/html/bookshop/public/../application/order/view/order/bookorder1.html [ array (
+  0 => 'orderlist',
+  1 => 'userid',
+  2 => 'orderinfo',
+  3 => 'stotal',
+  4 => 'scount',
+  5 => 'service',
+  6 => 'result',
+  7 => 'userinfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000267s ] mysql:dbname=bookshop;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `orderinfo` [ RunTime:0.000685s ]
+[ sql ] [ SQL ] SELECT `a`.*,`b`.`SchoolName`,`c`.`NickName`,`c`.`Phone`,`c`.`SchoolID` FROM `orderinfo` `a` LEFT JOIN `userinfo` `c` ON `a`.`UserID`=`c`.`ID` LEFT JOIN `schoolinfo` `b` ON `b`.`SchoolID`=`c`.`SchoolID` WHERE  `a`.`OrderID` = '1495074371972' LIMIT 1 [ RunTime:0.000319s ]
+
+---------------------------------------------------------------
+[ 2017-05-18T10:31:44+08:00 ] 123.184.16.57 183.3.234.48 POST /bookshop/public/index.php/wpay/wpay/notify
+[ log ] www.ok-life.com/bookshop/public/index.php/wpay/wpay/notify [运行时间：0.074061s][吞吐率：13.50req/s] [内存消耗：3,252.92kb] [文件加载：54]
+[ info ] [ LANG ] /var/www/html/bookshop/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'wpay',
+    1 => 'wpay',
+    2 => 'notify',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'connection' => 'Keep-Alive',
+  'pragma' => 'no-cache',
+  'content-length' => '864',
+  'host' => 'www.ok-life.com',
+  'user-agent' => 'Mozilla/4.0',
+  'content-type' => 'text/xml',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\wpay\controller\Wpay->notify[ /var/www/html/bookshop/application/wpay/controller/Wpay.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: orderids[/var/www/html/bookshop/application/wpay/controller/Wpay.php:802]
+
+---------------------------------------------------------------

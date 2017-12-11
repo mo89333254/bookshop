@@ -1,0 +1,29 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<title>progress</title>  
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />  
+</head>  
+<body>  
+浏览文件:<input type="file" id="file1" /><br />  
+上传进度:<progress id="pro" value="0"></progress>  
+<div id="result"></div>  
+<input type="button" value="读取二进制文件" onclick="readBinary();" /><br />  
+<script type="text/javascript">  
+var reader=null;  
+if(FileReader){  
+        reader=new FileReader();  
+}else{  
+        alert("ERROR!");  
+}  
+var readBinary=function(){  
+        reader.readAsBinaryString(document.getElementById("file1").files[0]);  
+        var pro=document.getElementById("pro");  
+        pro.max=document.getElementById("file1").files[0].size;  
+        reader.onprogress=function(evt){  
+                pro.value=evt.loaded;  
+        }  
+}  
+</script>  
+</body>  
+</html>  

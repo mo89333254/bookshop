@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>订单详情</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+ 
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+	<link href="{$Think.HOSTPATH}/css/shop/iconfont.css" rel="stylesheet">
+    </head>
+<body>
+<p style="text-align:right; display:none;"></p>
+<div id="loading"><img src="/bookshop/public/img/loading.gif" /></div>
+
+<div class="con">
+	<div class="flow-checkout">
+					<section class=" goods-shop b-color-f no-shopping-title">
+                                                <a href="{$Think.HOSTPATH}/index.php/order/order/bookorder" ><div class="goods-shop-pic of-hidden" > 
+                    <h4  class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					<i  class="fanhuii fa fa-angle-left"></i>
+						<span class="fanhuispan" style="">订单详情</span>
+					</label></h4>
+
+                </div></a>
+              
+            </section>
+					<section class="flow-checkout-adr padding-all">
+
+			</section>
+				<section class="m-top10">
+
+			<section class="flow-checkout-pro j-flow-checkout-pro">
+				<header class="b-color-f padding-all">卖家：测试一</header>
+				<div class="f-c-p-orderid padding-all m-top1px b-color-f">
+
+					<h4 class="t-remark2">
+						<label class="t-remark">订单号：</label>2017050322067728774                        <!--拼团标识-->
+                                                                                                    <!--拼团标识 end-->
+					</h4>
+					<p class="t-remark3 m-top04">2017-05-03 22:03:36</p>
+				</div>
+				<div class="product-list-small b-color-f dis-box">
+                                        <ul class="box-flex flow-checkout-bigpic" style="display:block;">
+                        												<li>
+                            <div class="product-div">
+                                <a   href="/mobile/index.php?m=goods&id=810">
+                                <img class="product-list-img" src="http://open.6api.net/mpic/s28359155.jpg" /></a>
+                                <div class="product-text">
+                                    <h4 style="padding-right:0">明隆庆六年初刻版《传习录》</h4>
+                                    <p>
+										<span class="p-price t-first ">¥2499.00<small class="fr t-remark">x1</small></span>
+                                    </p>
+                                    <p class="dis-box p-t-remark"></p>
+                                         <div class="ka-mo">
+                                                                                     </div>
+                                           
+                                </div>
+                            </div>
+                        </li>
+						                                            </ul>
+                    				</div>
+			</section>
+			
+
+		</section>
+
+		<section class="m-top10">
+			<ul>
+				<li class="dis-box padding-all m-top1px b-color-f j-show-div" id="payment">
+					<label class="t-remark g-t-temark">支付方式</label>
+					<div class="box-flex t-goods1 text-right onelist-hidden">
+						<span>微信支付</span> 					</div>
+									</li>
+
+                                							</ul>
+		</section>
+		<section class="m-top10">
+			<section class="flow-checkout-tprice">
+				<header class="b-color-f padding-all">
+					商品金额<span class="t-first fr">¥2499.00</span>
+				</header>
+
+
+			</section>
+		</section>
+
+	</div>
+
+</div>
+
+<!--悬浮btn star-->
+<div class="filter-btn f-checkout-filter-btn checkout-order-btn  dis-box">
+	<p class="u-o-checkout-price t-remark text-left box-flex padding-all">
+            应付总额：<span class="t-first">¥2499.00</span>
+	</p>
+                                        <div class="n-right-width" >
+                                </div>
+                        
+		<div style="width:30%"><span class="order-checkout-text box">已取消</span></div>
+</div>
+<!--悬浮btn end-->
+<div class="mask-filter-div-box"></div>
+    <!--快捷导航-->
+    <script>
+    $(function(){
+       // 获取节点
+          var block = document.getElementById("ectouch-top");
+          var oW,oH;
+          // 绑定touchstart事件
+          block.addEventListener("touchstart", function(e) {
+           var touches = e.touches[0];
+           //oW = touches.clientX - block.offsetLeft;
+           oH = touches.clientY - block.offsetTop;
+           //阻止页面的滑动默认事件
+           document.addEventListener("touchmove",defaultEvent,false);
+          },false)
+         
+          block.addEventListener("touchmove", function(e) {
+           var touches = e.touches[0];
+           //var oLeft = touches.clientX - oW;
+           var oTop = touches.clientY - oH;
+          //  if(oLeft < 0) {
+          //   oLeft = 0;
+          //  }else if(oLeft > document.documentElement.clientWidth - block.offsetWidth) {
+          //   oLeft = (document.documentElement.clientWidth - block.offsetWidth);
+          //  }
+          // block.style.left = oLeft + "px";
+           block.style.top = oTop + "px";
+          var max_top = block.style.top =oTop;
+          if(max_top < 30){
+             block.style.top = 30 + "px";
+          }
+          if(max_top > 440){
+            block.style.top = 440 + "px";
+          }
+          },false);
+           
+          block.addEventListener("touchend",function() {
+           document.removeEventListener("touchmove",defaultEvent,false);
+          },false);
+          function defaultEvent(e) {
+           e.preventDefault();
+          }
+    })
+</script>
+<nav class="commom-nav dis-box ts-5" id="ectouch-top">
+        <div class="left-icon">
+            <div class="nav-icon"><i class="iconfont icon-jiantou1"></i>快速导航</div>
+            <div class="filter-top filter-top-index" id="scrollUp">
+                <i class="iconfont icon-jiantou"></i>
+                <span>顶部</span>
+            </div>
+        </div>
+        <div class="right-cont box-flex">
+            <ul class="nav-cont">
+                <li>
+                      <a href="/mobile/index.php">
+                        <i class="iconfont icon-home"></i>
+                        <p>首页</p>
+                      </a>  
+                </li>
+                <li>
+                    <a href="/mobile/index.php?m=search">
+                         <i class="iconfont icon-sousuo"></i>
+                         <p>搜索</p>
+                    </a>  
+                </li>
+                <li>
+                     <a href="/mobile/index.php?m=category">
+                         <i class="iconfont icon-caidan"></i>
+                         <p>分类</p>
+                     </a> 
+                </li>
+                <li>
+                     <a href="/mobile/index.php?m=cart">
+                         <i class="iconfont icon-gouwuche"></i>
+                         <p>购物车</p>
+                      </a> 
+                </li>
+                <li>
+                    <a href="/mobile/index.php?m=user">
+                         <i class="iconfont icon-geren"></i>
+                         <p>个人中心</p>
+                    </a> 
+                </li>
+ 
+           		<li>
+                    <a href="/mobile/index.php?m=user&c=order&status=0">
+                         <i class="iconfont icon-dingdan"></i>
+                         <p>我的订单</p>
+                    </a> 
+                </li>               
+                </ul>
+        </div>
+    </nav>
+    <div class="common-show"></div>
+    <script type="text/javascript">
+	var scorll_swiper = new Swiper('.swiper-scroll', {
+		direction : 'vertical',
+		slidesPerView : 'auto',
+		mousewheelControl : true,
+		freeMode : true
+	});
+</script>
+<script>
+	$(function () {
+
+		$(".ect-select").click(function(){
+			var url = "/mobile/index.php?m=user&c=order&a=changepayment";
+			var args = new Array(2);
+			args['order_id'] = 12;
+			args['pay_id'] = $(this).attr('date-payid');
+			StandardPost(url, args);
+		})
+		function StandardPost(url, args) {
+			var form = $("<form method='post'></form>");
+			form.attr({"action": url});
+			for (arg in args) {
+				var input = $("<input type='hidden'>");
+				input.attr({"name": arg});
+				input.val(args[arg]);
+				form.append(input);
+			}
+			form.submit();
+		}
+	})
+	    //确认订单
+          $(".filter-btn").on('click','.received-order', function(){ 
+             var order_id =$(this).attr('data-item');
+             var url='/mobile/index.php?m=user&c=order&a=affirmreceived';
+               layer.open({
+                    content: '你确认已经收到货物了吗？',
+                    btn: ['确定', '取消'],
+                    shadeClose: false,
+                    yes: function() {
+
+                      $.post(url, {order_id:order_id},
+                         function(result){
+                             if(result.y == 1){
+                                window.location.href = "/mobile/index.php?m=user&c=order";
+                             }
+                         }, 'json');
+                     },
+                    no: function() {
+
+                         }
+                });
+
+        });
+</script>
+</body>
+
+</html>

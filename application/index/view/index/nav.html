@@ -1,0 +1,102 @@
+            <nav class="commom-nav dis-box ts-5">
+        <div class="left-icon">
+            <div class="nav-icon"><i class="iconfont icon-jiantou1"></i>
+
+			快速导航</div>			<sup style="	position: relative;
+    top: -4em;
+    right: -0.5rem;
+    height: 1.4rem;
+    min-width: 1.4rem;
+    line-height: 1.4rem;
+    padding: 0 .2rem;
+
+    color: #fff;
+    border-radius: .7rem;" class="navcount b-color ">0</sup>
+            <div class="filter-top filter-top-index" id="scrollUp">
+                <i class="iconfont icon-jiantou"></i>
+                <span>顶部</span>
+            </div>
+        </div>
+        <div class="right-cont box-flex">
+            <ul class="nav-cont">
+                <li>
+                      <a href="{$Think.HOSTPATH}/index.php/order/order/bookorder/status/2/type/2">
+                        <i class="iconfont icon-gouwuche"></i>
+                        <p>待收货</p>
+                      </a>  
+					  <sup style="	position: relative;
+    top: -2.9em;
+    right: -1.3rem;
+    height: 1.4rem;
+    min-width: 1.4rem;
+    line-height: 1.4rem;
+    padding: 0 .2rem;
+
+    color: #fff;
+    border-radius: .7rem;" class="navcount2 b-color ">0</sup>
+                </li>
+                <li>
+                    <a href="{$Think.HOSTPATH}/index.php/order/order/bookorder/status/1/type/1">
+                         <i class="iconfont icon-wodetubiaosvg03"></i>
+                         <p>待交货</p>
+                    </a>  
+										  <sup style="	position: relative;
+    top: -2.9em;
+    right: -1.5rem;
+    height: 1.4rem;
+    min-width: 1.4rem;
+    line-height: 1.4rem;
+    padding: 0 .2rem;
+
+    color: #fff;
+    border-radius: .7rem;" class="navcount1 b-color ">0</sup>
+                </li>
+
+                <li>
+                     <a href="{$Think.HOSTPATH}/index.php/order/order/bookorder/status/5/type/1">
+                         <i class="iconfont icon-sousuo"></i>
+                         <p>被取消</p>
+                      </a> 
+					  
+	 <sup style="	position: relative;
+    top: -2.9em;
+    right: -1.5rem;
+    height: 1.4rem;
+    min-width: 1.4rem;
+    line-height: 1.4rem;
+    padding: 0 .2rem;
+
+    color: #fff;
+    border-radius: .7rem;" class="navcount3 b-color ">0</sup> 
+                </li>
+                <li>
+                    <a href="{$Think.HOSTPATH}/index.php/user/user/coupon">
+                         <i class="iconfont icon-wodetuandui"></i>
+                         <p>优惠券</p>
+                    </a> 
+						 <sup style="	position: relative;
+    top: -2.9em;
+    right: -1.5rem;
+    height: 1.4rem;
+    min-width: 1.4rem;
+    line-height: 1.4rem;
+    padding: 0 .2rem;
+
+    color: #fff;
+    border-radius: .7rem;" class="cp1 b-color ">0</sup> 
+                </li>
+
+                        </ul>
+        </div>
+    </nav>
+	
+	<script>
+	$.get('{$Think.HOSTPATH}/index.php/index/index/getordercount',{},function(data){
+		var json = eval("("+data+")");
+		$(".navcount").text(json.total);
+		$(".navcount1").text(json.count1);
+		$(".navcount2").text(json.count2);
+		$(".navcount3").text(json.count3);
+		$(".cp1").text(json.cp1);
+	})
+	</script>

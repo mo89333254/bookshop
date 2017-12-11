@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=e6TtrB95lOLh6PGa1PznxH7oeNRYbQHG"></script>
+	    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	<title>测距</title>
+</head>
+<body>
+
+	<input type="button" value="获取定位" onclick="return kk1();" />
+	
+	
+	<span class="test" loc="113.958203,22.546688">正兴鸡排</span>
+	<span class="test1" loc="114.211728,22.654171">weiyi</span>
+</body>
+</html>
+
+
+<script type="text/javascript">
+	// 百度地图API功能
+
+	function kk1(){
+	var geolocation = new BMap.Geolocation();
+	var png = '';
+	var lat = '';
+	geolocation.getCurrentPosition(function(r){
+		if(this.getStatus() == BMAP_STATUS_SUCCESS){
+
+			
+			alert('您的位置：'+r.point.lng+','+r.point.lat);
+			png = r.point.lng;
+			lat = r.point.lat;
+			var map = new BMap.Map();
+var kk = $('.test1').attr('loc');
+var p = kk.split(',');
+
+	var pointA = new BMap.Point(png,lat);  // 创建点坐标A--大渡口区
+	var pointB = new BMap.Point(p[0],p[1]);  // 创建点坐标B--江北区
+	alert('从当前地方到横岗大厦的距离是：'+(map.getDistance(pointA,pointB)).toFixed(2)+' 米。');  //获取两点距离,保留小数点后两位
+			//point = 				
+			/*	$(".test").each(function(){
+				var ee = $(this).attr('loc');
+				var pointB = new BMap.Point(ee);
+				alert(ee);
+				alert((map.getDistance(pointA,pointB)).toFixed(2)+' 米。');
+			})*/
+		}
+		else {
+			alert('failed'+this.getStatus());
+		}        
+	},{enableHighAccuracy: true})
+	
+		}
+	
+	
+	//关于状态码
+	//BMAP_STATUS_SUCCESS	检索成功。对应数值“0”。
+	//BMAP_STATUS_CITY_LIST	城市列表。对应数值“1”。
+	//BMAP_STATUS_UNKNOWN_LOCATION	位置结果未知。对应数值“2”。
+	//BMAP_STATUS_UNKNOWN_ROUTE	导航结果未知。对应数值“3”。
+	//BMAP_STATUS_INVALID_KEY	非法密钥。对应数值“4”。
+	//BMAP_STATUS_INVALID_REQUEST	非法请求。对应数值“5”。
+	//BMAP_STATUS_PERMISSION_DENIED	没有权限。对应数值“6”。(自 1.1 新增)
+	//BMAP_STATUS_SERVICE_UNAVAILABLE	服务不可用。对应数值“7”。(自 1.1 新增)
+	//BMAP_STATUS_TIMEOUT	超时。对应数值“8”。(自 1.1 新增)
+</script>

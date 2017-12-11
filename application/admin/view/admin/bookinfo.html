@@ -1,0 +1,210 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<title>订单详情</title>
+
+
+	 	<script src="{$Think.HOSTPATH}/js/jquery.js"></script>
+	<script src="{$Think.HOSTPATH}/js/bootstrap.min.js"></script>
+	<link href="{$Think.HOSTPATH}/css/Admin/bootstrap.min.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+	<script src="{$Think.HOSTPATH}/js/book.js?2017051301"></script>
+			<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+			
+	<!-- 上传插件JS CSS -->
+	<link href="{$Think.HOSTPATH}/css/Admin/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+	<script src="{$Think.HOSTPATH}/js/fileinput.js" type="text/javascript"></script>
+    <!--简体中文-->
+    <script src="{$Think.HOSTPATH}/js/zh.js" type="text/javascript"></script>
+			<link href="{$Think.HOSTPATH}/css/Admin/index.css" rel="stylesheet">
+   	<style type="text/css">
+		#fm{
+			margin:0;
+			padding:10px 30px;
+		}
+		.ftitle{
+			font-size:14px;
+			font-weight:bold;
+			color:#666;
+			padding:5px 0;
+			margin-bottom:10px;
+			border-bottom:1px solid #ccc;
+			width:650px;
+			margin:0 auto;
+		}
+		.fitem{
+			margin:0 auto 5px;
+			width:650px;
+		
+		}
+		.fitem label{
+			display:inline-block;
+			width:80px;
+			text-align:right;
+			
+		}
+	</style>
+
+</head>
+<body>
+<div class="col-lg-6">
+            <div>
+              <form class="bs-example form-horizontal">
+                <fieldset>
+                  <legend>Legend</legend>
+				                    <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">ISBN</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="iISBN" value="{$bookinfo.ISBN13}" placeholder="">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">书籍名称</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="iTitle" value="{$bookinfo.BookName}" placeholder="">
+                    </div>
+                  </div>
+				                    <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">作者</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" value="{$bookinfo.Author}" id="iAuthor" placeholder="">
+                    </div>
+                  </div>
+				                    <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">出版社</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" value="{$bookinfo.PublishName}" id="iPublish" placeholder="">
+                    </div>
+                  </div>
+				                    <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">出版时间</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" value="{$bookinfo.PublishDate}" id="iPublishTime" placeholder="">
+                    </div>
+                  </div>
+				                    <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">价格</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" value="{$bookinfo.Amount}" id="iPrice" placeholder="">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="textArea" class="col-lg-2 control-label">简介</label>
+                    <div class="col-lg-10">
+                      <textarea class="form-control" rows="3" id="iSummary">{$bookinfo.Summary}</textarea>
+                      
+                    </div>
+                  </div>
+                  <div style="display:none;" class="form-group">
+                    <label for="select" class="col-lg-2 control-label">类别</label>
+                    <div class="col-lg-4">
+                      <select class="form-control" id="iFType">
+						<option >请选择</option>
+                        <option value="1" {$bookinfo.FirstType==1?'selected=selected':''}>1折</option>
+                        <option value="2" {$bookinfo.FirstType==2?'selected=selected':''}>2折</option>
+                        <option value="3" {$bookinfo.FirstType==3?'selected=selected':''}>3折</option>
+                        <option value="4" {$bookinfo.FirstType==4?'selected=selected':''}>4折</option>
+                    
+                      </select>
+
+                    </div>
+                    <div class="col-lg-3">
+                      <select class="form-control" id="iSType">
+					  <option >请选择</option>
+                        <option value="1" {$bookinfo.SecondType==1?'selected=selected':''}>1折</option>
+                        <option  value="2" {$bookinfo.SecondType==2?'selected=selected':''}>2折</option>
+                        <option value="3" {$bookinfo.SecondType==3?'selected=selected':''}>3折</option>
+                        <option value="4" {$bookinfo.SecondType==4?'selected=selected':''}>4折</option>
+                    
+                      </select>
+
+                    </div>
+                    <div class="col-lg-3">
+                      <select class="form-control" id="iTType">
+					  <option >请选择</option>
+                        <option value="1" {$bookinfo.ThirdType==1?'selected=selected':''}>1折</option>
+                        <option value="2" {$bookinfo.ThirdType==2?'selected=selected':''}>2折</option>
+                        <option value="3" {$bookinfo.ThirdType==3?'selected=selected':''}>3折</option>
+                        <option value="4" {$bookinfo.ThirdType==4?'selected=selected':''}>4折</option>
+                    
+                      </select>
+
+                    </div>					
+                  </div>
+                  <div style="display:none;" class="form-group">
+                    <label for="select" class="col-lg-2 control-label">折扣</label>
+                    <div class="col-lg-10">
+                      <select class="form-control" id="iDiscount">
+					  <option >请选择</option>
+                        <option value="1" {$bookinfo.Discount==1?'selected=selected':''}>1折</option>
+                        <option value="2" {$bookinfo.Discount==2?'selected=selected':''}>2折</option>
+                        <option value="3" {$bookinfo.Discount==3?'selected=selected':''}>3折</option>
+                        <option value="4" {$bookinfo.Discount==4?'selected=selected':''}>4折</option>
+                    
+                      </select>
+
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                 
+                      <button type="button" class="btn btn-primary" onclick="return book.edit();">修改</button> 
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+		<div class="col-lg-4">
+            <div style="margin-top:30px;" >
+             <img style="width:200px; height:300px;" src="{:getimg2($bookinfo.BookSimg)}" id="bookimg" class="img-rounded">
+			    
+            </div>
+			<div style="margin-top:30px;" >
+             
+			         <input id="file-zh" name="file-zh" type="file" multiple>
+					 <input id = "iImg" type="hidden" value="{$bookinfo.BookSimg}">
+					 <input id = "iSImg" type="hidden" value="{$bookinfo.BookLimg}">
+            </div>
+          </div>
+		  
+		  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">状态</h4>
+            </div>
+            <div class="modal-body"><i class="fa fa-spinner fa-pulse"></i>加载中</div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+</body>
+	  	<script>
+			function initFileInput(ctrlName, uploadUrl) {    
+				var control = $('#' + ctrlName); 
+
+				control.fileinput({
+					language: 'zh', //设置语言
+					maxFileCount: 1,
+					uploadUrl: uploadUrl, //上传的地址
+					allowedFileExtensions : ['jpg', 'png','gif'],//接收的文件后缀
+					showUpload: true, //是否显示上传按钮
+					showCaption: false,//是否显示标题
+					browseClass: "btn btn-primary", //按钮样式             
+					previewFileIcon: "<i class='glyphicon glyphicon-king'></i>", 
+				});
+			$("#file-zh").on('fileuploaded', function(event, data) {
+            
+			$("#iImg").val(data.response.imgpath);
+			$("#iSImg").val(data.response.simgpath);
+        });
+			}
+			initFileInput("file-zh","/bookshop/public/index.php/admin/admin/UpLoadImg");
+	
+	</script>
+</html>

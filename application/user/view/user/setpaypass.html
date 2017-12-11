@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>设置支付密码</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+ <link href="{$Think.HOSTPATH}/css/shop/shop.css" rel="stylesheet" type="text/css" />
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+	<link href="{$Think.HOSTPATH}/css/shop/iconfont.css" rel="stylesheet">
+		<link href="{$Think.HOSTPATH}/css/Admin/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+	<script src="{$Think.HOSTPATH}/js/fileinput.js" type="text/javascript"></script>
+    <!--简体中文-->
+    <script src="{$Think.HOSTPATH}/js/shop/realname.js" type="text/javascript"></script>
+    </head>
+<body>
+<p style="text-align:right; display:none;"></p>
+<div id="loading"><img src="{$Think.HOSTPATH}/img/loading.gif" /></div>
+
+<div class="con b-color-f" >
+    <form  method="post" class="form-horizontal" role="form" onSubmit="return false;">
+        <section class="j-f-tel margin-lr">
+
+            <div class="text-all dis-box j-text-all bank_user_name">
+                <label>设置支付密码</label>
+                <div class="box-flex input-text">
+                    <input class="j-input-text inputcard" type="password" name="firstpass" placeholder="请输入6位密码" value="" />
+                    <i class="iconfont icon-guanbi1 close-common j-is-null"></i>
+                </div>
+            </div>
+            <div class="text-all dis-box j-text-all bank_user_name">
+                <label>确认支付密码</label>
+                <div class="box-flex input-text">
+                    <input class="j-input-text inputcard" type="password" name="secpass" placeholder="请输入6位密码" value="" />
+                    <i class="iconfont icon-guanbi1 close-common j-is-null"></i>
+                </div>
+            </div>
+
+
+
+
+         
+ 
+            <input type="submit" value="设置" class="btn-submit br-5" />
+			
+        </section>
+    </form>
+</div>
+    <!--快捷导航-->
+	{include file="../application/index/view/index/nav.html" /}
+
+{include file="../application/index/view/index/nav.html" /}
+    <div class="common-show"></div>
+<script type="text/javascript">
+
+
+		
+	
+		$(".btn-submit").click(function(){
+		var firstpass = $("input[name='firstpass']").val();
+		var secpass = $("input[name='secpass']").val();
+		if(firstpass.length < 1)
+		{
+			d_messages('请输入密码');
+			return false;
+		}
+		if(firstpass.length != 6)
+		{
+			d_messages('密码位数不对');
+			return false;
+		}
+		if(firstpass != secpass)
+		{
+			d_messages('两次密码输入不正确');
+			return false;
+		}
+
+			$.post('{$Think.HOSTPATH}/index.php/user/user/setpaymode',{pass:secpass},function(data){
+
+				if(data > 0)
+				{
+					d_messages('设置成功');
+					   setTimeout(function () { 
+						window.location.href='{$Think.HOSTPATH}/index.php/index/index/userinfo';
+					}, 1500);
+					
+				}
+				else if(data == 0)
+				{
+					d_messages('设置失败');
+				}
+			})
+		})
+</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>修改收货地址</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+ 
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+	<link href="{$Think.HOSTPATH}/css/shop/iconfont.css" rel="stylesheet">
+    </head>
+<body>
+
+
+
+
+
+<form id= "uploadForm">  
+      <p >指定文件名： <input type="text" name="filename" value= ""/></p >  
+      <p >上传文件： <input id="niubi" type="file" name="file[]" multiple/></ p>  
+      <input type="button" value="上传" onclick="doUpload()" />  
+</form>  
+{include file="../application/index/view/index/nav.html" /}
+    	</body>
+<script>
+
+window.onload = function(){
+        var input = document.getElementById("niubi");
+        var result,div;
+ 
+        if(typeof FileReader==='undefined'){
+            result.innerHTML = "抱歉，你的浏览器不支持 FileReader";
+            input.setAttribute('disabled','disabled');
+        }else{
+            input.addEventListener('change',readFile,false);
+        }　　　
+        function readFile(){
+            for(var i=0;i<this.files.length;i++){
+                if (!input['value'].match(/.jpg|.gif|.png|.bmp/i)){　　//判断上传文件格式
+                    return alert("上传的图片格式不正确，请重新选择")　　　　　　　　　　}
+                var reader = new FileReader();
+                reader.readAsDataURL(this.files[i]);
+                reader.onload = function(e){
+						alert(this.result);
+					　　　　　　　　}
+            }
+        }
+    }
+	function doUpload(e) {  
+     var formData = new FormData($( "#uploadForm" )[0]);  
+
+
+     $.ajax({  
+          url: '/bookshop/public/index.php/user/user/test111' ,  
+          type: 'POST',  
+          data: formData,  
+          async: false,  
+          cache: false,  
+          contentType: false,  
+          processData: false,  
+          success: function (returndata) {  
+              alert(returndata);  
+          },  
+          error: function (returndata) {  
+              alert(returndata);  
+          }  
+     });  
+}  
+	
+</script>
+</html>

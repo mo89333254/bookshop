@@ -1,0 +1,182 @@
+.sexdiv {
+	border-radius: 0.5rem;
+    overflow: hidden;
+
+    height: 3rem;
+    margin-top: -0.7rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.man {
+	/*border: 3px solid #3FC6FF;*/
+	color:#46B6EF;
+}
+.woman{
+/*border: 3px solid #F36AB7;*/
+	color:#F37E7D;
+}
+.loadbook img{
+	width: 4.5rem;
+    height: 5.5rem;
+    /* border-radius: 2.5rem; */
+    border: 2px solid #eee;
+}
+
+.loadbook1 img{
+	width: 10.5rem;
+    height: 14.5rem;
+    /* border-radius: 2.5rem; */
+   margin-right: 2rem;
+   margin-bottom: 2rem;
+}
+
+.changeradio{
+	border: 1px solid #ddd;
+    display: block;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 100%;
+    margin-top: 2.2rem;
+    margin-right: 1rem;
+}
+.changecheck{
+	 background:#ec5151;
+}
+
+.changeimg{
+    margin-left: 2.5rem;
+
+}
+
+.staract{
+	color:#ec5151;
+}
+
+.merbutton{
+
+    padding: 0.4rem 1rem 0.4rem 1rem;
+    background: #ec5151;
+	color:white;
+}
+.dp1{
+	width:33%;
+	
+}
+
+.dpbtn{
+	    outline: none;
+    background-color: white;
+    border: none;
+	font-size:1.5rem;
+}
+.dpul{
+	width:100%;
+	outline: none;
+}
+
+.bg1{
+	background:white;
+}
+
+.historynav{
+	    padding: 1.1rem 0;
+    font-size: 1.4rem;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 11;
+    text-align: center;
+    border-bottom: 1px solid #f3f4f9;
+}
+.fanhuispan{
+	position: absolute;
+    margin-left: 35%;
+    margin-top: 0.3rem;
+}
+.fanhuii{
+	font-size:2.5rem; margin-right: 1rem; color:#ec5151;
+}
+.vcodeda{
+	background:#999;
+}
+.indexcart{
+	position: absolute;
+    top: .1rem;
+    right: 8.3rem;
+    height: 1.4rem;
+    min-width: 1.4rem;
+    line-height: 1.4rem;
+    padding: 0 .2rem;
+
+    color: #fff;
+    border-radius: .7rem;
+}
+
+.addimg {
+	width:150px; height:150px;
+	margin:1rem;
+}
+
+.imglist{
+	width:48%;
+	height:16rem;
+	padding:1rem;
+}
+.indexbtn {
+    background: #ec5151;
+    border-radius: 5%;
+    border: 0;
+    color: white;
+    padding: 0.5rem 1.3rem 0.5rem 1.3rem;
+    font-size: 1.5rem;
+    position: absolute;
+    right: 1rem;
+    top: 10rem;
+}
+
+.received-order{
+	color:white;
+	background: #ec5151;
+}
+.indexfenlei {
+	width:20%;
+	
+}
+.indexfenlei button{
+	font-size:1.5rem;
+	background:white;
+}
+.indexfenlei ul{
+width:100%;
+}
+.firstspan {
+	    font-size: 1.5rem;
+    color: #333;
+    line-height: normal;
+	margin-right:1rem;
+}
+.sspan {
+	    color: #777;
+		font-size: 1.4rem;
+		
+}
+.textall1 {
+    border-bottom: 1px solid #f6f6f9;
+    padding: .6rem 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.gouwuchebtn {
+background: #ec5151;
+   
+
+    width: 7rem;
+    height: 2rem;
+    line-height: 2rem;
+	
+    text-align: center;
+	border-radius: 5%;
+	
+}

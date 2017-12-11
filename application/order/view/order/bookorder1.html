@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>订单确认</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+ 	    <link href="{$Think.HOSTPATH}/css/shop/shop.css" rel="stylesheet" type="text/css" />
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	 <script src="{$Think.HOSTPATH}/js/shop/fsrPMD.js?v=20170418"></script>
+	<script type="text/javascript">var ROOT_URL = '/'; var USER_ID = {$userid}</script>
+	<script src="{$Think.HOSTPATH}/js/shop/fastclick.js"></script>
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+	
+	<!-- web toast -->
+	<link href="{$Think.HOSTPATH}/css/shop/bootoast.css?20170918" rel="stylesheet">
+	  <script src="{$Think.HOSTPATH}/js/bootoast.js"></script>
+    </head>
+<body>
+<p style="text-align:right; display:none;"></p>
+<div id="loading"><img src="{$Think.HOSTPATH}/img/loading.gif" /></div>
+				<section class=" goods-shop b-color-f no-shopping-title">
+                                                <a href="{$Think.HOSTPATH}/index.php/order/order/bookorder" ><div class="goods-shop-pic of-hidden" > 
+                    <h4  class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					<i  class="fanhuii fa fa-angle-left"></i>
+						<span class="fanhuispan" style="">订单确认</span>
+					</label></h4>
+
+                </div></a>
+              
+            </section>
+<form action="{$Think.HOSTPATH}/index.php/wpay/wpay/wpay" method="post" name="theForm" id="theForm" onSubmit="return checkpay();" >
+    <div class="con">
+        <div class="flow-checkout">
+            <div  >
+                                <section class="flow-checkout-adr padding-all">
+                   
+                    <div class="address-icon"><i class="iconfont icon-dingwei"></i></div>
+                    <div class="flow-have-adr">
+                        <p class="f-h-adr-title ">
+                            {$userinfo['name']} &nbsp; <label>{$userinfo['phone']}</label>
+                                                    </p>
+                        <p class="f-h-adr-con f-04 m-top04">{$userinfo['school']}&nbsp;{$userinfo['schooladd']}</p>
+                    </div>
+               
+                </section>
+
+                            </div>
+
+            <div >
+             							<div class="f-c-p-orderid padding-all m-top1px b-color-f">
+
+					<h4 class="t-remark2">
+						<label class="t-remark">订单号：</label>{$orderinfo['OrderID']}                       <!--拼团标识-->
+                                                                                                    <!--拼团标识 end-->
+					</h4>
+					<p class="t-remark3 m-top04">{$orderinfo['CreateTime']} </p>
+				</div>
+			 
+			 
+				{volist name="orderlist" id="ol"}
+                 <section class="m-top10">
+                    <section class="flow-checkout-pro j-flow-checkout-pro  active">
+                        <header class="b-color-f padding-all">
+                          卖家:{$ol['name']}     </header>
+                        <div class="product-list-small m-top1px b-color-f dis-box">
+                                                        <ul class="box-flex flow-checkout-bigpic">
+														{volist name="ol['row']" id="ov"}
+                                                                                                <li>
+                                    <div class="product-div">
+                                        <a class="product-div-link" href="{$Think.HOSTPATH}/index.php/index/index/bookinfo/bookid/{$ov->bookid}"></a>
+                                        <img class="product-list-img" src="{:getimg2($ov->goodimg)}"/>
+                                        <div class="product-text">
+                                            <h4>{$ov->bookname}</h4>
+                                            <p><span class="p-price t-first ">￥{$ov->price} <small class="fr t-remark">x{$ov->count}</small></span></p>
+                                            <p class="dis-box p-t-remark"></p>
+                                        </div>
+                                    </div>
+                                </li>{/volist}
+
+                                                                                            </ul>
+                            
+                        </div>
+                                            </section>
+
+                </section>
+				{/volist}
+                <section class="flow-checkout-select b-color-f m-top08">
+                    <ul>
+                                                                        <li>
+
+                        </li>
+                                                                        <!-- 自营商家 -->
+
+                                                <li class="j-goods-site-li j-goods-site-li-time0 show-temark-div">
+                            <section class="distribution-time j-distribution-time0 j-distribution-time b-color-f">
+                                <div class="text-right dis-box">
+                                    <label class="t-remark g-t-temark">时间</label>
+                                    <span class="t-goods1 box-flex distribution-time-con">
+                                        <input type="text" name="shipping_dateStr[0]" value="" id="txt_area0"/>
+                                        <input type="hidden" id="hd_area"/>
+                                    </span>
+                                    <i class="iconfont icon-rili t-first"></i>
+                                </div>
+                            </section>
+
+                        </li>
+                                                <input type="hidden" name="shipping_type[0]" id="shipping_type0" value="0">
+
+                    </ul>
+      
+                    <input type="hidden" id="amount0" value="¥10497.00">
+                    <input type="hidden" id="goods_price_amount0" value="¥10497.00">
+                </section>
+                </section>
+                
+                <section class="m-top10">
+                    <ul>
+                                                <li class="dis-box padding-all-n m-top1px b-color-f j-show-div" id="payment">
+                            <label class="t-remark g-t-temark">支付方式</label>
+                            <div class="div-pay box-flex t-goods1 text-right onelist-hidden" id="payment_info">
+                                                                <span>{:getchoose($orderinfo['PayType'],0,'微信支付','余额支付')}</span>
+                                                            </div>
+                            <div class="t-goods1"><span class="t-jiantou"><i class="iconfont icon-jiantou tf-180"></i></span></div>
+                            <!--支付方式star-->
+                            <div class="show-goods-dist ts-3 b-color-1 j-show-goods-text j-filter-show-div">
+                                <section class="goods-show-title of-hidden padding-all-n b-color-f">
+                                    <h3 class="fl g-c-title-h3">支付方式</h3>
+                                    <i class="iconfont icon-guanbi2 show-div-guanbi fr"></i>
+                                </section>
+                                <section class="s-g-list-con swiper-scroll">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide select-two">
+                                            <ul class="j-get-one padding-all-n">
+                                                                                                <li class="pay-select ect-select goods-site"  data-code="1">
+                                                    <label class="ts-1 ">
+                                                        <dd>
+                                                            <span>微信支付</span>
+                                                                                                                    </dd>
+                                                        <i class="fr iconfont icon-gou ts-1"></i>
+                                                    </label>
+                                                </li>
+                                                                                                <li class="pay-select ect-select goods-site"  data-code="2">
+                                                    <label class="ts-1 ">
+                                                        <dd>
+                                                            <span>余额支付</span>
+                                                                                                                    </dd>
+                                                        <i class="fr iconfont icon-gou ts-1"></i>
+                                                    </label>
+                                                </li>
+
+                                                                                            </ul>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <!--支付方式end-->
+                            <input name="paytype" type="hidden" value="0"/>
+							
+							 <!--支付状态-->
+                            <input name="paystatus" type="hidden" value="{$orderinfo['Status']}"/>
+                        </li>
+
+
+                                            </ul>
+                </section>
+
+                
+				<section class="m-top10" id="ECS_ORDERTOTAL"><section class="flow-checkout-tprice">
+					<header class="b-color-f padding-all">
+						商品总价<span class="t-first fr">¥{$stotal}</span>
+					</header>
+					<ul class="m-top1px b-color-f">
+						<!-- 折扣 -->
+						
+						 <!--
+						<li class="padding-all of-hidden">
+							<label class="t-remark g-t-temark fl">手续费</label>
+							<span class="t-first fr">+ ¥{$service}</span>
+						</li>-->
+			
+							</ul>
+				</section></section>
+            </div>
+        </div>
+    </div>
+
+    <div class="mask-filter-div"></div>
+    <!--悬浮btn star-->
+
+	<div class="filter-btn f-checkout-filter-btn checkout-order-btn  dis-box">
+	<p class="u-o-checkout-price t-remark text-left box-flex padding-all">
+            应付总额：<span class="t-first">¥{$stotal}</span>
+	</p>
+	{if condition="($orderinfo['SaleType'] == 2) "} 
+
+
+	{eq name="$orderinfo['Status']" value="1"}                  <div class="n-right-width">
+                <a href="{$Think.HOSTPATH}/index.php/wpay/wpay/wpay?orderid={$orderinfo['OrderID']}&price={$result}&type=1" 
+				class="paybutton box-flex btn-submit" >{:getchoose($orderinfo['PayType'],0,'微信支付','余额支付')}</a>          
+				</div>
+                        
+		<div style="width:30%">
+		<span class="box-flex text-right"></span>
+		<a data-item="{$orderinfo['OrderID']}"  class=" btn-default box-flex cancel-order" type="button" 
+		href="javascript:0;">取消订单</a></div>{/eq}
+	{eq name="$orderinfo['Status']" value="2"}<div style="width:30%"><span data-item="{$orderinfo['OrderID']}" class=" order-checkout-text box">待收货</span></div>{/eq}
+	{eq name="$orderinfo['Status']" value="4"}<div style="width:30%"><span class="order-checkout-text box">已收货</span></div>{/eq}
+	{eq name="$orderinfo['Status']" value="6"}<div style="width:30%"><span class="order-checkout-text box">已取消</span>{/eq}
+	
+	
+		{else /} {eq name="$orderinfo['Status']" value="1"}<!--<div style="width:30%"><span class="order-checkout-text box">待交货</span></div>-->{/eq}
+		{eq name="$orderinfo['Status']" value="3"}<div style="width:30%"><span class="order-checkout-text box">已售</span></div>{/eq}
+		{eq name="$orderinfo['Status']" value="5"}<div style="width:30%"><span class="order-checkout-text box">已取消</span></div>{/eq}
+{/if}
+		
+		<input type="hidden" value="{$orderinfo['Status']}" class="toast1" />
+</div>
+</form>
+<!--悬浮btn end-->
+<!--快捷导航-->
+
+{include file="../application/index/view/index/nav.html" /}
+    <div class="common-show"></div>
+<script type="text/javascript">
+   
+
+
+
+
+    
+
+		
+	function checkpay(){
+		if($('input[name="paytype"]').val() > 1)
+		{
+			d_messages('请选择支付方式');
+			return false;
+		}
+
+	};
+	   //取消订单
+		$(".filter-btn").on('click','.cancel-order', function(){ 
+		 var order_id = $(this).attr('data-item');
+		 var url='{$Think.HOSTPATH}/index.php/order/order/cancelorder';
+		   layer.open({
+				content: '是否取消此订单',
+				btn: ['确定', '取消'],
+				shadeClose: false,
+				yes: function() {
+				  $.post(url, {orderid:order_id},
+					 function(result){
+				
+						 if(result > 0){
+							d_messages('操作成功');
+							window.location.href = "{$Think.HOSTPATH}/index.php/order/order/bookorder";
+						 }
+						 else
+						 {
+							d_messages('操作失败');
+						 }
+					 }, 'json');
+				 },
+				no: function() {
+
+					 }
+			});
+
+	});
+	        //确认订单
+        $(".received-order").on('click', function(){ 
+             var order_id = $(this).attr('data-item');
+             var url='{$Think.HOSTPATH}/index.php/order/order/confirmorder';
+               layer.open({
+                    content: '你确认已经收到货物了吗？',
+                    btn: ['确定', '取消'],
+                    shadeClose: false,
+                    yes: function() {
+                      $.post(url, {orderid:order_id},
+                         function(result){
+ 						 if(result > 0){
+							d_messages('操作成功');
+							   setTimeout(function () { 
+									window.location.reload();
+								}, 1500);
+							
+						 }
+						 else
+						 {
+							d_messages('操作失败');
+						 }
+                         }, 'json');
+                     },
+                    no: function() {
+
+                         }
+                });
+
+        });
+		
+		var toast1 = $(".toast1").val();
+		if(toast1 == 1)
+		{
+				  bootoast({
+			message: '经买家确认收货后书款将自动进入"我的钱包"',
+			type:'bababook1',
+			
+			position:'bottom-center',
+			timeout:2
+			});
+		}
+    </script>
+</body>
+</html>

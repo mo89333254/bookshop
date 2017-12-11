@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>下单成功</title>
+    <link href="{$Think.HOSTPATH}/css/shop/app.min.css?v=20170418" rel="stylesheet" type="text/css" />
+ 	    <link href="{$Think.HOSTPATH}/css/shop/shop.css" rel="stylesheet" type="text/css" />
+    <script src="{$Think.HOSTPATH}/js/shop/app.min.js?v=20170418"></script>
+	 <script src="{$Think.HOSTPATH}/js/shop/fsrPMD.js?v=20170418"></script>
+
+	<script src="{$Think.HOSTPATH}/js/shop/fastclick.js"></script>
+	<link href="{$Think.HOSTPATH}/css/Admin/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+    </head>
+<body>
+<p style="text-align:right; display:none;"></p>
+<div id="loading"><img src="/mobile/public/img/loading.gif" /></div>
+					<section class=" goods-shop b-color-f no-shopping-title">
+                                                <a href="{$Think.HOSTPATH}/index.php/order/order/bookorder" ><div class="goods-shop-pic of-hidden" > 
+                    <h4  class="title-hrbg m-top06"><label class="t-remark g-t-temark">
+					<i  class="fanhuii fa fa-angle-left"></i>
+						<span class="fanhuispan" style="">下单详情</span>
+					</label></h4>
+
+                </div></a>
+              
+            </section>
+    <div class="con">
+        <div class="flow-done">
+            <div class="flow-done-con">
+                                <i class="iconfont icon-qian"></i>
+                <p class="flow-done-title">付款金额</p>
+                                <p class="flow-done-price">10512.00</p>
+                                            </div>
+                        <div class="flow-done-all">
+            <div class="padding-all b-color-f flow-done-id">
+                <section class="dis-box">
+                    <label class="t-remark g-t-temark">订单号：</label>
+                    <span class="box-flex t-goods1 text-right">2017050613084042906</span>
+                </section>
+                            </div>
+            </div>
+                        <div class="padding-all ect-button-more dis-box">
+                <!--  -->
+                <!-- 如果是线上支付则显示支付按钮 -->
+                <a  type="button" class="box-flex btn-submit" onclick="javascript:_AP.pay('http://wappaygw.alipay.com/service/rest.htm?_input_charset=utf-8&app_pay=Y&format=xml&partner=&req_data=%3Cauth_and_execute_req%3E%3Crequest_token%3E%3C%2Frequest_token%3E%3C%2Fauth_and_execute_req%3E&request_token=&sec_id=&service=alipay.wap.auth.authAndExecute&v=&sign=6d09d6bf64ff7ea34b2398b86b8843d3')">支付宝支付</a>                <!--  -->
+            </div>
+            <div class="flow-done-other dis-box">
+            
+                <div class="box-flex done-li"><a href="/mobile/index.php?m=user&c=order&a=detail&order_id=8" class="flow-done-btn btn-default-new min-btn br-5">查看订单</a></div>
+                                <div class="box-flex done-li"><a href="/mobile/index.php?m=index" class="flow-done-btn color-whie btn-submit min-btn br-5">继续购物</a></div>
+                            </div>
+        </div>
+    </div>
+     <!--快捷导航-->
+    <script>
+    $(function(){
+       // 获取节点
+          var block = document.getElementById("ectouch-top");
+          var oW,oH;
+          // 绑定touchstart事件
+          block.addEventListener("touchstart", function(e) {
+           var touches = e.touches[0];
+           //oW = touches.clientX - block.offsetLeft;
+           oH = touches.clientY - block.offsetTop;
+           //阻止页面的滑动默认事件
+           document.addEventListener("touchmove",defaultEvent,false);
+          },false)
+         
+          block.addEventListener("touchmove", function(e) {
+           var touches = e.touches[0];
+           //var oLeft = touches.clientX - oW;
+           var oTop = touches.clientY - oH;
+          //  if(oLeft < 0) {
+          //   oLeft = 0;
+          //  }else if(oLeft > document.documentElement.clientWidth - block.offsetWidth) {
+          //   oLeft = (document.documentElement.clientWidth - block.offsetWidth);
+          //  }
+          // block.style.left = oLeft + "px";
+           block.style.top = oTop + "px";
+          var max_top = block.style.top =oTop;
+          if(max_top < 30){
+             block.style.top = 30 + "px";
+          }
+          if(max_top > 440){
+            block.style.top = 440 + "px";
+          }
+          },false);
+           
+          block.addEventListener("touchend",function() {
+           document.removeEventListener("touchmove",defaultEvent,false);
+          },false);
+          function defaultEvent(e) {
+           e.preventDefault();
+          }
+    })
+</script>
+<nav class="commom-nav dis-box ts-5" id="ectouch-top">
+        <div class="left-icon">
+            <div class="nav-icon"><i class="iconfont icon-jiantou1"></i>快速导航</div>
+            <div class="filter-top filter-top-index" id="scrollUp">
+                <i class="iconfont icon-jiantou"></i>
+                <span>顶部</span>
+            </div>
+        </div>
+        <div class="right-cont box-flex">
+            <ul class="nav-cont">
+                <li>
+                      <a href="/mobile/index.php">
+                        <i class="iconfont icon-home"></i>
+                        <p>首页</p>
+                      </a>  
+                </li>
+                <li>
+                    <a href="/mobile/index.php?m=search">
+                         <i class="iconfont icon-sousuo"></i>
+                         <p>搜索</p>
+                    </a>  
+                </li>
+                <li>
+                     <a href="/mobile/index.php?m=category">
+                         <i class="iconfont icon-caidan"></i>
+                         <p>分类</p>
+                     </a> 
+                </li>
+                <li>
+                     <a href="/mobile/index.php?m=cart">
+                         <i class="iconfont icon-gouwuche"></i>
+                         <p>购物车</p>
+                      </a> 
+                </li>
+                <li>
+                    <a href="/mobile/index.php?m=user">
+                         <i class="iconfont icon-geren"></i>
+                         <p>个人中心</p>
+                    </a> 
+                </li>
+ 
+                </ul>
+        </div>
+    </nav>
+    <div class="common-show"></div> 
+</body>
+</html>
